@@ -1,15 +1,26 @@
-# connect to access
+# connect to the MS Access Conservation Advice databse (PD_AoO), and query the sensitivity per Biotope 
+# this is the first file in a series of files which has to be run.
 
-#install a microsoft access driver if not already on machine, e.g. https://www.microsoft.com/en-us/download/details.aspx?id=54920
-## The driver version (64/32) has to match the system and R version 64 bit or 32 bit
+#------
+#Notes 
+#Biotopes which have been assessed for sensitivity in the conservation Advice database only include Eunis levels 4 to 6 at this stage.
 
-#install package RODBC if not already installed within R using the command: install.packages("RODBC")
-# Load RODBC package
-library(RODBC) 
-library(dplyr)
+#------
+#Issues on GIT: currently only a local copy of the MS Access database is available on my working hard drive, and this needs to be pointed at the network (eventually) when approved
 
 
-# Connect to Access db
+#-----
+# R libraries
+library(RODBC) # R library to harnass ODBC, # install package RODBC if not already installed within R using the command: install.packages("RODBC")
+library(dplyr) # to use piping and other data wrangling functions.
+
+#------
+# Other requirements
+# Install a microsoft access driver if not already on PC/machine, available from e.g. https://www.microsoft.com/en-us/download/details.aspx?id=54920
+# The driver version (64/32) has to match the system and R version 64 bit or 32 bit
+
+
+# Connect to Access db to allow reading the data into R environment.
 conn <- odbcDriverConnect("Driver={Microsoft Access Driver (*.mdb, *.accdb)};DBQ=D:/projects/fishing_displacement/2_subprojects_and_data/5_internal_data_copies/database/PD_AoO.accdb")
 
 ## Inspect data
