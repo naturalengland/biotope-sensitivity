@@ -4,14 +4,9 @@ library(plyr)
 library(dplyr)
 library(magrittr)
 
-#set user's roothub folder
-  #add path to project folder on your computer, e.g. 
-  # rootfolder <- "F:/derived_data/Sensitivity_per_pressure"
-
-rootfolder <- "C:/Christoph/biotope-sensitivity"
-
 #set the folder so that it is easy to refer to it, may need to change this more dynamically
-folder <- paste0(rootfolder, "/output/sbgr_biotp_eunis_match/")
+#uses relative file path from working directory (= project directory)
+folder <- "output/sbgr_biotp_eunis_match/"
 
 #read in all the restuls generated in a single file as lists of dataframes
 results.files <- list.files(folder, full.names = F, recursive=T) %>%
