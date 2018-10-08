@@ -3,7 +3,7 @@ library(plyr)
 library(tidyverse)
 library(data.table)
 
-setwd("F:/derived_data/Sensitivity_per_pressure")
+setwd(orig.d)
 #functions
 source("./functions/match_eunis_to_biotope_fn.R") # function 
 

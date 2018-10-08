@@ -1,5 +1,10 @@
-#read all csv files ()
+# Aims: Overarching aim is to consolidate the sensitivity assessments of the biotopes which occur within braoder habitats wihtin each subbiogeographic region, respectively.
+# Remember that each braoder benthic habitat, e.g. A.1.2 could have multiple biotopes occuring within it, and we need to know all of the, and at which eunis level the ASSESSMENT WAS CARRIED OUT. 
+# 1) Read all previously generated "MATCHED DATABASE AND GIS BIOTOPE" dataframes, currently stored as csv files, as a list of dataframes which are split by the sub-biogeographic region (sbgr) in which they occur.
+# 2) generate a list and consolidate the multiple levels of biotope sensitivities per sub-biogeographic region into a single sub-biogeogrpahical region dataframe. finally, put all the consolidated dataframes (per sbgr) into a list
 
+
+#Rlibraries
 library(plyr)
 library(dplyr)
 library(magrittr)
@@ -27,11 +32,9 @@ results.files <- list.files(folder, full.names = F, recursive=T) %>%
 sbgr.matched.btpt.w.rpl <- results.files %>% 
         plyr::llply(function(x){ 
                 
-                
-                
                 # Do for each sbgr :
                 sbgr.dfs.lst.by.h.lvl.tmp <- x %>% # select a dataframe (temporary name for dataframe where PER sbgr dataframe is stored, and run through the rest of the code)
-                        plyr::dlply("h.lvl", function(y){
+                        plyr::ldply(function(y){#"h.lvl", 
                                         # splits it into a list of dataframes accoprding to the biotope classicifation level
                                 
                                 
@@ -40,8 +43,8 @@ sbgr.matched.btpt.w.rpl <- results.files %>%
                                         l6.tmp <- y[[3]]#"3" should be replaced by something to make it eunis level 6 category, which is currently [[3]]
                                         l5.tmp <- y[[2]] # eunis level 5
                                         l4.tmp <- y[[1]] # eunis level 4
-                                        l.tmp <- l6 # temporary storage variable
-                                        l.consolidated <- l6 # this will be the consolidated table into which the results of the various h.lvls per sbgr will be stored. It is set-up to take l6 values, which NA values will then become overridden.
+                                        l.tmp <- l6.tmp # temporary storage variable
+                                        l.consolidated <- l6.tmp # this will be the consolidated table into which the results of the various h.lvls per sbgr will be stored. It is set-up to take l6 values, which NA values will then become overridden.
                                 
                                         #-----------------------
                                         # QA code to test that this is working
@@ -52,9 +55,9 @@ sbgr.matched.btpt.w.rpl <- results.files %>%
                                 
                                         # replace NA values in eunis level matrix, with actual eunis values at alevel 5, to obtain as comprehensive as possible a data matrix
                                         # i used two embedded for loops to ensure that element for element is being compared, and I get a table of the same dimensions as output. I am certain that there are smoother ways of doing this!
-                                        for (i in seq_along(l6)) { # go along columns
-                                                for (j in 1:nrow(l6)) { # go along rows
-                                                        l.tmp[j,i] <- ifelse(l6[j,i] == "NA" | l6[j,i] == "<NA>"| is.na(l6[j,i]),l5[j,i],l6[j,i])#compare and replace
+                                        for (i in seq_along(l6.tmp)) { # go along columns
+                                                for (j in 1:nrow(l6.tmp)) { # go along rows
+                                                        l.tmp[j,i] <- ifelse(l6.tmp[j,i] == "NA" | l6.tmp[j,i] == "<NA>"| is.na(l6.tmp[j,i]),l5.tmp[j,i],l6.tmp[j,i])#compare and replace
                                                 
                                                 }
                                         }        
@@ -62,7 +65,7 @@ sbgr.matched.btpt.w.rpl <- results.files %>%
                                         #repeat the above, but now use eunis level 4 to replace any remaning NA values
                                         for (i in seq_along(l.tmp)) { # go along columns
                                                 for (j in 1:nrow(l.tmp)) { # go along rows
-                                                        l.consolidated[j,i] <- ifelse(l.tmp[j,i] == "NA" | l.tmp[j,i] == "<NA>"| is.na(l.tmp[j,i]),l4[j,i],l.tmp[j,i])       
+                                                        l.consolidated[j,i] <- ifelse(l.tmp[j,i] == "NA" | l.tmp[j,i] == "<NA>"| is.na(l.tmp[j,i]),l4.tmp[j,i],l.tmp[j,i])       
                                                 }
                                         }
                                 
