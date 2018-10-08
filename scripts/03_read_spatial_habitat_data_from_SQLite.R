@@ -26,30 +26,30 @@ gis.hab.bgr.dat <- gis.hab.bgr.con %>%
   collect()
 #saveRDS(gis.hab.bgr.dat, "F:/derived_data/Sensitivity_per_pressure/output/gis_dat.rds") # saved this file, in case join is lost - so can be reread from this location in future
 
-###########
+#----------
+#clean data
 #clean HAB_TYPE column from multiple entries
 gis.hab.bgr.dat$HAB_TYPE <- gsub(" or ", "/", gis.hab.bgr.dat$HAB_TYPE) # replace ; with / to make consistent
 gis.hab.bgr.dat$HAB_TYPE <- gsub(";", "/", gis.hab.bgr.dat$HAB_TYPE) # replace ; with / to make consistent
 gis.hab.bgr.dat$HAB_TYPE <- gsub("(8)", "", gis.hab.bgr.dat$HAB_TYPE) # remove (8) to make consistent
 gis.hab.bgr.dat$HAB_TYPE <- gsub(" #", "", gis.hab.bgr.dat$HAB_TYPE) # remove (8) to make consistent
-
 # Separate HAB_TYPe into multiple columns where "/" appears to allow for the next step
 hab.types <- gis.hab.bgr.dat %>%
   tidyr::separate(HAB_TYPE, into = c("hab.1", "hab.2", "hab.3", "hab.4"), sep = "/", remove = F)
-
-
 # Remove any leading or trailing white spaces which could cause problems when matching the eunis columns between gis and database.
 hab.types <- purrr::map_df(hab.types, function(x) trimws(x, which = c("both")))
-
 #check if there are values in all columns, and drop columns with no values
 hab.types %>%
   distinct(hab.4)
-
+#remove column 5 hab.4
 hab.types <- hab.types[,c(1:4, 6)]
 #only na values - so can be removed
 hab.types %>%
         distinct(hab.3)
 #has multiple values - keep
 
+#House keeping
 #reset wd
 setwd(orig.d)
+#remove unused GIs files to free up memory
+rm(gis.hab.bgr.con,gis.hab.bgr.dat)

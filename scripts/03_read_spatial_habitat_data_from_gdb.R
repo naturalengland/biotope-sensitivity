@@ -57,5 +57,3 @@ df.hab.type <- data.frame(mat)
 df.hab.type <- df.hab.type %>% rename(eunis.code = X1, eunis.code.2 = X2, eunis.code.3 = X3)
 rm(hab.type.dat.2, n.obs, seq.max, hab.type.dat)
 
-#
-a <- 

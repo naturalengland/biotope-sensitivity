@@ -9,7 +9,7 @@
 #load libraries
 library(tidyverse)
 library(reshape2)
-setwd("F:/derived_data/Sensitivity_per_pressure/")
+setwd(orig.d)
 # 01_connect_to_access_db.R to obtain qryEUNIS_ActPressSens, which is sens.act
 source("./scripts/01_connect_to_access_db.R")
 sens.act <- qryEUNIS_ActPressSens

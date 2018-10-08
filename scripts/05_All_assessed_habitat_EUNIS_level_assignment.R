@@ -38,3 +38,4 @@ EunisAssessed$eunis.code <- EunisAssessed$EUNISCode
 #jntbl.habtype.assessed <- left_join(df.hab.type,EunisAssessed, by = "eunis.code")
 
 #jntbl.habtype.assessed$act.sen.ass <- jntbl.habtype.assessed$EUNISCode
+
