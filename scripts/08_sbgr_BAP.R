@@ -3,15 +3,15 @@ library(plyr)
 library(dplyr)
 library(magrittr)
 
-
+#To Do, include Full Pressure list, (consider doing one for each pressure, and then join to sensitivity data
 
 sbgr.bap <- sbgr.matched.btpt.w.rpl %>% 
         plyr::llply(function(x) { 
 
                 
                 x.df <- x %>% select(1:14, 19:354) # this is only the data, which is to be isolated for the calculations
-                x.rn <- x %>% select("eunis.code.gis") # this is the EUNIs codes of the GIS files, which will become the row names for each data frame
-                
+                x.rn <- x$eunis.code.gis # this is the EUNIs codes of the GIS files, which will become the row names for each data frame
+                #unique(duplicated(x.rn)) #QA code: should be FALSE only
                 cols.df <- data.frame(matrix(nrow = nrow(x.df))) # create empty dataframe to store FOR LOOP results in, specifying only that it needsthe same number of rows as the dataframe that i spassed to it
                 
                 
@@ -38,9 +38,18 @@ sbgr.bap <- sbgr.matched.btpt.w.rpl %>%
                         
                         cols.df <- cbind(cols.df,join.result) 
                 }
-               row.names(cols.df) <- x.rn
+                
+                cols.df <- cols.df[,-1]
+                cols.df$eunis.gis.code <- x.rn #Could not sepcify as row.names(cols.df) <- x.rn, so just added as a column
+                cols.df <- cbind(cols.df, count = (apply(sbgr.bap[[1]], 1, function(x)length(unique(!is.na(x) )))))#count the number of uniq values per column
+                #write.csv(cols.df, ".output/cols.df") # if desired a counter or naming needs top be pasted on...
                 return(cols.df)
-        })
+        }, .progress = "text")
+saveRDS(sbgr.bap,"./output/sbgr_bap.rds")
+
+
+
+
 
 
 
