@@ -34,7 +34,7 @@ sbgr.matched.btpt.w.rpl <- results.files %>%
                 
                 # Do for each sbgr :
                 sbgr.dfs.lst.by.h.lvl.tmp <- x %>% # select a dataframe (temporary name for dataframe where PER sbgr dataframe is stored, and run through the rest of the code)
-                        plyr::ldply(function(y){#"h.lvl", 
+                        plyr::ddply(function(y){#"h.lvl", 
                                         # splits it into a list of dataframes accoprding to the biotope classicifation level
                                 
                                 
@@ -69,6 +69,8 @@ sbgr.matched.btpt.w.rpl <- results.files %>%
                                                 }
                                         }
                                 
+                                        %%
+                                        
                                         #---------------
                                         #QA code to test that this is working
                                         #all.equal(l.tmp, l6) # 218 changes made
@@ -87,3 +89,6 @@ sbgr.matched.btpt.w.rpl <- results.files %>%
                 
                 #sbgr.matched.btpt.w.rpl <- rbind(sbgr.matched.btpt.w.rpl, l.consolidated) # bind the resulting tables
 }, .progress = "text") # %>% saveRDS(sbgr.matched.btpt.w.rpl, paste0("./sbgr_matched_btpt_w_rpl.rds")) # activate you want to save as an independent R object for later use.
+
+
+#There MAY BE AN ERROR: the values seems to be replciated several times, i.e. too many rows....
