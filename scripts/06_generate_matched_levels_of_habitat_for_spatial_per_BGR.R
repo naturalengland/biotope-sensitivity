@@ -1,7 +1,7 @@
 # assign the EUNIs level to the mapped habitats 
 library(plyr)
 library(tidyverse)
-library(data.table)
+#library(data.table)
 
 setwd(orig.d)
 #functions
@@ -29,7 +29,6 @@ bgr.dfs.lst <- split(distinct.mapped.habt.types, distinct.mapped.habt.types$bgr_
 # All EUNIS Biotopes that have been assessed 
 # below is a for loop that count backwards, and then split the EUNIsAssessed in to a list of dataframes 1st being the most detailed biotope level (6), and then down to the braodest biotope level (4) that were assessed in the PD_AoO access database
 x.dfs.lst <- split(EunisAssessed,f = EunisAssessed$level)
-
 
 level.result.tbl <- vector("list", length(x.dfs.lst))
 names(level.result.tbl) <- paste0("h.lvl_",names(x.dfs.lst))
