@@ -36,7 +36,7 @@ sbgr.matched.btpt.w.rpl <- results.files %>%
                 
                 # Do for each sbgr df: split accoring to h.lvl
                 #split(x,f = h.lvl)
-                y <- split(x,f = x$h.lvl) 
+                y <- split(x,f = x$h.lvl) # split is apropriate as we want to access the dataframes per sbgr simulatnously
                 
                 #now feed each component of the list 
                 
@@ -87,10 +87,10 @@ sbgr.matched.btpt.w.rpl <- results.files %>%
                                         #all.equal(l.consolidated, l.tmp) # only 11 changes made 
                                         #unique(l.consolidated$sbgr)
                                         #---------------
-                                        #return(l.consolidated) # this is the value that I want to the function to return: send this dataframe (the consolidated dataframe from teh three comapred dataframes) into the overarching function (this is then repeated for each sbgr)
+                                        return(l.consolidated) # this is the value that I want to the function to return: send this dataframe (the consolidated dataframe from teh three comapred dataframes) into the overarching function (this is then repeated for each sbgr)
                                         
                                         #to write into sepearate files remove "#" below, and check that there is a folder called output in the working directory, (getwd()).
-                                        #write.csv(l.consolidated, paste0("./output/sbgr_",unique(l.consolidated$sbgr),"_consolidated_hlvls.csv")) # write the result to file to inspect it,and ensure thta R object at the end is correct
+                                        write.csv(l.consolidated, paste0("./output/sbgr_",unique(l.consolidated$sbgr),"_consolidated_hlvls.csv")) # write the result to file to inspect it,and ensure thta R object at the end is correct
                                 
                                 
                                 
