@@ -25,19 +25,25 @@ results.files <- list.files(folder, full.names = F, recursive=T) %>%
                 dplyr::select(-one_of("X")) # removes the X column
                 
         }) %>%
-        plyr::dlply("sbgr", identity) # then regroups the data into a list of dataframes according to sub-biogeographic regions
+        plyr::dlply(.(sbgr), identity) # then regroups the data into a list of dataframes according to sub-biogeographic regions; plyr::dlply(.(sbgr,h.lvl), identity)
 
 
 #Take each dataframe in the list, and split it again according the finest eunis level that has been assessed (high level indicates this, or h.lvl), then amalgamate the h level resutls keeping onl;y the highest level
 sbgr.matched.btpt.w.rpl <- results.files %>% 
         plyr::llply(function(x){ 
+                print(paste("Start of a list",attr(results.files,"split_labels")))
+                #the read in csv files have now been split into their consituent dataframes
                 
-                # Do for each sbgr :
-                sbgr.dfs.lst.by.h.lvl.tmp <- x %>% # select a dataframe (temporary name for dataframe where PER sbgr dataframe is stored, and run through the rest of the code)
-                        plyr::ddply(function(y){#"h.lvl", 
-                                        # splits it into a list of dataframes accoprding to the biotope classicifation level
+                # Do for each sbgr df: split accoring to h.lvl
+                #split(x,f = h.lvl)
+                y <- split(x,f = x$h.lvl) 
+                
+                #now feed each component of the list 
+                
+                      #sbgr.dfs.lst.by.h.lvl.tmp <- z %>% # select a dataframe (temporary name for dataframe where PER sbgr dataframe is stored, and run through the rest of the code)
+                      #  plyr::ldply(function(y){ #if ddply use .variables = .(h.lvl)
                                 
-                                
+                                        # splits it into a list of dataframes accoprding to the assessed (hlvl) biotope classicifation level (4/5/6)
                                         # the dataframes now need to be compared, and use level 6 values, and only replace NA values using level 5 and 4, but not replace EUNIs codes provided for eunis codes.
                                 
                                         l6.tmp <- y[[3]]#"3" should be replaced by something to make it eunis level 6 category, which is currently [[3]]
@@ -69,26 +75,27 @@ sbgr.matched.btpt.w.rpl <- results.files %>%
                                                 }
                                         }
                                 
-                                        %%
-                                        
+
+                                        #future improvement?
+                                        #I am sure that the ifelse could be converted to afunction and ran inside % % and a map functional to make the code smooth...but not sure how to sepcify to replace with a cross corresponding element..., so where v and w stand alone at this stage...
+                                        #replacefn <- function(w,u){
+                                        #        l.tmp <- ifelse(w %==% "NA" | w %==% "<NA>"| w %==% is.na(),v,w)#compare and replace
+                                        #}
                                         #---------------
                                         #QA code to test that this is working
                                         #all.equal(l.tmp, l6) # 218 changes made
                                         #all.equal(l.consolidated, l.tmp) # only 11 changes made 
                                         #unique(l.consolidated$sbgr)
                                         #---------------
-                                        return(l.consolidated) # this is the value that I want to the function to return: send this dataframe (the consolidated dataframe from teh three comapred dataframes) into the overarching function (this is then repeated for each sbgr)
+                                        #return(l.consolidated) # this is the value that I want to the function to return: send this dataframe (the consolidated dataframe from teh three comapred dataframes) into the overarching function (this is then repeated for each sbgr)
                                         
                                         #to write into sepearate files remove "#" below, and check that there is a folder called output in the working directory, (getwd()).
                                         #write.csv(l.consolidated, paste0("./output/sbgr_",unique(l.consolidated$sbgr),"_consolidated_hlvls.csv")) # write the result to file to inspect it,and ensure thta R object at the end is correct
                                 
                                 
                                 
-                })
+                #})
                 
                 
                 #sbgr.matched.btpt.w.rpl <- rbind(sbgr.matched.btpt.w.rpl, l.consolidated) # bind the resulting tables
 }, .progress = "text") # %>% saveRDS(sbgr.matched.btpt.w.rpl, paste0("./sbgr_matched_btpt_w_rpl.rds")) # activate you want to save as an independent R object for later use.
-
-
-#There MAY BE AN ERROR: the values seems to be replciated several times, i.e. too many rows....
