@@ -48,8 +48,79 @@ sbgr.BAP[[1]]$D2
 View(sbgr.BAP[[1]])
 ##double check in put
 
-#create test dataframes
+#create a list of test dataframes
 
+#sample of sbgr data
+test.dat <- sbgr.matched.btpt.w.rpl %>% 
+        llply(function(x){
+                print(class(x))
+                sample_n(x, 10, replace = F) %>%
+                        select(1:10) #select(1:14, 19:354)    (remove the columns with EUNIs codes, h.lvl etc., but also only sample ten columns at this stage) 
+})
+str(test.dat) # list of dataframes completely comprising 
+#sample pressure data
+test.p <- Z10.5 %>%
+        select(eunis.code = EUNISCode, D5, D6)
+str(test.p) # all chr, so correct
+
+
+
+test.code <- test.dat %>% 
+        plyr::llply(function(x) { 
+                print("Start of llply iteration...") # this shows that the llply function workssplits 
+                print(class(x)) # this shows that it is a dataframe...that goes into
+                
+                cols.lst <- list() # create empty list to store FOR LOOP results in
+                #p <- d3 %>% rename(chrs = chrs.wrong.name) #some mock code to check that renaming a variable defined outside the function will work
+                #p$chrs <- as.character(p$chrs) # make sure that the column on which we want to join is the same in p df and the lists of dfs.
+                
+                
+                for (i in seq_along(x)){
+                        x[[i]] <- as.character(x[[1]])
+                        
+                        y <- x %>% 
+                               dplyr::select(names(x)[[i]])
+                        
+                        
+                        xname <- names(x)[[i]]
+                        yname <- names(p)[[2]]
+                        myfn <- function(xname, yname) {
+                                #data(iris)
+                                cols.lst[[i]] <- left_join(y,p, by = setNames(xname, yname))
+                        }
+                        
+                }
+                
+                
+                
+                
+                #cols.lst <- cbind(cols.lst)
+                
+                
+                ###QA remove this if works
+                #x <- lst1[[1]]
+                #then apply to each column within the dataframe
+                #plyr::daply(.data = x, .fun = function(y){
+                #        col <- left_join(y,p, by = "chrs")
+                #}, .variables = )
+                #lapply(X = x, FUN = function(y){
+                #        col <- left_join(as.character(y),p, by = "chrs")
+                #})
+                #amalgamate results
+                #cols.lst <- rbind(cols.df, col, function(y){
+                #        col <- left_join(y,p, by = "chrs")
+                #}, .variables = )
+                
+                
+                
+                
+               
+        })
+#df <- do.call("rbind",test.code) # binds all lists into matrix
+
+
+
+###OTHER FAKE TEST DATA
 L3 <- LETTERS[1:3]
 chr <- as.character(sample(L3,10,replace = TRUE))
 (d <- data.frame(x = 1, y = 1:10, chrs = chr))
@@ -71,54 +142,3 @@ L3 <- LETTERS[1:3]
 chr <- as.character(sample(L3,10,replace = TRUE))
 (d3 <- data.frame(sens.fake = sens.fake, chrs.wrong.name = chr ))
 rm(SF, sens.fake, chr)
-
-
-
-test.code <- lst1 %>% 
-        plyr::llply(function(x) { 
-                
-                
-                cols.lst <- list() # create mepty list to store results
-                p <- d3 %>% rename(chrs = chrs.wrong.name)
-                p$chrs <- as.character(p$chrs)#some mock code to check that renaming a variable defined outside the function will work
-                
-                
-                for (i in seq_along(x)){
-                        x[[i]] <- as.character(x[[1]])
-                        
-                        y <- x %>% 
-                               dplyr::select(names(x)[[i]])
-                        
-                        
-                        xname <- names(x)[[i]]
-                        yname <- names(p)[[2]]
-                        myfn <- function(xname, yname) {
-                                #data(iris)
-                                cols.lst[[i]] <- left_join(y,p, by = setNames(xname, yname))
-                        }
-                        
-                }
-                #cols.lst <- cbind(cols.lst)
-                
-                
-                ###QA remove this if works
-                #x <- lst1[[1]]
-                #then apply to each column within the dataframe
-                #plyr::daply(.data = x, .fun = function(y){
-                #        col <- left_join(y,p, by = "chrs")
-                #}, .variables = )
-                #lapply(X = x, FUN = function(y){
-                #        col <- left_join(as.character(y),p, by = "chrs")
-                #})
-                #amalgamate results
-                #cols.lst <- rbind(cols.df, col, function(y){
-                #        col <- left_join(y,p, by = "chrs")
-                #}, .variables = )
-                
-                
-                
-                
-                #print("End of llply iteration...") # this shows that the llply function workssplits 
-                #print(class(x)) # this shows that it is a dataframe...that goes into
-        })
-#df <- do.call("rbind",test.code) # binds all lists into matrix
