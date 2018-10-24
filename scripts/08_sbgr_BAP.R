@@ -22,25 +22,24 @@ sbgr.bap <- sbgr.matched.btpt.w.rpl %>%
                         y <- x.df %>% 
                                dplyr::select(names(x.df)[[i]])
                         
-                        
-                        xname <- names(x.df[i]) # input
-                        yname <- names(test.p)[[1]] # input
+                        #set the variable names to be used in join
+                        xname <- names(x.df[i]) # varaible anme from sbgr...to be used to join to pressure
+                        yname <- names(p)[[1]] # varaible name that will be used to join table pressure to sbgr...
                         
                         #define a result dataframe to store the joined data in
-                        join.result <- data.frame(matrix(nrow = nrow(x.df[i]),ncol = (ncol(test.p)-1)+ncol(x.df[i])))
-                        join.result.names <- c(names(x.df)[[i]],paste0(names(test.p[,-1]),"_",names(x.df)[[i]]))# output
+                        join.result <- data.frame(matrix(nrow = nrow(x.df[i]),ncol = (ncol(p)-1)+ncol(x.df[i])))
+                        join.result.names <- c(names(x.df)[[i]],paste0(names(p[,-1]),"_",names(x.df)[[i]]))# output
                         names(join.result) <- join.result.names
                         
                         joinfn <- function(xname, yname) {#Is it neccessary to name this function?
-                                #data(iris)
-                                join.result[i] <- left_join(y,test.p, by = setNames(xname, yname))
+                                join.result[i] <- left_join(y,p, by = setNames(xname, yname)) # this allows tables to be joined using non-matching names
                         }
                         
                         cols.df <- cbind(cols.df,join.result) 
                 }
                 
                 cols.df <- cols.df[,-1]
-                cols.df$eunis.gis.code <- x.rn #Could not sepcify as row.names(cols.df) <- x.rn, so just added as a column
+                cols.df$eunis.gis.code <- x.rn #Could not sepcify as row.names(cols.df) <- x.rn, so just added as a column (this adds the GIS EUNI S Codes back ontot eh dataframe for reference)
                 cols.df <- cbind(cols.df, count = (apply(sbgr.bap[[1]], 1, function(x)length(unique(!is.na(x) )))))#count the number of uniq values per column
                 #write.csv(cols.df, ".output/cols.df") # if desired a counter or naming needs top be pasted on...
                 return(cols.df)
