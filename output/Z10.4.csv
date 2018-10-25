@@ -10,7 +10,7 @@
 "A1.124",NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
 "A1.125",NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
 "A1.126",NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
-"A1.127","Not sensitive","Not sensitive","Not sensitive","High","Low","High","Not sensitive","Medium","Medium","High","High","Not assessed",NA,"Insufficient evidence","Not sensitive","Not sensitive","Not sensitive","Not sensitive","Insufficient evidence",NA,NA
+"A1.127",1,1,1,6,4,6,1,5,5,6,6,3,NA,2,1,1,1,1,2,NA,NA
 "A1.151",NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
 "A1.152",NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
 "A1.153",NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
@@ -25,7 +25,7 @@
 "A1.215",NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
 "A1.221",NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
 "A1.222",NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
-"A1.223","Not sensitive","High","Medium","Medium","Medium","High","Not sensitive","Medium","Medium","High","High","Not assessed",NA,"Insufficient evidence","Not sensitive","Not sensitive","Not sensitive","Not sensitive","Not sensitive",NA,NA
+"A1.223",1,6,5,5,5,6,1,5,5,6,6,3,NA,2,1,1,1,1,1,NA,NA
 "A1.311",NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
 "A1.312",NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
 "A1.3121",NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
@@ -66,114 +66,114 @@
 "A1.44A",NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
 "A1.451",NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
 "A1.452",NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
-"A2.111",NA,NA,NA,NA,NA,"Not sensitive","Not sensitive","Not sensitive","Not sensitive","High","High","Not assessed",NA,NA,"Not sensitive","Not sensitive","Not sensitive","Not sensitive","Not sensitive","Not sensitive",NA
-"A2.112","Not sensitive","Not sensitive","Insufficient evidence",NA,"Low","Medium","Low","Medium","Low","High","High","Not assessed",NA,"Insufficient evidence","Not sensitive","Not sensitive","Not sensitive",NA,"Not sensitive","Not sensitive",NA
-"A2.211","Not sensitive","Not sensitive","Insufficient evidence","Medium","Low","Low","Not sensitive","Not sensitive","Low","High","High","Not assessed",NA,"Insufficient evidence","Not sensitive","Not sensitive","Not sensitive",NA,"Not sensitive",NA,NA
-"A2.22",NA,"Not sensitive",NA,NA,NA,"Not sensitive","Not sensitive","Not sensitive","Not sensitive","High","High","Not assessed",NA,NA,"Not sensitive","Not sensitive","Not sensitive","Not sensitive","Not sensitive","Not sensitive",NA
-"A2.221",NA,NA,NA,NA,NA,"Not sensitive","Not sensitive","Not sensitive","Not sensitive","High","High","Not assessed",NA,NA,"Not sensitive","Not sensitive","Not sensitive","Not sensitive","Not sensitive","Not sensitive",NA
-"A2.222",NA,"Not sensitive","Not sensitive",NA,"Low","Low","Low","Not sensitive","Low","High","High","Not assessed",NA,NA,"Not sensitive","Not sensitive","Not sensitive","Not sensitive","Not sensitive","Not sensitive",NA
-"A2.2221",NA,"Not sensitive","Not sensitive",NA,"Low","Low","Low","Not sensitive","Low","High","High","Not assessed",NA,NA,"Not sensitive","Not sensitive","Not sensitive","Not sensitive","Not sensitive","Not sensitive",NA
-"A2.2222",NA,"Not sensitive","Not sensitive",NA,"Low","Low","Low","Not sensitive","Low","High","High","Not assessed",NA,NA,"Not sensitive","Not sensitive","Not sensitive","Not sensitive","Not sensitive","Not sensitive",NA
-"A2.223",NA,"Not sensitive","Insufficient evidence",NA,"Low","Low","Low","Not sensitive","Low","High","High","Not assessed",NA,"Low","Not sensitive","Not sensitive","Not sensitive","Not sensitive","Not sensitive","Not sensitive",NA
-"A2.231",NA,"High","Insufficient evidence","Medium","Medium","Low","Not sensitive","Not sensitive","Low","High","Medium","Not assessed",NA,"Not sensitive","Not sensitive","Not sensitive","Not sensitive","Not sensitive","Not sensitive","Low",NA
-"A2.2312",NA,"High","Insufficient evidence","Medium","Medium","Low","Not sensitive","Not sensitive","Low","High","Medium","Not assessed",NA,"Not sensitive","Not sensitive","Not sensitive","Not sensitive","Not sensitive","Not sensitive","Low",NA
-"A2.241",NA,"Insufficient evidence","Low","Medium","Medium","High","Not sensitive","Not sensitive","Medium","High","High","Not assessed",NA,"Not sensitive","Not sensitive","Not sensitive","Not sensitive","Not sensitive","Not sensitive","Low",NA
-"A2.242",NA,"High","Medium","Medium","Medium","Medium","Not sensitive","Low","Low","High","High","Not assessed",NA,"Not sensitive","Not sensitive","Not sensitive","Not sensitive","Not sensitive","Not sensitive","Low",NA
-"A2.243",NA,"High","Not sensitive","Low","Low","Low","Not sensitive","Low","Low","High","High","Not assessed",NA,NA,"Not sensitive","Not sensitive","Not sensitive","Not sensitive","Not sensitive","Not sensitive",NA
-"A2.244",NA,"Medium","Low",NA,"Low","Low","Low","Low","Low","High","High","Not assessed",NA,"Low","Not sensitive","Not sensitive","Not sensitive","Not sensitive","Not sensitive","Not sensitive",NA
-"A2.245",NA,"High","Not sensitive","Low","Low","Not sensitive","Not sensitive","Not sensitive","Not sensitive","High","High","Not assessed",NA,"Insufficient evidence","Not sensitive","Not sensitive","Not sensitive","Not sensitive","Not sensitive","Not sensitive",NA
-"A2.311",NA,"High","Low","Low","Low","Low","Not sensitive","Not sensitive","Low","High","High","Not assessed",NA,"Not sensitive","Not sensitive","Not sensitive","Not sensitive","Not sensitive","Not sensitive","Not sensitive",NA
-"A2.312",NA,"High","Not sensitive","Low","Low","Low","Not sensitive","Low","Low","High","High","Not assessed",NA,NA,"Not sensitive","Not sensitive","Not sensitive","Not sensitive","Not sensitive","Not sensitive",NA
-"A2.313",NA,"High","Not sensitive","Low","Low","Low","Not sensitive","Low","Low","High","High","Not assessed",NA,NA,"Not sensitive","Not sensitive","Not sensitive","Not sensitive","Not sensitive","Not sensitive",NA
-"A2.321",NA,"High","Insufficient evidence","Low","Low","Low","Not sensitive","Not sensitive","Low","High","High","Not assessed",NA,"Not sensitive","Not sensitive","Not sensitive","Not sensitive","Not sensitive","Not sensitive","Not sensitive",NA
-"A2.322",NA,"High","Not sensitive","Low","Low","Low","Not sensitive","Not sensitive","Low","High","High","Not assessed",NA,"Not sensitive","Not sensitive","Not sensitive","Not sensitive","Not sensitive","Not sensitive","Not sensitive",NA
-"A2.323",NA,"High","Not sensitive",NA,"Low","Low","Low","Not sensitive","Low","High","High","Not assessed",NA,NA,"Not sensitive","Not sensitive","Not sensitive","Not sensitive","Not sensitive","Not sensitive",NA
-"A2.41",NA,"High","Not sensitive","Low","Low","Low","Not sensitive","Low","Low","High","High","Not assessed",NA,NA,"Not sensitive","Not sensitive","Not sensitive","Not sensitive","Not sensitive","Not sensitive",NA
-"A2.411",NA,"High","Not sensitive","Low","Low","Low","Not sensitive","Low","Low","High","High","Not assessed",NA,NA,"Not sensitive","Not sensitive","Not sensitive","Not sensitive","Not sensitive","Not sensitive",NA
-"A2.4111",NA,"High","Not sensitive","Low","Low","Low","Not sensitive","Low","Low","High","High","Not assessed",NA,NA,"Not sensitive","Not sensitive","Not sensitive","Not sensitive","Not sensitive","Not sensitive",NA
-"A2.4112",NA,"High","Not sensitive","Low","Low","Low","Not sensitive","Low","Low","High","High","Not assessed",NA,NA,"Not sensitive","Not sensitive","Not sensitive","Not sensitive","Not sensitive","Not sensitive",NA
-"A2.4113",NA,"High","Not sensitive","Low","Low","Low","Not sensitive","Low","Low","High","High","Not assessed",NA,NA,"Not sensitive","Not sensitive","Not sensitive","Not sensitive","Not sensitive","Not sensitive",NA
-"A2.4114",NA,"High","Not sensitive","Low","Low","Low","Not sensitive","Low","Low","High","High","Not assessed",NA,NA,"Not sensitive","Not sensitive","Not sensitive","Not sensitive","Not sensitive","Not sensitive",NA
-"A2.4115",NA,"High","Not sensitive","Low","Low","Low","Not sensitive","Low","Low","High","High","Not assessed",NA,NA,"Not sensitive","Not sensitive","Not sensitive","Not sensitive","Not sensitive","Not sensitive",NA
-"A2.421",NA,"High","Medium","Medium","Medium","Medium","Not sensitive","Low","Low","High","High","Not assessed",NA,"Not sensitive","Not sensitive","Not sensitive","Not sensitive","Not sensitive","Not sensitive","Low",NA
-"A2.431",NA,"Not sensitive","Low","Low","Low","Low","Low","Low","Low","High",NA,"Not assessed",NA,"Insufficient evidence","Not sensitive","Not sensitive","Not sensitive","Not sensitive","Not sensitive","Not sensitive",NA
-"A2.6111",NA,"High","Medium","Low","High","High","High","Medium","Medium","High","High","Not assessed",NA,"Medium","Not sensitive","Not sensitive","Not sensitive","Medium","Medium","Not sensitive",NA
-"A2.711",NA,"Medium","Insufficient evidence","Not sensitive","Medium","Medium","Medium","Not sensitive","Low","High",NA,"Not assessed",NA,"Insufficient evidence","Not sensitive","Not sensitive","Not sensitive","Not sensitive","Not sensitive","Low",NA
-"A2.72",NA,"High","Medium","Medium","Medium","Medium","Not sensitive","Medium","Medium","High","Not sensitive","Not assessed",NA,"Insufficient evidence","Not sensitive","Not sensitive","Not sensitive","Not sensitive","Not sensitive","Not sensitive",NA
-"A2.721",NA,"High","Medium","Medium","Medium","Medium","Not sensitive","Medium","Medium","High","Not sensitive","Not assessed",NA,"Insufficient evidence","Not sensitive","Not sensitive","Not sensitive","Not sensitive","Not sensitive","Not sensitive",NA
-"A2.7211",NA,"High","Medium","Medium","Medium","Medium","Not sensitive","Medium","Medium","High","High","Not assessed",NA,"Insufficient evidence","Not sensitive","Not sensitive","Not sensitive","Not sensitive","Not sensitive","Not sensitive",NA
-"A2.7212",NA,"High","Medium","Medium","Medium","Medium","Not sensitive","Medium","Medium","High","High","Not assessed",NA,"Insufficient evidence","Not sensitive","Not sensitive","Not sensitive","Not sensitive","Not sensitive","Not sensitive",NA
-"A2.7213",NA,"High","Medium","Medium","Medium","Medium","Not sensitive","Medium","Medium","High","High","Not assessed",NA,"Insufficient evidence","Not sensitive","Not sensitive","Not sensitive","Not sensitive","Not sensitive","Not sensitive",NA
-"A3.111",NA,"Not sensitive","Not sensitive","Medium","Medium",NA,"Low","Not sensitive","Low","High",NA,"Not assessed",NA,"Low","Not sensitive","Not sensitive","Not sensitive","Not sensitive","Low","Not sensitive",NA
-"A3.1111",NA,"Not sensitive","Not sensitive","Medium","Medium",NA,"Low","Not sensitive","Low","High",NA,"Not assessed",NA,"Low","Not sensitive","Not sensitive","Not sensitive","Not sensitive","Low","Not sensitive",NA
-"A3.1112",NA,"Not sensitive","Not sensitive","Medium","Medium",NA,"Low","Not sensitive","Low","High",NA,"Not assessed",NA,"Low","Not sensitive","Not sensitive","Not sensitive","Not sensitive","Low","Not sensitive",NA
-"A3.112",NA,"Not sensitive","Not sensitive","Medium","Medium",NA,"Low","Not sensitive","Low","High",NA,"Not assessed",NA,"Low","Not sensitive","Not sensitive","Not sensitive","Not sensitive","Low","Not sensitive",NA
-"A3.113",NA,"High","Low","Medium","Medium",NA,"Medium","Not sensitive","Medium","High",NA,"Not assessed",NA,"Medium","Not sensitive","Not sensitive","Not sensitive","Not sensitive","Low","Not sensitive",NA
-"A3.115",NA,"High","Low","Medium","Medium",NA,"Medium","Not sensitive","Medium","High",NA,"Not assessed",NA,"Medium","Not sensitive","Not sensitive","Not sensitive","Not sensitive","Low","Not sensitive",NA
-"A3.1151",NA,"High","Low","Medium","Medium",NA,"Medium","Not sensitive","Medium","High",NA,"Not assessed",NA,"Medium","Not sensitive","Not sensitive","Not sensitive","Not sensitive","Low","Not sensitive",NA
-"A3.1152",NA,"High","Low","Medium","Medium",NA,"Medium","Not sensitive","Medium","High",NA,"Not assessed",NA,"Medium","Not sensitive","Not sensitive","Not sensitive","Not sensitive","Low","Not sensitive",NA
-"A3.1153",NA,"High","Low","Medium","Medium",NA,"Medium","Not sensitive","Medium","High",NA,"Not assessed",NA,"Medium","Not sensitive","Not sensitive","Not sensitive","Not sensitive","Low","Not sensitive",NA
-"A3.116",NA,"Not sensitive","Not sensitive","Medium","Medium",NA,"Medium","Not sensitive","Low","High",NA,"Not assessed",NA,"Not sensitive","Not sensitive","Not sensitive","Not sensitive","Not sensitive","Not sensitive","Insufficient evidence",NA
-"A3.1161",NA,"Not sensitive","Not sensitive","Medium","Medium",NA,"Medium","Not sensitive","Low","High",NA,"Not assessed",NA,"Not sensitive","Not sensitive","Not sensitive","Not sensitive","Not sensitive","Not sensitive","Insufficient evidence",NA
+"A2.111",NA,NA,NA,NA,NA,1,1,1,1,6,6,3,NA,NA,1,1,1,1,1,1,NA
+"A2.112",1,1,2,NA,4,5,4,5,4,6,6,3,NA,2,1,1,1,NA,1,1,NA
+"A2.211",1,1,2,5,4,4,1,1,4,6,6,3,NA,2,1,1,1,NA,1,NA,NA
+"A2.22",NA,1,NA,NA,NA,1,1,1,1,6,6,3,NA,NA,1,1,1,1,1,1,NA
+"A2.221",NA,NA,NA,NA,NA,1,1,1,1,6,6,3,NA,NA,1,1,1,1,1,1,NA
+"A2.222",NA,1,1,NA,4,4,4,1,4,6,6,3,NA,NA,1,1,1,1,1,1,NA
+"A2.2221",NA,1,1,NA,4,4,4,1,4,6,6,3,NA,NA,1,1,1,1,1,1,NA
+"A2.2222",NA,1,1,NA,4,4,4,1,4,6,6,3,NA,NA,1,1,1,1,1,1,NA
+"A2.223",NA,1,2,NA,4,4,4,1,4,6,6,3,NA,4,1,1,1,1,1,1,NA
+"A2.231",NA,6,2,5,5,4,1,1,4,6,5,3,NA,1,1,1,1,1,1,4,NA
+"A2.2312",NA,6,2,5,5,4,1,1,4,6,5,3,NA,1,1,1,1,1,1,4,NA
+"A2.241",NA,2,4,5,5,6,1,1,5,6,6,3,NA,1,1,1,1,1,1,4,NA
+"A2.242",NA,6,5,5,5,5,1,4,4,6,6,3,NA,1,1,1,1,1,1,4,NA
+"A2.243",NA,6,1,4,4,4,1,4,4,6,6,3,NA,NA,1,1,1,1,1,1,NA
+"A2.244",NA,5,4,NA,4,4,4,4,4,6,6,3,NA,4,1,1,1,1,1,1,NA
+"A2.245",NA,6,1,4,4,1,1,1,1,6,6,3,NA,2,1,1,1,1,1,1,NA
+"A2.311",NA,6,4,4,4,4,1,1,4,6,6,3,NA,1,1,1,1,1,1,1,NA
+"A2.312",NA,6,1,4,4,4,1,4,4,6,6,3,NA,NA,1,1,1,1,1,1,NA
+"A2.313",NA,6,1,4,4,4,1,4,4,6,6,3,NA,NA,1,1,1,1,1,1,NA
+"A2.321",NA,6,2,4,4,4,1,1,4,6,6,3,NA,1,1,1,1,1,1,1,NA
+"A2.322",NA,6,1,4,4,4,1,1,4,6,6,3,NA,1,1,1,1,1,1,1,NA
+"A2.323",NA,6,1,NA,4,4,4,1,4,6,6,3,NA,NA,1,1,1,1,1,1,NA
+"A2.41",NA,6,1,4,4,4,1,4,4,6,6,3,NA,NA,1,1,1,1,1,1,NA
+"A2.411",NA,6,1,4,4,4,1,4,4,6,6,3,NA,NA,1,1,1,1,1,1,NA
+"A2.4111",NA,6,1,4,4,4,1,4,4,6,6,3,NA,NA,1,1,1,1,1,1,NA
+"A2.4112",NA,6,1,4,4,4,1,4,4,6,6,3,NA,NA,1,1,1,1,1,1,NA
+"A2.4113",NA,6,1,4,4,4,1,4,4,6,6,3,NA,NA,1,1,1,1,1,1,NA
+"A2.4114",NA,6,1,4,4,4,1,4,4,6,6,3,NA,NA,1,1,1,1,1,1,NA
+"A2.4115",NA,6,1,4,4,4,1,4,4,6,6,3,NA,NA,1,1,1,1,1,1,NA
+"A2.421",NA,6,5,5,5,5,1,4,4,6,6,3,NA,1,1,1,1,1,1,4,NA
+"A2.431",NA,1,4,4,4,4,4,4,4,6,NA,3,NA,2,1,1,1,1,1,1,NA
+"A2.6111",NA,6,5,4,6,6,6,5,5,6,6,3,NA,5,1,1,1,5,5,1,NA
+"A2.711",NA,5,2,1,5,5,5,1,4,6,NA,3,NA,2,1,1,1,1,1,4,NA
+"A2.72",NA,6,5,5,5,5,1,5,5,6,1,3,NA,2,1,1,1,1,1,1,NA
+"A2.721",NA,6,5,5,5,5,1,5,5,6,1,3,NA,2,1,1,1,1,1,1,NA
+"A2.7211",NA,6,5,5,5,5,1,5,5,6,6,3,NA,2,1,1,1,1,1,1,NA
+"A2.7212",NA,6,5,5,5,5,1,5,5,6,6,3,NA,2,1,1,1,1,1,1,NA
+"A2.7213",NA,6,5,5,5,5,1,5,5,6,6,3,NA,2,1,1,1,1,1,1,NA
+"A3.111",NA,1,1,5,5,NA,4,1,4,6,NA,3,NA,4,1,1,1,1,4,1,NA
+"A3.1111",NA,1,1,5,5,NA,4,1,4,6,NA,3,NA,4,1,1,1,1,4,1,NA
+"A3.1112",NA,1,1,5,5,NA,4,1,4,6,NA,3,NA,4,1,1,1,1,4,1,NA
+"A3.112",NA,1,1,5,5,NA,4,1,4,6,NA,3,NA,4,1,1,1,1,4,1,NA
+"A3.113",NA,6,4,5,5,NA,5,1,5,6,NA,3,NA,5,1,1,1,1,4,1,NA
+"A3.115",NA,6,4,5,5,NA,5,1,5,6,NA,3,NA,5,1,1,1,1,4,1,NA
+"A3.1151",NA,6,4,5,5,NA,5,1,5,6,NA,3,NA,5,1,1,1,1,4,1,NA
+"A3.1152",NA,6,4,5,5,NA,5,1,5,6,NA,3,NA,5,1,1,1,1,4,1,NA
+"A3.1153",NA,6,4,5,5,NA,5,1,5,6,NA,3,NA,5,1,1,1,1,4,1,NA
+"A3.116",NA,1,1,5,5,NA,5,1,4,6,NA,3,NA,1,1,1,1,1,1,2,NA
+"A3.1161",NA,1,1,5,5,NA,5,1,4,6,NA,3,NA,1,1,1,1,1,1,2,NA
 "A3.117",NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
-"A3.121",NA,"High","Insufficient evidence","Medium","Medium",NA,"Low","Not sensitive","Medium","High",NA,"Not assessed",NA,"Medium","Not sensitive","Not sensitive","Not sensitive","Low","Low","Not sensitive",NA
-"A3.122",NA,"High","Insufficient evidence","Medium","Medium",NA,"Low","Not sensitive","Medium","High",NA,"Not assessed",NA,"Medium","Not sensitive","Not sensitive","Not sensitive","Low","Low","Not sensitive",NA
-"A3.123",NA,"High","Low",NA,"Medium",NA,"Medium","Not sensitive","Medium","High",NA,"Not assessed",NA,"Medium","Not sensitive","Not sensitive","Not sensitive","Not sensitive","Low","Not sensitive",NA
-"A3.124",NA,"High","Insufficient evidence","Medium","Medium",NA,"Low","Not sensitive","Medium","High",NA,"Not assessed",NA,"Medium","Not sensitive","Not sensitive","Not sensitive","Low","Low","Not sensitive",NA
-"A3.125",NA,"High","Insufficient evidence","Medium","Medium",NA,"Low","Not sensitive","Medium","High",NA,"Not assessed",NA,"Medium","Not sensitive","Not sensitive","Not sensitive","Low","Low","Not sensitive",NA
-"A3.126",NA,"High","Insufficient evidence","Medium","Medium",NA,"Medium","Not sensitive","Medium","High",NA,"Not assessed",NA,"Medium","Not sensitive","Not sensitive","Not sensitive","Not sensitive","Medium","Not sensitive",NA
-"A3.127",NA,"Not sensitive","Not sensitive","Medium","Medium",NA,"Low","Not sensitive","Low","High","High","Not assessed",NA,"Not sensitive","Not sensitive","Not sensitive","Not sensitive","Not sensitive","Not sensitive","Insufficient evidence",NA
-"A3.211",NA,"High","Not sensitive","Medium","Medium",NA,"Low","Not sensitive","Low","High",NA,"Not assessed",NA,"Low","Not sensitive","Not sensitive","Not sensitive","Not sensitive","Low","Not sensitive",NA
-"A3.2111",NA,"High","Not sensitive","Medium","Medium",NA,"Low","Not sensitive","Low","High",NA,"Not assessed",NA,"Low","Not sensitive","Not sensitive","Not sensitive","Not sensitive","Low","Not sensitive",NA
+"A3.121",NA,6,2,5,5,NA,4,1,5,6,NA,3,NA,5,1,1,1,4,4,1,NA
+"A3.122",NA,6,2,5,5,NA,4,1,5,6,NA,3,NA,5,1,1,1,4,4,1,NA
+"A3.123",NA,6,4,NA,5,NA,5,1,5,6,NA,3,NA,5,1,1,1,1,4,1,NA
+"A3.124",NA,6,2,5,5,NA,4,1,5,6,NA,3,NA,5,1,1,1,4,4,1,NA
+"A3.125",NA,6,2,5,5,NA,4,1,5,6,NA,3,NA,5,1,1,1,4,4,1,NA
+"A3.126",NA,6,2,5,5,NA,5,1,5,6,NA,3,NA,5,1,1,1,1,5,1,NA
+"A3.127",NA,1,1,5,5,NA,4,1,4,6,6,3,NA,1,1,1,1,1,1,2,NA
+"A3.211",NA,6,1,5,5,NA,4,1,4,6,NA,3,NA,4,1,1,1,1,4,1,NA
+"A3.2111",NA,6,1,5,5,NA,4,1,4,6,NA,3,NA,4,1,1,1,1,4,1,NA
 "A3.2112",NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
-"A3.2113","Not sensitive","High","Not sensitive","Medium","Medium","High","Low","Medium","Medium","High","High","Not assessed",NA,"Low","Not sensitive","Not sensitive","Not sensitive","Not sensitive","Not sensitive","Not sensitive",NA
-"A3.212",NA,"High","Low","Medium","Medium",NA,"Medium","Not sensitive","Medium","High",NA,"Not assessed",NA,"Medium","Not sensitive","Not sensitive","Not sensitive","Not sensitive","Low","Low",NA
-"A3.2121",NA,"High","Low","Medium","Medium",NA,"Medium","Not sensitive","Medium","High",NA,"Not assessed",NA,"Medium","Not sensitive","Not sensitive","Not sensitive","Not sensitive","Low","Low",NA
-"A3.2122",NA,"High","Low","Medium","Medium",NA,"Medium","Not sensitive","Medium","High",NA,"Not assessed",NA,"Medium","Not sensitive","Not sensitive","Not sensitive","Not sensitive","Low","Low",NA
-"A3.213",NA,"High","Low","Medium","Medium",NA,"Medium","Not sensitive","Medium","High",NA,"Not assessed",NA,"Medium","Not sensitive","Not sensitive","Not sensitive","Not sensitive","Low","Low",NA
-"A3.2131",NA,"High","Low","Medium","Medium",NA,"Medium","Not sensitive","Medium","High",NA,"Not assessed",NA,"Medium","Not sensitive","Not sensitive","Not sensitive","Not sensitive","Low","Low",NA
-"A3.2132",NA,"High","Low","Medium","Medium",NA,"Medium","Not sensitive","Medium","High",NA,"Not assessed",NA,"Medium","Not sensitive","Not sensitive","Not sensitive","Not sensitive","Low","Low",NA
-"A3.214",NA,"High","Low","Medium","Medium",NA,"Medium","Not sensitive","Medium","High",NA,"Not assessed",NA,"Medium","Not sensitive","Not sensitive","Not sensitive","Not sensitive","Low","Not sensitive",NA
-"A3.2141",NA,"High","Low","Medium","Medium",NA,"Medium","Not sensitive","Medium","High",NA,"Not assessed",NA,"Medium","Not sensitive","Not sensitive","Not sensitive","Not sensitive","Low","Not sensitive",NA
-"A3.2142",NA,"High","Low","Medium","Medium",NA,"Medium","Not sensitive","Medium","High",NA,"Not assessed",NA,"Medium","Not sensitive","Not sensitive","Not sensitive","Not sensitive","Low","Not sensitive",NA
-"A3.2143",NA,"High","Low","Medium","Medium",NA,"Medium","Not sensitive","Medium","High",NA,"Not assessed",NA,"Medium","Not sensitive","Not sensitive","Not sensitive","Not sensitive","Low","Low",NA
-"A3.2144",NA,"High","Low","Medium","Medium",NA,"Medium","Not sensitive","Medium","High",NA,"Not assessed",NA,"Medium","Not sensitive","Not sensitive","Not sensitive","Not sensitive","Low","Low",NA
-"A3.215",NA,"Not sensitive","Not sensitive","Medium","Low",NA,"Not sensitive","Not sensitive","Low","High",NA,"Not assessed",NA,"Not sensitive","Not sensitive","Not sensitive","Not sensitive","Not sensitive","Not sensitive","Insufficient evidence",NA
+"A3.2113",1,6,1,5,5,6,4,5,5,6,6,3,NA,4,1,1,1,1,1,1,NA
+"A3.212",NA,6,4,5,5,NA,5,1,5,6,NA,3,NA,5,1,1,1,1,4,4,NA
+"A3.2121",NA,6,4,5,5,NA,5,1,5,6,NA,3,NA,5,1,1,1,1,4,4,NA
+"A3.2122",NA,6,4,5,5,NA,5,1,5,6,NA,3,NA,5,1,1,1,1,4,4,NA
+"A3.213",NA,6,4,5,5,NA,5,1,5,6,NA,3,NA,5,1,1,1,1,4,4,NA
+"A3.2131",NA,6,4,5,5,NA,5,1,5,6,NA,3,NA,5,1,1,1,1,4,4,NA
+"A3.2132",NA,6,4,5,5,NA,5,1,5,6,NA,3,NA,5,1,1,1,1,4,4,NA
+"A3.214",NA,6,4,5,5,NA,5,1,5,6,NA,3,NA,5,1,1,1,1,4,1,NA
+"A3.2141",NA,6,4,5,5,NA,5,1,5,6,NA,3,NA,5,1,1,1,1,4,1,NA
+"A3.2142",NA,6,4,5,5,NA,5,1,5,6,NA,3,NA,5,1,1,1,1,4,1,NA
+"A3.2143",NA,6,4,5,5,NA,5,1,5,6,NA,3,NA,5,1,1,1,1,4,4,NA
+"A3.2144",NA,6,4,5,5,NA,5,1,5,6,NA,3,NA,5,1,1,1,1,4,4,NA
+"A3.215",NA,1,1,5,4,NA,1,1,4,6,NA,3,NA,1,1,1,1,1,1,2,NA
 "A3.216",NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
-"A3.217",NA,"Not sensitive","Not sensitive",NA,"Medium","High","Low","Medium","Medium","High",NA,"Not assessed",NA,"Not sensitive","Not sensitive","Not sensitive","Not sensitive","Not sensitive","Not sensitive","Insufficient evidence",NA
-"A3.221",NA,"High","Low","Low","Medium",NA,"Low","Not sensitive","Medium","High",NA,"Not assessed",NA,"Low","Not sensitive","Not sensitive","Not sensitive","Not sensitive","Low","Not sensitive",NA
-"A3.222",NA,"High","Low","Low","Medium",NA,"Medium","Low","Medium","High",NA,"Not assessed",NA,"Medium","Not sensitive","Not sensitive","Not sensitive","Not sensitive","Low","Not sensitive",NA
-"A3.223",NA,"High","Low","Medium","Medium",NA,"Medium","Low","Medium","High",NA,"Not assessed",NA,"Medium","Not sensitive","Not sensitive","Not sensitive","Low","Low","Not sensitive",NA
-"A3.224",NA,"High","Low",NA,"Medium",NA,"Medium","Low","Medium","High",NA,"Not assessed",NA,"Low","Not sensitive","Not sensitive","Not sensitive","Not sensitive","Low","Not sensitive",NA
+"A3.217",NA,1,1,NA,5,6,4,5,5,6,NA,3,NA,1,1,1,1,1,1,2,NA
+"A3.221",NA,6,4,4,5,NA,4,1,5,6,NA,3,NA,4,1,1,1,1,4,1,NA
+"A3.222",NA,6,4,4,5,NA,5,4,5,6,NA,3,NA,5,1,1,1,1,4,1,NA
+"A3.223",NA,6,4,5,5,NA,5,4,5,6,NA,3,NA,5,1,1,1,4,4,1,NA
+"A3.224",NA,6,4,NA,5,NA,5,4,5,6,NA,3,NA,4,1,1,1,1,4,1,NA
 "A3.225",NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
-"A3.311",NA,"High","Low","Medium","Medium",NA,"Medium","Low","Medium","High",NA,"Not assessed",NA,"Medium","Not sensitive","Not sensitive","Not sensitive","Not sensitive","Medium","Not sensitive",NA
-"A3.312",NA,"High","Low","Medium","Medium",NA,"Medium","Low","Medium","High",NA,"Not assessed",NA,"Medium","Not sensitive","Not sensitive","Not sensitive","Low","Low","Not sensitive",NA
-"A3.3121",NA,"High","Low","Medium","Medium",NA,"Medium","Low","Medium","High",NA,"Not assessed",NA,"Medium","Not sensitive","Not sensitive","Not sensitive","Low","Low","Not sensitive",NA
-"A3.3122",NA,"High","Low","Medium","Medium",NA,"Medium","Low","Medium","High",NA,"Not assessed",NA,"Medium","Not sensitive","Not sensitive","Not sensitive","Low","Low","Not sensitive",NA
-"A3.3123",NA,"High","Low","Medium","Medium",NA,"Medium","Low","Medium","High",NA,"Not assessed",NA,"Medium","Not sensitive","Not sensitive","Not sensitive","Not sensitive","Low","Not sensitive",NA
-"A3.313",NA,"Medium","Not sensitive","Medium","Medium",NA,"Low","Not sensitive","Low","High",NA,"Not assessed",NA,"High","Not sensitive","Not sensitive","Not sensitive","Not sensitive","Not sensitive","Not sensitive",NA
-"A3.3131",NA,"High","Not sensitive","Medium","Low",NA,"Low","Not sensitive","Low","High",NA,"Not assessed",NA,"High","Not sensitive","Not sensitive","Not sensitive","Not sensitive","Not sensitive","Not sensitive",NA
-"A3.3132",NA,"Medium","Not sensitive","Medium","Medium",NA,"Low","Not sensitive","Low","High",NA,"Not assessed",NA,"High","Not sensitive","Not sensitive","Not sensitive","Not sensitive","Not sensitive","Not sensitive",NA
-"A3.3133",NA,"Medium","Not sensitive","Medium","Medium",NA,"Low","Not sensitive","Low","High",NA,"Not assessed",NA,"High","Not sensitive","Not sensitive","Not sensitive","Not sensitive","Not sensitive","Not sensitive",NA
-"A3.3134",NA,"Not sensitive","Not sensitive","Medium","Medium",NA,"Medium","Not sensitive","Medium","High",NA,"Not assessed",NA,"Insufficient evidence","Not sensitive","Not sensitive","Not sensitive","Not sensitive","Not sensitive","Insufficient evidence",NA
-"A3.314",NA,"High","Low","Medium","Medium",NA,"Medium","Not sensitive","Medium","High",NA,"Not assessed",NA,"Medium","Not sensitive","Not sensitive","Not sensitive","Not sensitive","Not sensitive","Not sensitive",NA
-"A3.315",NA,"High","Low","Low","Low","Low","Not sensitive","Not sensitive","Low","High","High","Not assessed",NA,"Insufficient evidence","Not sensitive","Not sensitive","Not sensitive","Not sensitive","Low","Insufficient evidence",NA
+"A3.311",NA,6,4,5,5,NA,5,4,5,6,NA,3,NA,5,1,1,1,1,5,1,NA
+"A3.312",NA,6,4,5,5,NA,5,4,5,6,NA,3,NA,5,1,1,1,4,4,1,NA
+"A3.3121",NA,6,4,5,5,NA,5,4,5,6,NA,3,NA,5,1,1,1,4,4,1,NA
+"A3.3122",NA,6,4,5,5,NA,5,4,5,6,NA,3,NA,5,1,1,1,4,4,1,NA
+"A3.3123",NA,6,4,5,5,NA,5,4,5,6,NA,3,NA,5,1,1,1,1,4,1,NA
+"A3.313",NA,5,1,5,5,NA,4,1,4,6,NA,3,NA,6,1,1,1,1,1,1,NA
+"A3.3131",NA,6,1,5,4,NA,4,1,4,6,NA,3,NA,6,1,1,1,1,1,1,NA
+"A3.3132",NA,5,1,5,5,NA,4,1,4,6,NA,3,NA,6,1,1,1,1,1,1,NA
+"A3.3133",NA,5,1,5,5,NA,4,1,4,6,NA,3,NA,6,1,1,1,1,1,1,NA
+"A3.3134",NA,1,1,5,5,NA,5,1,5,6,NA,3,NA,2,1,1,1,1,1,2,NA
+"A3.314",NA,6,4,5,5,NA,5,1,5,6,NA,3,NA,5,1,1,1,1,1,1,NA
+"A3.315",NA,6,4,4,4,4,1,1,4,6,6,3,NA,2,1,1,1,1,4,2,NA
 "A3.321",NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
 "A3.322",NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
 "A3.323",NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
-"A3.341",NA,"Insufficient evidence","Insufficient evidence","Low","Low",NA,"Low","Medium","Low","High",NA,"Not assessed",NA,"Insufficient evidence","Not sensitive","Not sensitive","Not sensitive","Not sensitive","Not sensitive","Not sensitive",NA
-"A3.342",NA,"Insufficient evidence","Insufficient evidence","High","Medium",NA,"Not sensitive","Medium","High","High",NA,"Not assessed",NA,"Insufficient evidence","Not sensitive","Not sensitive","Not sensitive","Not sensitive","Medium","Not sensitive",NA
-"A3.343",NA,"Medium","Insufficient evidence","Medium","Medium",NA,"Not sensitive","Low","Medium","High",NA,"Not assessed",NA,"Not sensitive","Not sensitive","Not sensitive","Not sensitive","Not sensitive","Medium","Insufficient evidence",NA
-"A3.344",NA,"Insufficient evidence","Insufficient evidence","Medium","Medium",NA,"Not sensitive","Medium","Medium","High",NA,"Not assessed",NA,"Insufficient evidence","Not sensitive","Not sensitive","Not sensitive","Not sensitive","Medium","Medium",NA
+"A3.341",NA,2,2,4,4,NA,4,5,4,6,NA,3,NA,2,1,1,1,1,1,1,NA
+"A3.342",NA,2,2,6,5,NA,1,5,6,6,NA,3,NA,2,1,1,1,1,5,1,NA
+"A3.343",NA,5,2,5,5,NA,1,4,5,6,NA,3,NA,1,1,1,1,1,5,2,NA
+"A3.344",NA,2,2,5,5,NA,1,5,5,6,NA,3,NA,2,1,1,1,1,5,5,NA
 "A3.361",NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
 "A3.362",NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
 "A3.363",NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
-"A3.711",NA,"Not sensitive","Not sensitive","Medium","Medium",NA,"Not sensitive","Not sensitive","Low","High",NA,"Not assessed",NA,"Not sensitive","Not sensitive","Not sensitive","Not sensitive","Not sensitive","Not sensitive","Insufficient evidence",NA
+"A3.711",NA,1,1,5,5,NA,1,1,4,6,NA,3,NA,1,1,1,1,1,1,2,NA
 "A3.712",NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
-"A3.713",NA,"Insufficient evidence","Insufficient evidence",NA,"Low",NA,"Low","Low","Low","High",NA,"Not assessed",NA,"Not sensitive","Not sensitive","Not sensitive","Not sensitive","Not sensitive","Not sensitive","Not sensitive",NA
+"A3.713",NA,2,2,NA,4,NA,4,4,4,6,NA,3,NA,1,1,1,1,1,1,1,NA
 "A3.714",NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
 "A3.715",NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
-"A3.716",NA,"Not sensitive","Not sensitive",NA,"Medium",NA,"Not sensitive","Not sensitive","Low","High",NA,"Not assessed",NA,"Not sensitive","Not sensitive","Not sensitive","Not sensitive","Not sensitive","Not sensitive","Not sensitive",NA
+"A3.716",NA,1,1,NA,5,NA,1,1,4,6,NA,3,NA,1,1,1,1,1,1,1,NA
 "A4.111",NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
 "A4.112",NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
 "A4.1121",NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
@@ -210,11 +210,11 @@
 "A4.2145",NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
 "A4.2146",NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
 "A4.215",NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
-"A4.22",NA,"Not sensitive","Insufficient evidence","Not sensitive","Medium","Medium","Not sensitive","Not sensitive","Medium","High",NA,"Not assessed",NA,NA,"Not sensitive","Not sensitive","Not sensitive","Not sensitive","Not sensitive","Insufficient evidence",NA
-"A4.221",NA,"Not sensitive","Insufficient evidence","Not sensitive","Medium","Medium","Not sensitive","Not sensitive","Medium","High",NA,"Not assessed",NA,NA,"Not sensitive","Not sensitive","Not sensitive","Not sensitive","Not sensitive","Insufficient evidence",NA
-"A4.2211",NA,"Not sensitive","Insufficient evidence","Not sensitive","Medium","Medium","Not sensitive","Not sensitive","Medium","High",NA,"Not assessed",NA,NA,"Not sensitive","Not sensitive","Not sensitive","Not sensitive","Not sensitive","Insufficient evidence",NA
-"A4.2212",NA,"Not sensitive","Insufficient evidence","Not sensitive","Medium","Medium","Not sensitive","Not sensitive","Medium","High",NA,"Not assessed",NA,NA,"Not sensitive","Not sensitive","Not sensitive","Not sensitive","Not sensitive","Insufficient evidence",NA
-"A4.231","Not sensitive","Not sensitive","Insufficient evidence","Medium","Low","High","Not sensitive","Medium","Medium","High","High","Not assessed",NA,"Insufficient evidence","Not sensitive","Not sensitive","Not sensitive","Not sensitive","Insufficient evidence","Insufficient evidence",NA
+"A4.22",NA,1,2,1,5,5,1,1,5,6,NA,3,NA,NA,1,1,1,1,1,2,NA
+"A4.221",NA,1,2,1,5,5,1,1,5,6,NA,3,NA,NA,1,1,1,1,1,2,NA
+"A4.2211",NA,1,2,1,5,5,1,1,5,6,NA,3,NA,NA,1,1,1,1,1,2,NA
+"A4.2212",NA,1,2,1,5,5,1,1,5,6,NA,3,NA,NA,1,1,1,1,1,2,NA
+"A4.231",1,1,2,5,4,6,1,5,5,6,6,3,NA,2,1,1,1,1,2,2,NA
 "A4.232",NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
 "A4.233",NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
 "A4.241",NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
@@ -234,117 +234,117 @@
 "A4.3142",NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
 "A4.71",NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
 "A4.711",NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
-"A5.12",NA,NA,NA,NA,NA,"Not sensitive","Not sensitive","Not sensitive","Not sensitive","High","High","Not assessed",NA,NA,"Not sensitive","Not sensitive","Not sensitive","Not sensitive","Not sensitive","Not sensitive",NA
-"A5.131",NA,NA,NA,NA,NA,"Not sensitive","Not sensitive","Not sensitive","Not sensitive","High","High","Not assessed",NA,NA,"Not sensitive","Not sensitive","Not sensitive","Not sensitive","Not sensitive","Not sensitive",NA
-"A5.132",NA,"High","Insufficient evidence",NA,"Medium","Medium","Not sensitive","Not sensitive","Not sensitive","High","High","Not assessed",NA,"Insufficient evidence","Not sensitive","Not sensitive","Not sensitive","Not sensitive","Medium","Medium",NA
-"A5.133",NA,"High","Not sensitive","Medium","Low","Low","Low","Low","Low","High","High","Not assessed",NA,NA,"Not sensitive","Not sensitive","Not sensitive","Not sensitive","Not sensitive","Low",NA
-"A5.134",NA,"Insufficient evidence","Insufficient evidence",NA,"Low","Medium","Not sensitive","Low","Low","High","High","Not assessed",NA,"Not sensitive","Not sensitive","Not sensitive","Not sensitive","Not sensitive","Not sensitive","Low",NA
-"A5.135",NA,"High","Low","Medium","Low","Low","Not sensitive","Low","Low","High","High","Not assessed",NA,NA,"Not sensitive","Not sensitive","Not sensitive","Not sensitive","Not sensitive","Medium",NA
-"A5.136",NA,"High","Insufficient evidence",NA,"Low","Low","Low","Insufficient evidence","Low","High","High","Not assessed",NA,"Not sensitive","Not sensitive","Not sensitive","Not sensitive","Not sensitive","Not sensitive","Insufficient evidence",NA
-"A5.137",NA,"Insufficient evidence","Insufficient evidence",NA,"Low","Not sensitive","Not sensitive","Not sensitive","Not sensitive","High","High","Not assessed",NA,"Insufficient evidence","Not sensitive","Not sensitive","Not sensitive","Not sensitive","Not sensitive","Low",NA
-"A5.141",NA,"Not sensitive","Not sensitive",NA,"Low","Low","Not sensitive","Not sensitive","Low","High","High","Not assessed",NA,"Not sensitive","Not sensitive","Not sensitive","Not sensitive","Not sensitive","Not sensitive","Insufficient evidence",NA
-"A5.142",NA,"High","Not sensitive","Not sensitive","Low","Low","Low","Low","Low","High","High","Not assessed",NA,NA,"Not sensitive","Not sensitive","Not sensitive","Not sensitive","Not sensitive","Low",NA
-"A5.143",NA,"Insufficient evidence","Insufficient evidence",NA,"Low","Low","Not sensitive","Insufficient evidence","Low","High","High","Not assessed",NA,"Not sensitive","Not sensitive","Not sensitive","Not sensitive","Not sensitive","Insufficient evidence","Low",NA
-"A5.144",NA,"Insufficient evidence","Insufficient evidence","Not sensitive","Medium","Medium","Medium","Not sensitive","Not sensitive","High","High","Not assessed",NA,"Not sensitive","Not sensitive","Not sensitive","Not sensitive","Not sensitive","Medium","Medium",NA
-"A5.145",NA,"Insufficient evidence","Insufficient evidence",NA,"Low","Medium","Not sensitive","Low","Low","High","High","Not assessed",NA,"Low","Not sensitive","Not sensitive","Not sensitive","Not sensitive","Not sensitive","Low",NA
-"A5.151",NA,"High","Not sensitive",NA,"Low","Low","Not sensitive","Low","Low","High","High","Not assessed",NA,NA,"Not sensitive","Not sensitive","Not sensitive","Not sensitive","Not sensitive","Low",NA
-"A5.152",NA,"Insufficient evidence","Insufficient evidence",NA,"Low","Low","Insufficient evidence","Insufficient evidence","Low","High","High","Not assessed",NA,"Not sensitive","Not sensitive","Not sensitive","Not sensitive","Not sensitive","Insufficient evidence","Low",NA
-"A5.21",NA,"Insufficient evidence","Insufficient evidence","Medium","Medium","Medium","Not sensitive","Not sensitive","Low","High","High","Not assessed",NA,"Not sensitive","Not sensitive","Not sensitive","Not sensitive","Not sensitive","Not sensitive","Not sensitive",NA
-"A5.22","Not sensitive","Medium","Not sensitive","Medium","Medium","Low","Low","Not sensitive","Low","High","Not sensitive","Not assessed",NA,"Not sensitive","Not sensitive","Not sensitive","Not sensitive","Not sensitive","Not sensitive","Not sensitive",NA
-"A5.221","Not sensitive","Medium","Not sensitive",NA,"Low","Low","Not sensitive","Not sensitive","Low","High","High","Not assessed",NA,"Not sensitive","Not sensitive","Not sensitive","Not sensitive","Not sensitive","Not sensitive","Not sensitive",NA
-"A5.222","Not sensitive","Not sensitive","Insufficient evidence",NA,"Low","Low","Low","Not sensitive","Low","High","High","Not assessed",NA,"Low","Not sensitive","Not sensitive","Not sensitive","Not sensitive","Not sensitive","Not sensitive",NA
-"A5.231",NA,"Not sensitive","Insufficient evidence",NA,"Low","Low","Low","Not sensitive","Low","High","High","Not assessed",NA,"Low","Not sensitive","Not sensitive","Not sensitive","Not sensitive","Not sensitive","Not sensitive",NA
-"A5.232",NA,"Insufficient evidence","Insufficient evidence",NA,"Low","Low","Not sensitive","Not sensitive","Low","High","High","Not assessed","Not sensitive","Not sensitive","Not sensitive","Not sensitive","Not sensitive","Not sensitive","Not sensitive","Low",NA
-"A5.233",NA,"Not sensitive","Insufficient evidence",NA,"Low","Low","Low","Not sensitive","Low","High","High","Not assessed",NA,"Low","Not sensitive","Not sensitive","Not sensitive","Not sensitive","Not sensitive","Not sensitive",NA
-"A5.234","Not sensitive",NA,"Low","Not sensitive","Low","Medium","Low","Low","Low","High","High","Not assessed",NA,"Not sensitive","Not sensitive","Not sensitive","Not sensitive","Not sensitive","Not sensitive","Low",NA
-"A5.241",NA,"Not sensitive","Not sensitive","Medium","Medium","Medium","Not sensitive","Not sensitive","Medium","High","High","Not assessed",NA,NA,"Not sensitive","Not sensitive","Not sensitive","Not sensitive","Medium","Medium",NA
-"A5.242",NA,"High","Low","Medium","Low","Low","Low","Low","Low","High","High","Not assessed",NA,NA,"Not sensitive","Not sensitive","Not sensitive","Not sensitive","Not sensitive","Low",NA
-"A5.243",NA,"High","Insufficient evidence","Medium","Medium","Low","Not sensitive","Not sensitive","Not sensitive","High","High","Not assessed",NA,"Not sensitive","Not sensitive","Not sensitive","Not sensitive","Not sensitive","Not sensitive","Not sensitive",NA
-"A5.244",NA,"High","Low","Medium","Low","Low","Low","Low","Low","High","High","Not assessed",NA,NA,"Not sensitive","Not sensitive","Not sensitive","Not sensitive","Not sensitive","Low",NA
-"A5.251",NA,"High","Low","Medium","Low","Low","Low","Low","Low","High","High","Not assessed",NA,NA,"Not sensitive","Not sensitive","Not sensitive","Not sensitive","Not sensitive","Low",NA
-"A5.252",NA,"High","Low","Medium","Low","Low","Low","Low","Low","High","High","Not assessed",NA,NA,"Not sensitive","Not sensitive","Not sensitive","Not sensitive","Not sensitive","Low",NA
-"A5.261",NA,"High","Low","Medium","Low","Low","Low","Low","Low","High","High","Not assessed",NA,NA,"Not sensitive","Not sensitive","Not sensitive","Not sensitive","Not sensitive","Low",NA
-"A5.262",NA,NA,"Insufficient evidence",NA,"Medium","Medium","Not sensitive","Low","Medium","High","High","Not assessed",NA,NA,"Not sensitive","Not sensitive","Not sensitive","Not sensitive","Medium","Medium",NA
-"A5.271",NA,"Insufficient evidence","Insufficient evidence",NA,"Low","Medium","Not sensitive","Not sensitive","Medium","High","Medium","Not assessed",NA,"Not sensitive","Not sensitive","Not sensitive","Not sensitive","Not sensitive","Medium","Low",NA
-"A5.272",NA,NA,"Insufficient evidence",NA,"Medium","Medium","Not sensitive","Low","Medium","High","High","Not assessed",NA,NA,"Not sensitive","Not sensitive","Not sensitive","Not sensitive","Medium","Medium",NA
-"A5.31",NA,"Insufficient evidence","Insufficient evidence","Medium","Medium","Medium","Not sensitive","Not sensitive","Low","High","High","Not assessed",NA,"Not sensitive","Not sensitive","Not sensitive","Not sensitive","Not sensitive","Not sensitive","Not sensitive",NA
-"A5.321","Not sensitive",NA,"Low",NA,"Low","Medium","Low","Low","Low","High","High","Not assessed",NA,"Not sensitive","Not sensitive","Not sensitive","Not sensitive","Not sensitive","Low","Low",NA
-"A5.322","Not sensitive","High","Not sensitive",NA,"Medium","Low","Not sensitive","Not sensitive","Low","High","High","Not assessed",NA,"Not sensitive","Not sensitive","Not sensitive","Not sensitive","Not sensitive","Not sensitive","Not sensitive",NA
-"A5.323",NA,"High","Not sensitive","Medium","Medium","Low","Not sensitive","Not sensitive","Low","High","High","Not assessed",NA,"Not sensitive","Not sensitive","Not sensitive","Not sensitive","Not sensitive","Not sensitive","Not sensitive",NA
-"A5.325",NA,"High","Not sensitive",NA,"Low","Low","Low","Low","Low","High","High","Not assessed",NA,NA,"Not sensitive","Not sensitive","Not sensitive","Not sensitive","Not sensitive","Not sensitive",NA
-"A5.326",NA,"High","Not sensitive",NA,"Low","Low","Low","Not sensitive","Low","High","High","Not assessed",NA,NA,"Not sensitive","Not sensitive","Not sensitive","Not sensitive","Not sensitive","Not sensitive",NA
-"A5.327",NA,"High","Not sensitive",NA,"Low","Low","Low","Not sensitive","Low","High","High","Not assessed",NA,NA,"Not sensitive","Not sensitive","Not sensitive","Not sensitive","Not sensitive","Low",NA
-"A5.331",NA,"High","Low","Medium","Low","High","Not sensitive","Not sensitive","Medium","High","High","Not assessed",NA,"Not sensitive","Not sensitive","Not sensitive","Not sensitive","Not sensitive","Not sensitive","Not sensitive",NA
-"A5.332",NA,"Insufficient evidence","Insufficient evidence",NA,"Medium","Medium","Not sensitive","Not sensitive","Medium","High","High","Not assessed","Not sensitive","Not sensitive","Not sensitive","Not sensitive","Not sensitive","Not sensitive","Not sensitive","Medium",NA
-"A5.333",NA,"Insufficient evidence","Insufficient evidence",NA,"Low","Low","Low","Not sensitive","Low","High","High","Not assessed",NA,"Not sensitive","Not sensitive","Not sensitive","Not sensitive","Not sensitive","Low","Low",NA
-"A5.334",NA,"Insufficient evidence","Insufficient evidence",NA,"Low","Low","Low","Not sensitive","Low","High","High","Not assessed",NA,"Not sensitive","Not sensitive","Not sensitive","Not sensitive","Not sensitive","Low","Low",NA
-"A5.336",NA,"High","Not sensitive",NA,"Low","Low","Low","Low","Low","High","High","Not assessed",NA,NA,"Not sensitive","Not sensitive","Not sensitive","Not sensitive","Not sensitive","Not sensitive",NA
-"A5.341",NA,"High","Medium","Medium","Medium","Medium","Not sensitive","Low","Low","High","High","Not assessed",NA,"Not sensitive","Not sensitive","Not sensitive","Not sensitive","Not sensitive","Not sensitive","Low",NA
-"A5.342",NA,"High","Insufficient evidence","Medium","Medium","Medium","Not sensitive","Not sensitive","Not sensitive","High","High","Not assessed",NA,"Not sensitive","Not sensitive","Not sensitive","Not sensitive","Not sensitive","Not sensitive","Not sensitive",NA
-"A5.343",NA,"Insufficient evidence","Insufficient evidence",NA,"Medium","Medium","Not sensitive","Not sensitive","Medium","High","High","Not assessed",NA,"Not sensitive","Not sensitive","Not sensitive","Not sensitive","Not sensitive","Medium","High",NA
-"A5.344",NA,"Insufficient evidence","Not sensitive",NA,"Low","Medium","Not sensitive","Not sensitive","Medium","High","High","Not assessed",NA,"Not sensitive","Not sensitive","Not sensitive","Not sensitive","Not sensitive","Not sensitive","Medium",NA
-"A5.351",NA,NA,"Insufficient evidence",NA,"Medium","Medium","Not sensitive","Not sensitive","Medium","High","High","Not assessed",NA,"Not sensitive","Not sensitive","Not sensitive","Not sensitive","Not sensitive","Medium","Not sensitive",NA
-"A5.352",NA,NA,"Insufficient evidence",NA,"Medium","Medium","Not sensitive","Not sensitive","Medium","High","High","Not assessed",NA,"Not sensitive","Not sensitive","Not sensitive","Not sensitive","Not sensitive","Medium","Low",NA
-"A5.353",NA,NA,"Insufficient evidence",NA,"Medium","Medium","Not sensitive","Not sensitive","Medium","High","High","Not assessed",NA,"Not sensitive","Not sensitive","Not sensitive","Not sensitive","Not sensitive","Medium","Not sensitive",NA
-"A5.354",NA,"Insufficient evidence","Low","Not sensitive","Medium","High","Medium","Medium","Medium","High","High","Not assessed",NA,"Not sensitive","Not sensitive","Not sensitive","Not sensitive","Not sensitive","Medium","High",NA
-"A5.3541",NA,"Insufficient evidence","Low","Not sensitive","Medium","High","Medium","Medium","Medium","High","High","Not assessed",NA,"Not sensitive","Not sensitive","Not sensitive","Not sensitive","Not sensitive","Medium","High",NA
-"A5.355",NA,"Insufficient evidence","Insufficient evidence",NA,"Medium","Medium","Not sensitive","Not sensitive","Medium","High","High","Not assessed",NA,"Not sensitive","Not sensitive","Not sensitive","Not sensitive","Not sensitive","Medium","Medium",NA
-"A5.361",NA,"Insufficient evidence","Insufficient evidence","Not sensitive","Medium","High","Not sensitive","Not sensitive","Medium","High","High","Not assessed",NA,"Not sensitive","Not sensitive","Not sensitive","Not sensitive","Not sensitive","Medium","Medium",NA
-"A5.3611",NA,"Insufficient evidence","Insufficient evidence","Not sensitive","High","High","Not sensitive","Not sensitive","High","High","High","Not assessed",NA,"Not sensitive","Not sensitive","Not sensitive","Not sensitive","Not sensitive","Medium","Medium",NA
-"A5.362",NA,"Insufficient evidence","Medium","Not sensitive","Not sensitive","High","Not sensitive","Not sensitive","Medium","High","High","Not assessed",NA,"Not sensitive","Not sensitive","Not sensitive","Not sensitive","Not sensitive","Medium","Medium",NA
-"A5.363","Not sensitive",NA,"Not sensitive","Not sensitive","Medium","Medium","Not sensitive","Not sensitive","Medium","High","High","Not assessed",NA,"Not sensitive","Not sensitive","Not sensitive","Not sensitive","Not sensitive","Medium","Medium",NA
-"A5.371",NA,NA,"Insufficient evidence",NA,"Medium","Medium","Not sensitive","Low","Medium","High","High","Not assessed",NA,"Not sensitive","Not sensitive","Not sensitive","Not sensitive","Not sensitive","Low","Not sensitive",NA
-"A5.372",NA,"Insufficient evidence","Insufficient evidence",NA,"Low","Low","Not sensitive","Medium","Low","High","High","Not assessed",NA,NA,"Not sensitive","Not sensitive","Not sensitive","Not sensitive","Low","Low",NA
-"A5.373",NA,"Medium","Low",NA,"Medium","Medium","Not sensitive","Low","Low","High","High","Not assessed",NA,NA,"Not sensitive","Not sensitive","Not sensitive","Not sensitive","Not sensitive","Low",NA
-"A5.374",NA,"Not sensitive","Not sensitive",NA,"Low","Low","Low","Low","Low","High","High","Not assessed",NA,NA,"Not sensitive","Not sensitive","Not sensitive","Not sensitive","Not sensitive","Low",NA
-"A5.3741",NA,"Not sensitive","Not sensitive",NA,"Low","Low","Low","Low","Low","High","High","Not assessed",NA,NA,"Not sensitive","Not sensitive","Not sensitive","Not sensitive","Not sensitive","Low",NA
-"A5.375",NA,NA,"Insufficient evidence",NA,"Medium","Medium","Not sensitive","Not sensitive","Medium","High","High","Not assessed",NA,"Not sensitive","Not sensitive","Not sensitive","Not sensitive","Not sensitive","Medium","Not sensitive",NA
-"A5.376",NA,NA,"Insufficient evidence",NA,"Medium","Medium","Not sensitive","Not sensitive","Medium","High","High","Not assessed",NA,"Not sensitive","Not sensitive","Not sensitive","Not sensitive","Not sensitive","Medium","Not sensitive",NA
-"A5.377",NA,NA,"Insufficient evidence",NA,"Medium","Medium","Not sensitive","Not sensitive","Medium","High","High","Not assessed",NA,"Not sensitive","Not sensitive","Not sensitive","Not sensitive","Not sensitive","Medium","Not sensitive",NA
-"A5.41",NA,"Insufficient evidence","Insufficient evidence","Medium","Medium","Medium","Not sensitive","Low","Low","High","High","Not assessed",NA,"Not sensitive","Not sensitive","Not sensitive","Not sensitive","Not sensitive","Not sensitive","Not sensitive",NA
-"A5.421","Not sensitive",NA,"Not sensitive",NA,"Low","Low","Low","Not sensitive","Low","High","High","Not assessed",NA,"Not sensitive","Not sensitive","Not sensitive","Not sensitive","Not sensitive","Not sensitive","Not sensitive",NA
-"A5.422",NA,NA,"Not sensitive","Low","Low","Low","Not sensitive","Low","Low","High","High","Not assessed",NA,"Not sensitive","Not sensitive","Not sensitive","Not sensitive","Not sensitive","Not sensitive","Not sensitive",NA
-"A5.431",NA,NA,"Not sensitive","Low","Low","Low","Not sensitive","Low","Low","High","High","Not assessed",NA,"Not sensitive","Not sensitive","Not sensitive","Not sensitive","Not sensitive","Not sensitive","Not sensitive",NA
-"A5.432",NA,"Medium","Insufficient evidence",NA,"Medium","Medium","Not sensitive","Medium","Medium","High","Medium","Not assessed",NA,"Insufficient evidence","Not sensitive","Not sensitive","Not sensitive","Not sensitive","Insufficient evidence","Medium",NA
-"A5.433",NA,"High","Low","Low","Low","Low","Low","Low","Low","High","High","Not assessed",NA,NA,"Not sensitive","Not sensitive","Not sensitive","Not sensitive","Not sensitive","Low",NA
-"A5.434",NA,"Insufficient evidence","Not sensitive","Not sensitive","High","High","Medium","Medium","High","High","Medium","Not assessed",NA,NA,"Not sensitive","Not sensitive","Not sensitive","Not sensitive","Insufficient evidence","Insufficient evidence",NA
-"A5.435",NA,"High","High","High","Medium","High","Not sensitive","High","High","High",NA,"Not assessed",NA,"Not sensitive","Not sensitive","Not sensitive","Not sensitive","Not sensitive","Not sensitive","Not sensitive",NA
-"A5.441",NA,"Insufficient evidence","Insufficient evidence",NA,"Medium","Medium","Not sensitive","Medium","Medium","High","High","Not assessed",NA,"Insufficient evidence","Not sensitive","Not sensitive","Not sensitive","Not sensitive","Medium","Low",NA
-"A5.4411",NA,"Insufficient evidence","Insufficient evidence",NA,"Medium","Medium","Not sensitive","Medium","Medium","High","High","Not assessed",NA,"Insufficient evidence","Not sensitive","Not sensitive","Not sensitive","Not sensitive","Medium","Low",NA
-"A5.442",NA,"Insufficient evidence","Insufficient evidence",NA,"Medium","High","Not sensitive","High","High","High","Not sensitive","Not assessed",NA,NA,"Not sensitive","Not sensitive","Not sensitive","Not sensitive","Not sensitive","Not sensitive",NA
-"A5.443",NA,"High","Insufficient evidence",NA,"Low","Low","Not sensitive","Not sensitive","Low","High","High","Not assessed",NA,NA,"Not sensitive","Not sensitive","Not sensitive","Not sensitive","Not sensitive","Not sensitive",NA
-"A5.444",NA,"Insufficient evidence","Insufficient evidence","Medium","Medium","Medium","Not sensitive","Not sensitive","Medium","High","High","Not assessed","Not sensitive","Not sensitive","Not sensitive","Not sensitive","Not sensitive","Not sensitive","Not sensitive","Low",NA
-"A5.445",NA,"Insufficient evidence","Not sensitive",NA,"Medium","Medium","Not sensitive","Medium","Medium","High","Not sensitive","Not assessed",NA,"Not sensitive","Not sensitive","Not sensitive","Not sensitive","Not sensitive","Not sensitive","Low",NA
-"A5.451",NA,"High","Not sensitive","Not sensitive","Low","Low","Low","Low","Low","High","High","Not assessed",NA,NA,"Not sensitive","Not sensitive","Not sensitive","Not sensitive","Not sensitive","Low",NA
-"A5.51",NA,"High","Insufficient evidence","High","High","High","Medium","High","High","High","Not sensitive","Not assessed",NA,"Insufficient evidence","Not sensitive","Not sensitive","Not sensitive","Not sensitive","High","High",NA
-"A5.511",NA,"High","Insufficient evidence","High","High","High","Medium","High","High","High","Not sensitive","Not assessed",NA,"Insufficient evidence","Not sensitive","Not sensitive","Not sensitive","Not sensitive","High","High",NA
-"A5.5111",NA,"High","Insufficient evidence","High","High","High","Medium","High","High","High","Not sensitive","Not assessed",NA,"Low","Not sensitive","Not sensitive","Not sensitive","Not sensitive","High","High",NA
-"A5.5112",NA,"High","Insufficient evidence","High","High","High","Medium","High","High","High","Not sensitive","Not assessed",NA,"Insufficient evidence","Not sensitive","Not sensitive","Not sensitive","Not sensitive","High","High",NA
-"A5.512",NA,"High","Insufficient evidence","High","High","High","Medium","High","High","High","Not sensitive","Not assessed",NA,"Insufficient evidence","Not sensitive","Not sensitive","Not sensitive","Not sensitive","High","High",NA
-"A5.521",NA,"High","Low",NA,"Medium","Medium","Low","Not sensitive","Medium","High","High","Not assessed",NA,"Medium","Not sensitive","Not sensitive","Not sensitive","Not sensitive","Low","Not sensitive",NA
-"A5.5211",NA,"High","Low",NA,"Medium","Medium","Low","Not sensitive","Medium","High","High","Not assessed",NA,"Medium","Not sensitive","Not sensitive","Not sensitive","Not sensitive","Low","Not sensitive",NA
-"A5.5212",NA,"High","Low",NA,"Medium","Medium","Low","Not sensitive","Medium","High","High","Not assessed",NA,"Medium","Not sensitive","Not sensitive","Not sensitive","Not sensitive","Low","Not sensitive",NA
-"A5.5213",NA,"High","Low",NA,"Medium","Medium","Low","Not sensitive","Medium","High","High","Not assessed",NA,"Medium","Not sensitive","Not sensitive","Not sensitive","Not sensitive","Low","Not sensitive",NA
-"A5.5214",NA,"High","Low",NA,"Medium","Medium","Low","Not sensitive","Medium","High","High","Not assessed",NA,"Medium","Not sensitive","Not sensitive","Not sensitive","Not sensitive","Low","Not sensitive",NA
-"A5.522",NA,"High","Low",NA,"Medium","Medium","Low","Not sensitive","Medium","High","High","Not assessed",NA,"Medium","Not sensitive","Not sensitive","Not sensitive","Not sensitive","Low","Not sensitive",NA
-"A5.523",NA,"High","Low",NA,"Medium","Medium","Medium","Low","Medium","High","High","Not assessed",NA,"Medium","Not sensitive","Not sensitive","Not sensitive","Not sensitive","Low","Low",NA
-"A5.524",NA,"High","Low","Medium","Medium","Medium","Medium","Not sensitive","Medium","High","High","Not assessed",NA,"Low","Not sensitive","Not sensitive","Not sensitive","Low","Low","Not sensitive",NA
-"A5.525",NA,"High","Low","Medium","Medium","Medium","Medium","Not sensitive","Medium","High","High","Not assessed",NA,"Low","Not sensitive","Not sensitive","Not sensitive","Low","Low","Not sensitive",NA
-"A5.526",NA,"Insufficient evidence","Insufficient evidence",NA,"Medium","Low","Low","Medium","Low","High","Not sensitive","Not assessed",NA,"Low","Not sensitive","Not sensitive","Not sensitive","Insufficient evidence","Insufficient evidence","Insufficient evidence",NA
-"A5.527",NA,"Low","Insufficient evidence",NA,"Medium","Medium","Medium","Not sensitive","Medium","High","Not sensitive","Not assessed",NA,"Low","Not sensitive","Not sensitive","Not sensitive","Not sensitive","Insufficient evidence","Insufficient evidence",NA
-"A5.528",NA,"Not sensitive","Not sensitive","Low","Low","Low","Not sensitive","Low","Low","High",NA,"Not assessed",NA,"Not sensitive","Not sensitive","Not sensitive","Not sensitive","Not sensitive","Not sensitive","Not sensitive",NA
-"A5.5331",NA,"High","High","Medium","High","High","High","Medium","Medium","High","High","Not assessed",NA,"High","Not sensitive","Not sensitive","Not sensitive","Medium","Medium","Not sensitive",NA
-"A5.5343",NA,"High","Not sensitive","Low","Medium","Low","High","Medium","Low","High","High","Not assessed",NA,"Low","Not sensitive","Not sensitive","Not sensitive","Not sensitive","Insufficient evidence","Not sensitive",NA
-"A5.611",NA,"Not sensitive","Insufficient evidence","Not sensitive","Medium","Medium","Not sensitive","Not sensitive","Medium","High","Medium","Not assessed",NA,NA,"Not sensitive","Not sensitive","Not sensitive","Not sensitive","Not sensitive","Insufficient evidence",NA
-"A5.612",NA,"Low","Insufficient evidence","Not sensitive","Medium","Medium","Medium","Not sensitive","Low","High","High","Not assessed",NA,"Insufficient evidence","Not sensitive","Not sensitive","Not sensitive","Not sensitive","Not sensitive","Insufficient evidence",NA
-"A5.613",NA,"Insufficient evidence","Insufficient evidence",NA,"High","High","Insufficient evidence","Medium","High","High","Not sensitive","Not assessed",NA,"Insufficient evidence","Not sensitive","Not sensitive","Not sensitive","Not sensitive","Insufficient evidence","High",NA
-"A5.621",NA,"Insufficient evidence","Insufficient evidence",NA,"High","High","Not sensitive","Medium","High","High","High","Not assessed","Insufficient evidence","Insufficient evidence","Not sensitive","Not sensitive","Not sensitive","Not sensitive","Not sensitive","Not sensitive",NA
-"A5.622",NA,"Insufficient evidence","Insufficient evidence",NA,"High","High","Not sensitive","High","High","High","High","Not assessed","Insufficient evidence","Insufficient evidence","Not sensitive","Not sensitive","Not sensitive","Not sensitive","Not sensitive","Not sensitive",NA
-"A5.623",NA,"Insufficient evidence","Insufficient evidence",NA,"High","High","Not sensitive","High","High","High","High","Not assessed","Insufficient evidence","Insufficient evidence","Not sensitive","Not sensitive","Not sensitive","Not sensitive","Not sensitive","Not sensitive",NA
-"A5.624",NA,"Insufficient evidence","Insufficient evidence",NA,"High","High","Not sensitive","High","High","High","High","Not assessed","Insufficient evidence","Insufficient evidence","Not sensitive","Not sensitive","Not sensitive","Not sensitive","Not sensitive","Not sensitive",NA
-"A5.625",NA,"High","Medium","Medium","Medium","Medium","Not sensitive","Medium","Medium","High","Not sensitive","Not assessed",NA,"Insufficient evidence","Not sensitive","Not sensitive","Not sensitive","Not sensitive","Not sensitive","Not sensitive",NA
-"A5.631",NA,"Not sensitive","Insufficient evidence","Not sensitive","High","High","High","Medium","High","High",NA,"Not assessed",NA,"Insufficient evidence","Not sensitive","Not sensitive","Not sensitive","Insufficient evidence","Insufficient evidence","High",NA
-"A5.7211",NA,"Insufficient evidence","Insufficient evidence",NA,NA,"Low","Not sensitive","Low","Low","High","High","Not assessed",NA,"Not sensitive","Not sensitive","Not sensitive","Not sensitive","Not sensitive","Not sensitive","Not sensitive",NA
+"A5.12",NA,NA,NA,NA,NA,1,1,1,1,6,6,3,NA,NA,1,1,1,1,1,1,NA
+"A5.131",NA,NA,NA,NA,NA,1,1,1,1,6,6,3,NA,NA,1,1,1,1,1,1,NA
+"A5.132",NA,6,2,NA,5,5,1,1,1,6,6,3,NA,2,1,1,1,1,5,5,NA
+"A5.133",NA,6,1,5,4,4,4,4,4,6,6,3,NA,NA,1,1,1,1,1,4,NA
+"A5.134",NA,2,2,NA,4,5,1,4,4,6,6,3,NA,1,1,1,1,1,1,4,NA
+"A5.135",NA,6,4,5,4,4,1,4,4,6,6,3,NA,NA,1,1,1,1,1,5,NA
+"A5.136",NA,6,2,NA,4,4,4,2,4,6,6,3,NA,1,1,1,1,1,1,2,NA
+"A5.137",NA,2,2,NA,4,1,1,1,1,6,6,3,NA,2,1,1,1,1,1,4,NA
+"A5.141",NA,1,1,NA,4,4,1,1,4,6,6,3,NA,1,1,1,1,1,1,2,NA
+"A5.142",NA,6,1,1,4,4,4,4,4,6,6,3,NA,NA,1,1,1,1,1,4,NA
+"A5.143",NA,2,2,NA,4,4,1,2,4,6,6,3,NA,1,1,1,1,1,2,4,NA
+"A5.144",NA,2,2,1,5,5,5,1,1,6,6,3,NA,1,1,1,1,1,5,5,NA
+"A5.145",NA,2,2,NA,4,5,1,4,4,6,6,3,NA,4,1,1,1,1,1,4,NA
+"A5.151",NA,6,1,NA,4,4,1,4,4,6,6,3,NA,NA,1,1,1,1,1,4,NA
+"A5.152",NA,2,2,NA,4,4,2,2,4,6,6,3,NA,1,1,1,1,1,2,4,NA
+"A5.21",NA,2,2,5,5,5,1,1,4,6,6,3,NA,1,1,1,1,1,1,1,NA
+"A5.22",1,5,1,5,5,4,4,1,4,6,1,3,NA,1,1,1,1,1,1,1,NA
+"A5.221",1,5,1,NA,4,4,1,1,4,6,6,3,NA,1,1,1,1,1,1,1,NA
+"A5.222",1,1,2,NA,4,4,4,1,4,6,6,3,NA,4,1,1,1,1,1,1,NA
+"A5.231",NA,1,2,NA,4,4,4,1,4,6,6,3,NA,4,1,1,1,1,1,1,NA
+"A5.232",NA,2,2,NA,4,4,1,1,4,6,6,3,1,1,1,1,1,1,1,4,NA
+"A5.233",NA,1,2,NA,4,4,4,1,4,6,6,3,NA,4,1,1,1,1,1,1,NA
+"A5.234",1,NA,4,1,4,5,4,4,4,6,6,3,NA,1,1,1,1,1,1,4,NA
+"A5.241",NA,1,1,5,5,5,1,1,5,6,6,3,NA,NA,1,1,1,1,5,5,NA
+"A5.242",NA,6,4,5,4,4,4,4,4,6,6,3,NA,NA,1,1,1,1,1,4,NA
+"A5.243",NA,6,2,5,5,4,1,1,1,6,6,3,NA,1,1,1,1,1,1,1,NA
+"A5.244",NA,6,4,5,4,4,4,4,4,6,6,3,NA,NA,1,1,1,1,1,4,NA
+"A5.251",NA,6,4,5,4,4,4,4,4,6,6,3,NA,NA,1,1,1,1,1,4,NA
+"A5.252",NA,6,4,5,4,4,4,4,4,6,6,3,NA,NA,1,1,1,1,1,4,NA
+"A5.261",NA,6,4,5,4,4,4,4,4,6,6,3,NA,NA,1,1,1,1,1,4,NA
+"A5.262",NA,NA,2,NA,5,5,1,4,5,6,6,3,NA,NA,1,1,1,1,5,5,NA
+"A5.271",NA,2,2,NA,4,5,1,1,5,6,5,3,NA,1,1,1,1,1,5,4,NA
+"A5.272",NA,NA,2,NA,5,5,1,4,5,6,6,3,NA,NA,1,1,1,1,5,5,NA
+"A5.31",NA,2,2,5,5,5,1,1,4,6,6,3,NA,1,1,1,1,1,1,1,NA
+"A5.321",1,NA,4,NA,4,5,4,4,4,6,6,3,NA,1,1,1,1,1,4,4,NA
+"A5.322",1,6,1,NA,5,4,1,1,4,6,6,3,NA,1,1,1,1,1,1,1,NA
+"A5.323",NA,6,1,5,5,4,1,1,4,6,6,3,NA,1,1,1,1,1,1,1,NA
+"A5.325",NA,6,1,NA,4,4,4,4,4,6,6,3,NA,NA,1,1,1,1,1,1,NA
+"A5.326",NA,6,1,NA,4,4,4,1,4,6,6,3,NA,NA,1,1,1,1,1,1,NA
+"A5.327",NA,6,1,NA,4,4,4,1,4,6,6,3,NA,NA,1,1,1,1,1,4,NA
+"A5.331",NA,6,4,5,4,6,1,1,5,6,6,3,NA,1,1,1,1,1,1,1,NA
+"A5.332",NA,2,2,NA,5,5,1,1,5,6,6,3,1,1,1,1,1,1,1,5,NA
+"A5.333",NA,2,2,NA,4,4,4,1,4,6,6,3,NA,1,1,1,1,1,4,4,NA
+"A5.334",NA,2,2,NA,4,4,4,1,4,6,6,3,NA,1,1,1,1,1,4,4,NA
+"A5.336",NA,6,1,NA,4,4,4,4,4,6,6,3,NA,NA,1,1,1,1,1,1,NA
+"A5.341",NA,6,5,5,5,5,1,4,4,6,6,3,NA,1,1,1,1,1,1,4,NA
+"A5.342",NA,6,2,5,5,5,1,1,1,6,6,3,NA,1,1,1,1,1,1,1,NA
+"A5.343",NA,2,2,NA,5,5,1,1,5,6,6,3,NA,1,1,1,1,1,5,6,NA
+"A5.344",NA,2,1,NA,4,5,1,1,5,6,6,3,NA,1,1,1,1,1,1,5,NA
+"A5.351",NA,NA,2,NA,5,5,1,1,5,6,6,3,NA,1,1,1,1,1,5,1,NA
+"A5.352",NA,NA,2,NA,5,5,1,1,5,6,6,3,NA,1,1,1,1,1,5,4,NA
+"A5.353",NA,NA,2,NA,5,5,1,1,5,6,6,3,NA,1,1,1,1,1,5,1,NA
+"A5.354",NA,2,4,1,5,6,5,5,5,6,6,3,NA,1,1,1,1,1,5,6,NA
+"A5.3541",NA,2,4,1,5,6,5,5,5,6,6,3,NA,1,1,1,1,1,5,6,NA
+"A5.355",NA,2,2,NA,5,5,1,1,5,6,6,3,NA,1,1,1,1,1,5,5,NA
+"A5.361",NA,2,2,1,5,6,1,1,5,6,6,3,NA,1,1,1,1,1,5,5,NA
+"A5.3611",NA,2,2,1,6,6,1,1,6,6,6,3,NA,1,1,1,1,1,5,5,NA
+"A5.362",NA,2,5,1,1,6,1,1,5,6,6,3,NA,1,1,1,1,1,5,5,NA
+"A5.363",1,NA,1,1,5,5,1,1,5,6,6,3,NA,1,1,1,1,1,5,5,NA
+"A5.371",NA,NA,2,NA,5,5,1,4,5,6,6,3,NA,1,1,1,1,1,4,1,NA
+"A5.372",NA,2,2,NA,4,4,1,5,4,6,6,3,NA,NA,1,1,1,1,4,4,NA
+"A5.373",NA,5,4,NA,5,5,1,4,4,6,6,3,NA,NA,1,1,1,1,1,4,NA
+"A5.374",NA,1,1,NA,4,4,4,4,4,6,6,3,NA,NA,1,1,1,1,1,4,NA
+"A5.3741",NA,1,1,NA,4,4,4,4,4,6,6,3,NA,NA,1,1,1,1,1,4,NA
+"A5.375",NA,NA,2,NA,5,5,1,1,5,6,6,3,NA,1,1,1,1,1,5,1,NA
+"A5.376",NA,NA,2,NA,5,5,1,1,5,6,6,3,NA,1,1,1,1,1,5,1,NA
+"A5.377",NA,NA,2,NA,5,5,1,1,5,6,6,3,NA,1,1,1,1,1,5,1,NA
+"A5.41",NA,2,2,5,5,5,1,4,4,6,6,3,NA,1,1,1,1,1,1,1,NA
+"A5.421",1,NA,1,NA,4,4,4,1,4,6,6,3,NA,1,1,1,1,1,1,1,NA
+"A5.422",NA,NA,1,4,4,4,1,4,4,6,6,3,NA,1,1,1,1,1,1,1,NA
+"A5.431",NA,NA,1,4,4,4,1,4,4,6,6,3,NA,1,1,1,1,1,1,1,NA
+"A5.432",NA,5,2,NA,5,5,1,5,5,6,5,3,NA,2,1,1,1,1,2,5,NA
+"A5.433",NA,6,4,4,4,4,4,4,4,6,6,3,NA,NA,1,1,1,1,1,4,NA
+"A5.434",NA,2,1,1,6,6,5,5,6,6,5,3,NA,NA,1,1,1,1,2,2,NA
+"A5.435",NA,6,6,6,5,6,1,6,6,6,NA,3,NA,1,1,1,1,1,1,1,NA
+"A5.441",NA,2,2,NA,5,5,1,5,5,6,6,3,NA,2,1,1,1,1,5,4,NA
+"A5.4411",NA,2,2,NA,5,5,1,5,5,6,6,3,NA,2,1,1,1,1,5,4,NA
+"A5.442",NA,2,2,NA,5,6,1,6,6,6,1,3,NA,NA,1,1,1,1,1,1,NA
+"A5.443",NA,6,2,NA,4,4,1,1,4,6,6,3,NA,NA,1,1,1,1,1,1,NA
+"A5.444",NA,2,2,5,5,5,1,1,5,6,6,3,1,1,1,1,1,1,1,4,NA
+"A5.445",NA,2,1,NA,5,5,1,5,5,6,1,3,NA,1,1,1,1,1,1,4,NA
+"A5.451",NA,6,1,1,4,4,4,4,4,6,6,3,NA,NA,1,1,1,1,1,4,NA
+"A5.51",NA,6,2,6,6,6,5,6,6,6,1,3,NA,2,1,1,1,1,6,6,NA
+"A5.511",NA,6,2,6,6,6,5,6,6,6,1,3,NA,2,1,1,1,1,6,6,NA
+"A5.5111",NA,6,2,6,6,6,5,6,6,6,1,3,NA,4,1,1,1,1,6,6,NA
+"A5.5112",NA,6,2,6,6,6,5,6,6,6,1,3,NA,2,1,1,1,1,6,6,NA
+"A5.512",NA,6,2,6,6,6,5,6,6,6,1,3,NA,2,1,1,1,1,6,6,NA
+"A5.521",NA,6,4,NA,5,5,4,1,5,6,6,3,NA,5,1,1,1,1,4,1,NA
+"A5.5211",NA,6,4,NA,5,5,4,1,5,6,6,3,NA,5,1,1,1,1,4,1,NA
+"A5.5212",NA,6,4,NA,5,5,4,1,5,6,6,3,NA,5,1,1,1,1,4,1,NA
+"A5.5213",NA,6,4,NA,5,5,4,1,5,6,6,3,NA,5,1,1,1,1,4,1,NA
+"A5.5214",NA,6,4,NA,5,5,4,1,5,6,6,3,NA,5,1,1,1,1,4,1,NA
+"A5.522",NA,6,4,NA,5,5,4,1,5,6,6,3,NA,5,1,1,1,1,4,1,NA
+"A5.523",NA,6,4,NA,5,5,5,4,5,6,6,3,NA,5,1,1,1,1,4,4,NA
+"A5.524",NA,6,4,5,5,5,5,1,5,6,6,3,NA,4,1,1,1,4,4,1,NA
+"A5.525",NA,6,4,5,5,5,5,1,5,6,6,3,NA,4,1,1,1,4,4,1,NA
+"A5.526",NA,2,2,NA,5,4,4,5,4,6,1,3,NA,4,1,1,1,2,2,2,NA
+"A5.527",NA,4,2,NA,5,5,5,1,5,6,1,3,NA,4,1,1,1,1,2,2,NA
+"A5.528",NA,1,1,4,4,4,1,4,4,6,NA,3,NA,1,1,1,1,1,1,1,NA
+"A5.5331",NA,6,6,5,6,6,6,5,5,6,6,3,NA,6,1,1,1,5,5,1,NA
+"A5.5343",NA,6,1,4,5,4,6,5,4,6,6,3,NA,4,1,1,1,1,2,1,NA
+"A5.611",NA,1,2,1,5,5,1,1,5,6,5,3,NA,NA,1,1,1,1,1,2,NA
+"A5.612",NA,4,2,1,5,5,5,1,4,6,6,3,NA,2,1,1,1,1,1,2,NA
+"A5.613",NA,2,2,NA,6,6,2,5,6,6,1,3,NA,2,1,1,1,1,2,6,NA
+"A5.621",NA,2,2,NA,6,6,1,5,6,6,6,3,2,2,1,1,1,1,1,1,NA
+"A5.622",NA,2,2,NA,6,6,1,6,6,6,6,3,2,2,1,1,1,1,1,1,NA
+"A5.623",NA,2,2,NA,6,6,1,6,6,6,6,3,2,2,1,1,1,1,1,1,NA
+"A5.624",NA,2,2,NA,6,6,1,6,6,6,6,3,2,2,1,1,1,1,1,1,NA
+"A5.625",NA,6,5,5,5,5,1,5,5,6,1,3,NA,2,1,1,1,1,1,1,NA
+"A5.631",NA,1,2,1,6,6,6,5,6,6,NA,3,NA,2,1,1,1,2,2,6,NA
+"A5.7211",NA,2,2,NA,NA,4,1,4,4,6,6,3,NA,1,1,1,1,1,1,1,NA
 "B3.111",NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
 "B3.113",NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
 "B3.114",NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA

@@ -42,7 +42,7 @@ EunisAssessed <- sens.act %>%
   for(i in 1:length(unique(sens.act$ActivityCode))){
 
   # filter table by Activity, and sequentially use only
-  sens.z10.tmp <- sens.act %>% dplyr::filter(ActivityCode == unique(sens.act$ActivityCode)[i])
+  sens.z10.tmp <- sens.act.rank %>% dplyr::filter(ActivityCode == unique(sens.act$ActivityCode)[i])
   
   # Join each Activity pressure to the DISTINCT EUNIS Code table (from outside loop) to obtian a complete table of all pressure sensitivities for each acitvity
   Eunis.Pressure.tmp <- left_join(EunisAssessed, sens.z10.tmp, by  = "EUNISCode")
