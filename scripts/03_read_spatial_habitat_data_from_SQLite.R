@@ -7,7 +7,6 @@ library(dbplyr)
 orig.d <- getwd()
 scratch.d <- "F:/scratch"
 setwd(scratch.d)
-#connect to GIS file: Note that the file has geomotry errors, and therefore no further corrections to multi part polygons could be applied.
 con.gis = DBI::dbConnect(RSQLite::SQLite(), "Phil_Fish_project_Input_Polys_WGS84_Internal_BGR.sqlite")
 src_dbi(con.gis) #show connection details, and list all tables
 
