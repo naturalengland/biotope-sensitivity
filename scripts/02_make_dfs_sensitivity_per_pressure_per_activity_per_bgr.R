@@ -39,6 +39,9 @@ EunisAssessed <- sens.act %>%
 # Obtain sensitvity tables, one for each acitivty, with each EUNIs code assessed against each pressure code: 
 ## A FOR loop follows (for each activity) in which the Activity Pressure Eunis table that was read the following process is carried out for EACh activity (based on Activity code)
 
+act.press.list <- list()
+act.press.list.2 <- list()
+
   for(i in 1:length(unique(sens.act$ActivityCode))){
 
   # filter table by Activity, and sequentially use only
@@ -58,11 +61,23 @@ EunisAssessed <- sens.act %>%
   
   #do so while assigning the name created inthe for loop to each data frmae, so as to end up with a unique dataframe for each acitivity in which EUNIs code are transposed against Pressures
   assign(x = nam, dat.tmp) # 
-  #write csv
+  #write csv - may drop this in due course if list of dataframes work
   write.csv(dat.tmp ,paste0("./output/",nam,".csv"), row.names = F) # write a csv file to the working directory, wihtin an output folder
+  
+  #tidy the pressure within the activity - must first check if this is OK, as there may be reason for
+  #dat.tmp %>% rename(eunis.match.assessed = EUNISCode) %>% # rename for matching later
+  #        gather("B1":"P8", key = pressures.codes, value = sens.rank.value)%>% # tidy the data for easier use
+  #        na.omit() # remove non-sensical values
+  
+  #make a list of pressure files
+  act.press.list[[i]] <- dat.tmp
+  act.press.list.2[[i]] <- Eunis.Pressure.tmp
   
   #house keeping
   rm(Eunis.Pressure.tmp, sens.z10.tmp, sens.select.tmp, dat.tmp) # empty out the tmp vairables to ensure loops are running with correct data
 }
+names(act.press.list.2) <- unique(sens.act$ActivityCode) # this will assign the Activity codes as names to teh dataframes within the list.
 
 rm(nam) # house keeping: remove temporary or non-essential variables
+
+
