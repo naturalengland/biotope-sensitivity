@@ -16,6 +16,12 @@ sens.act <- qryEUNIS_ActPressSens
 sens.act$EUNISCode <- as.character(sens.act$EUNISCode)
 rm(qryEUNIS_ActPressSens, qryEUNIS_grp_act, qryEUNISFeatAct)
 
+
+# add ranking of sensitivity
+source("./scripts/09_sensitivity_rank.R")
+sens.act.rank <- left_join(sens.act,sens.rank, by = "ActSensRank")
+
+
 ## Or read in the saved text file
 # Import csv of sensitivities per EUNIS code per pressue, for each biotope
 #wd <- getwd() # save the Project's original working directory to recycle
@@ -42,8 +48,8 @@ EunisAssessed <- sens.act %>%
   Eunis.Pressure.tmp <- left_join(EunisAssessed, sens.z10.tmp, by  = "EUNISCode")
   #Eunis.Pressure.tmp$ID <- row.names(Eunis.Pressure.tmp)
   # Select only variables of interest
-  sens.select.tmp <- Eunis.Pressure.tmp %>% select(EUNISCode, PressureCode, ActSensRank) #%>%
-
+  #sens.select.tmp <- Eunis.Pressure.tmp %>% select(EUNISCode, PressureCode, ActSensRank) #%>%
+  sens.select.tmp <- Eunis.Pressure.tmp %>% select(EUNISCode, PressureCode, rank.value) #%>%
   #nam <- paste("act.", i, sep = "") # generate a name within the FOr LOOP based on the ith cycle in the for loop # not used as it will just count i  = 1,2,3,4 etc
   nam <- as.character(sens.z10.tmp$ActivityCode[1]) # generate a name within the FOr LOOP based on the ith cycle in the for loop
   
