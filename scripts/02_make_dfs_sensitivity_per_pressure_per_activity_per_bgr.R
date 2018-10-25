@@ -4,11 +4,13 @@
 #Date: 2018-08-28
 
 ##start clean
-#rm(list = ls())
+rm(list = ls())
 
 #load libraries
 library(tidyverse)
 library(reshape2)
+
+orig.d <- "F:/projects/biotope-sensitivity"
 setwd(orig.d)
 # 01_connect_to_access_db.R to obtain qryEUNIS_ActPressSens, which is sens.act
 source("./scripts/01_connect_to_access_db.R")
@@ -52,7 +54,7 @@ act.press.list.2 <- list()
   #Eunis.Pressure.tmp$ID <- row.names(Eunis.Pressure.tmp)
   # Select only variables of interest
   #sens.select.tmp <- Eunis.Pressure.tmp %>% select(EUNISCode, PressureCode, ActSensRank) #%>%
-  sens.select.tmp <- Eunis.Pressure.tmp %>% select(EUNISCode, PressureCode, rank.value) #%>%
+  sens.select.tmp <- Eunis.Pressure.tmp %>% select(EUNISCode,ActivityCode, PressureCode, rank.value) #%>%
   #nam <- paste("act.", i, sep = "") # generate a name within the FOr LOOP based on the ith cycle in the for loop # not used as it will just count i  = 1,2,3,4 etc
   nam <- as.character(sens.z10.tmp$ActivityCode[1]) # generate a name within the FOr LOOP based on the ith cycle in the for loop
   
@@ -71,7 +73,7 @@ act.press.list.2 <- list()
   
   #make a list of pressure files
   act.press.list[[i]] <- dat.tmp
-  act.press.list.2[[i]] <- Eunis.Pressure.tmp
+  act.press.list.2[[i]] <- sens.select.tmp
   
   #house keeping
   rm(Eunis.Pressure.tmp, sens.z10.tmp, sens.select.tmp, dat.tmp) # empty out the tmp vairables to ensure loops are running with correct data

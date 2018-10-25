@@ -1,4 +1,4 @@
-#extract sensitivity scores (maximum, minimum (with a cap) from sbgr_bap)
+#extract sensitivity scores (maximum, minimum (with a cap) from sbgr_bap): working with XAP instead
 library(plyr)
 library(tidyverse)
 
@@ -21,7 +21,7 @@ library(tidyverse)
 #        slice(1) # keeps only the top value /selects row by position, done to preserve assessed eunis code
 
 # Active code: in double list
-sbgr.BAP.min.max.sens <- sbgr.bap %>%
+sbgr.BAP.min.max.sens <- xap.ls %>%
         llply(function(x){
                 x %>%
                         llply(function(y){
@@ -34,6 +34,7 @@ sbgr.BAP.min.max.sens <- sbgr.bap %>%
                         }, .progress = "text")
         }, .progress = "text")
 
-
+#house keeping
+rm(xap.ls,sbgr.bap)
 
 

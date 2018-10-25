@@ -13,11 +13,12 @@ sbgr.bap <- sbgr.matched.btpt.w.rpl %>%
                 #x.rn <- x$eunis.code.gis # this is the EUNIs codes of the GIS files, which will become the row names for each data frame
                 
                 #simplified data set
-                x.df <- x %>% dplyr::select(eunis.code.gis, 1:14, 19:354) %>% 
+                x.df <- #x %>% dplyr::select(eunis.code.gis, 1:14, 19:354) %>%
+                        x %>% dplyr::select(eunis.code.gis, sbgr, 1:14, 19:354) %>%
                         tidyr::gather("A5.22":"A5.7211",key = "eunis.assessed",value = "eunis.gis") %>%
                         filter(eunis.gis != "<NA>") %>%
-                        select(eunis.code.gis, eunis.match.assessed = eunis.assessed) %>%
-                        arrange(eunis.code.gis,eunis.match.assessed)
+                        select(sbgr, eunis.code.gis, eunis.match.assessed = eunis.assessed) %>%
+                        arrange(sbgr, eunis.code.gis,eunis.match.assessed)
                 
                 xap.ls <- act.press.list.2 %>% 
                         plyr::llply(function(y){
