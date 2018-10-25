@@ -32,6 +32,7 @@ x.dfs.lst <- split(EunisAssessed,f = EunisAssessed$level)
 
 level.result.tbl <- vector("list", length(x.dfs.lst))
 names(level.result.tbl) <- paste0("h.lvl_",names(x.dfs.lst))
+
 #datalist <- list()
 for (g in seq_along(x.dfs.lst)) {
   #determine the number of characters for substring limit to feed into substring statement
@@ -47,6 +48,6 @@ for (g in seq_along(x.dfs.lst)) {
   
   
   # specify a large table into which results can be written outside of for loops
-  match_eunis_to_biotopes_fn(x,bgr.dfs.lst,mx.lvl)
-  level.result.tbl[[g]] <- out # this does not yet work...
+  match_eunis_to_biotopes_fn(x,bgr.dfs.lst,mx.lvl) # this calls the FUNCTION which generates the results tables which are written to CSV - this should rather be stored as R objects which can be removed in due course than saving files - but needs further work
+  #level.result.tbl[[g]] <- out # this does not yet work...
 }
