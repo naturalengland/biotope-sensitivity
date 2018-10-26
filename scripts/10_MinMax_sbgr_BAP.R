@@ -30,7 +30,8 @@ sbgr.BAP.min.max.sens <- sbgr.bap %>%
                                         dplyr::mutate(max.sens = max(rank.value), # maximum sensitivity value, done using mutate to preserve the "eunis.match.assessed" column
                                                       min.sens = min(rank.value[rank.value > 3]),
                                                       min.sens.na = min(rank.value)) %>% # minimum sensitity value
-                                        slice(1) # keeps only the top value /selects row by position, done to preserve eunis.match.assessed code
+                                        slice(1) %>%
+                                        arrange(PressureCode)# keeps only the top value /selects row by position, done to preserve eunis.match.assessed code
                         }, .progress = "text")
         }, .progress = "text")
 
