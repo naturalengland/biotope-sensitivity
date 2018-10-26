@@ -75,7 +75,7 @@ str(test.sql.dat)
 
 act.sbgr.bps.gis <- sbgr.BAP.min.max.sens %>%
         llply(function(x){
-                sbgr.hab.gis <- left_join(hab.types,sbgr.BAP.min.max.sens[[1]], 
+                sbgr.hab.gis <- left_join(hab.types,sbgr.BAP.min.max.sens[[1]],#START HERE!!! this code is the test code and should be replaced to be suitable to loop through lists.1 
                                           by = c("bgr_subreg_id" = "sbgr", "hab.1" = "eunis.code.gis"))# e.g. composite join: left_join(d1, d2, by = c("x" = "x2", "y" = "y2"))
                 
                 
