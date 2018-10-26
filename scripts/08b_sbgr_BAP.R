@@ -8,8 +8,8 @@ library(magrittr)
                 
 xap.ls <- act.press.list.2 %>% 
         plyr::llply(function(y){
-                        tidy.p <- y %>% 
-                        rename(eunis.match.assessed = EUNISCode)
+                        tidy.p <- y# %>% 
+                        #rename(eunis.match.assessed = EUNISCode)
                         
                         sbgr.bap <- sbgr.matched.btpt.w.rpl %>% 
                                 plyr::llply(function(x) { 
@@ -21,7 +21,7 @@ xap.ls <- act.press.list.2 %>%
                                                 arrange(sbgr, eunis.code.gis,eunis.match.assessed)
                         
                         
-                        xp.df <- right_join(x.df, tidy.p, by = "eunis.match.assessed")
+                        xp.df <- right_join(x.df, tidy.p, by = c("eunis.match.assessed" = "EUNISCode"))
                                 
         })
                 
@@ -30,6 +30,7 @@ xap.ls <- act.press.list.2 %>%
         #
 }, .progress = "text")
 saveRDS(xap.ls,"./output/xap_ls.rds")
+
 
 
 
