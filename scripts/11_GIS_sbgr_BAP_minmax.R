@@ -71,12 +71,29 @@ str(test.sql.dat)
 
 
 
-dbWriteTable(conn=con_gis, name="gis_hab_geom_test", gis.hab.geom, overwrite = T,row.names=F)
+#dbWriteTable(conn=con_gis, name="gis_hab_geom_test", gis.hab.geom, overwrite = T,row.names=F)
 
 act.sbgr.bps.gis <- sbgr.BAP.min.max.sens %>%
         llply(function(x){
                 sbgr.hab.gis <- left_join(hab.types,sbgr.BAP.min.max.sens[[1]], 
                                           by = c("bgr_subreg_id" = "sbgr", "hab.1" = "eunis.code.gis"))# e.g. composite join: left_join(d1, d2, by = c("x" = "x2", "y" = "y2"))
+                
+                
+                #joinhabitat to geometry
+                gis.hab.geom <- dplyr::left_join(gis.geom.dat, hab.types, by = "ogc_fid") %>%
+                        select(ogc_fid, GEOMETRY, hab_1 =hab.1, sbgr_id = bgr_subreg_id )
+                
+                #make a newSQL lite table (empty?)
+                dbSendQuery(conn=con_gis,
+                            "CREATE TABLE gis_hab_geom_test_2
+                            (ogc_fid INTEGER, 
+                            GEOMETRY BLOB, 
+                            hab_1 TEXT, 
+                            sbgr_id TEXT, 
+                            PRIMARY KEY(ogc_fid)
+                            )
+                            ")
+                dbWriteTable(conn=con_gis, name="gis.hab.geom", gis.hab.geom, overwrite = T,row.names=F)
                 
         }, .progress = "text")
 
