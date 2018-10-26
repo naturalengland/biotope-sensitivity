@@ -1,3 +1,5 @@
+rm(list = ls())
+
 # connect to the MS Access Conservation Advice databse (PD_AoO), and query the sensitivity per Biotope 
 # this is the first file in a series of files which has to be run.
 
@@ -72,5 +74,8 @@ qrySeaRegion_EUNIS_Sens <- sqlQuery(conn, paste("SELECT tblEUNISFeature.EUNISCod
 qrySeaRegion_relevant_biotopes <- sqlQuery(conn, paste("SELECT tblEUNISBiogeoRegion.EUNISCode, tblEUNISBiogeoRegion.BGRCode, tblEUNISBiogeoRegion.RelevantToRegion, qrySeaRegionLUT_relevant.RegionalSea
 FROM tblEUNISBiogeoRegion INNER JOIN qrySeaRegionLUT_relevant ON tblEUNISBiogeoRegion.BGRCode = qrySeaRegionLUT_relevant.BGRCode
                                                        WHERE (((tblEUNISBiogeoRegion.RelevantToRegion)='Yes'));"))
+
+##house kepping: close the connection: S3 method for class 'RODBC'
+close(con = conn)
 
 
