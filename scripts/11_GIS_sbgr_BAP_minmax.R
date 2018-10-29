@@ -4,6 +4,7 @@ library(plyr)
 library(DBI)
 library(tidyverse)
 library(dbplyr)
+library(stringr)
 
 # connect to the sqlite file
 orig.d <- getwd()
@@ -29,7 +30,7 @@ gis.geom.dat <- gis.geom.bgr.con %>%
 
 
 
-
+# TEST code-----------------------------
 #joinhabitat to geometry
 gis.hab.geom <- dplyr::left_join(gis.geom.dat, hab.types, by = "ogc_fid") %>%
         select(ogc_fid, GEOMETRY, hab_1 =hab.1, sbgr_id = bgr_subreg_id )
@@ -52,12 +53,12 @@ dbSendQuery(conn=con_gis,
 
 
 # List columns in a table
-dbListFields(con_gis, "gis_hab_geom_test")
+dbListFields(con_gis, "gis_hab_geom_test_2")
 #select columns of interest from sql lite table of interest
-test.sql.dat <- tbl(con_gis, sql("SELECT ogc_fid, GEOMETRY, hab_1, sbgr_id FROM gis_hab_geom_test"))
+test.sql.dat <- tbl(con_gis, sql("SELECT ogc_fid, GEOMETRY, hab_1, sbgr_id FROM gis_hab_geom_test_2"))
 str(test.sql.dat)
 
-
+# End test code----------------------------
 
 
 #test code
@@ -75,7 +76,7 @@ str(test.sql.dat)
 
 act.sbgr.bps.gis <- sbgr.BAP.min.max.sens %>%
         llply(function(x){
-                sbgr.hab.gis <- left_join(hab.types,sbgr.BAP.min.max.sens[[1]],#START HERE!!! this code is the test code and should be replaced to be suitable to loop through lists.1 
+                sbgr.hab.gis <- left_join(hab.types,x,#START HERE!!! this code is the test code and should be replaced to be suitable to loop through lists.1 
                                           by = c("bgr_subreg_id" = "sbgr", "hab.1" = "eunis.code.gis"))# e.g. composite join: left_join(d1, d2, by = c("x" = "x2", "y" = "y2"))
                 
                 
@@ -83,17 +84,23 @@ act.sbgr.bps.gis <- sbgr.BAP.min.max.sens %>%
                 gis.hab.geom <- dplyr::left_join(gis.geom.dat, hab.types, by = "ogc_fid") %>%
                         select(ogc_fid, GEOMETRY, hab_1 =hab.1, sbgr_id = bgr_subreg_id )
                 
-                #make a newSQL lite table (empty?)
+                #make unique filenames to be pasted into SQL
+                create.db <- paste0("CREATE TABLE sbgr_BAP_sens_minmax_",gsub(x =unique(x$ActivityCode),".","_", fixed = T),
+                                   "(ogc_fid INTEGER,
+                                   GEOMETRY BLOB,
+                                   hab_1 TEXT,
+                                   sbgr_id TEXT,
+                                   PRIMARY KEY(ogc_fid))
+                                   ")
+                
+                
+                filename <- paste0("sbgr_BAP_sens_minmax_",gsub(x =unique(x$ActivityCode),".","_", fixed = T))
+                #make a empty newSQL lite table 
                 dbSendQuery(conn=con_gis,
-                            "CREATE TABLE gis_hab_geom_test_2
-                            (ogc_fid INTEGER, 
-                            GEOMETRY BLOB, 
-                            hab_1 TEXT, 
-                            sbgr_id TEXT, 
-                            PRIMARY KEY(ogc_fid)
-                            )
-                            ")
-                dbWriteTable(conn=con_gis, name="gis.hab.geom", gis.hab.geom, overwrite = T,row.names=F)
+                            filename)
+                #write into the tabnle using the overwrite statement
+                dbWriteTable(conn=con_gis, name=filename, sbgr.hab.gis, overwrite = T,row.names=F)
+                
                 
         }, .progress = "text")
 
@@ -102,3 +109,9 @@ act.sbgr.bps.gis <- sbgr.BAP.min.max.sens %>%
 ##house kepping: close the connection: S3 method for class 'RODBC'
 close(con = conn)
 dbDisconnect(con.gis)
+
+
+
+
+
+)
