@@ -45,13 +45,13 @@ sbgr.BAP.max.sens <- xap.ls %>%
                                  # keeps only the top value /selects row by position, done to preserve eunis.match.assessed code
                                 
                                 })
-        }, .progress = "text") #%>% #now we can reshape the data as follows:
-        #llply(function(x){#splits by activity, and returns a list split by activity - becuase each activity will be mapped separately
-         #       x %>%
-          #              ldply(function(y){ #splits list by sub_biogeoregion - and returns a dataframe (per activity - see above), becuase we want to match the senstivities to GIS in one go for all biogeoregions (per activity)
-           #                     y
-            #            })
-        #}, .progress = "text")
+        }, .progress = "text") %>% #now we can reshape the data as follows:
+        llply(function(x){#splits by activity, and returns a list split by activity - becuase each activity will be mapped separately
+                x %>%
+                        ldply(function(y){ #splits list by sub_biogeoregion - and returns a dataframe (per activity - see above), becuase we want to match the senstivities to GIS in one go for all biogeoregions (per activity)
+                                y
+                        })
+        }, .progress = "text")
 
 
 rm(xap.ls)
