@@ -78,15 +78,14 @@ act.sbgr.bps.gis <- sbgr.BAP.max.sens %>%
         llply(function(x){
                 sbgr.hab.gis <- left_join(hab.types,x,#START HERE!!! this code is the test code and should be replaced to be suitable to loop through lists.1 
                                           by = c("hab.1" = "eunis.code.gis")) %>%# e.g. composite join: left_join(d1, d2, by = c("x" = "x2", "y" = "y2"))
-                        select(ogc_fid, hab.1, eunis.match.assessed, ActivityCode, PressureCode, max.sens) %>%
+                        select(ogc_fid,sbgr, hab.1, eunis.match.assessed, ActivityCode, PressureCode, max.sens) %>%
                         spread(key = PressureCode, value = max.sens) #%>%
                         #distinct(ogc_fid,hab.1) %>%
                         #as.tibble()
                 
-                act.code <- unique(as.character(sbgr.hab.gis$ActivityCode))[1]
                 #generate a single maximum value per column
                 sbgr.hab.gis.2  <-  sbgr.hab.gis %>%
-                        group_by(ogc_fid) %>%
+                        group_by(ogc_fid, sbgr, hab.1) %>%
                         summarise(max_B1 = max(B1),
                                   max_B3 = max(B3),
                                   max_B5 = max(B5),
@@ -102,14 +101,33 @@ act.sbgr.bps.gis <- sbgr.BAP.max.sens %>%
                                   max_P7 = max(P7),
                                   max_P8 = max(P8)
                                   )
+                #This code was run to determinbe the maximum number of slices required, which informs the number of coolumns to gerneate to store the matches eunis.match.assessed values in
+                #n.sclices  <-  sbgr.hab.gis %>%
+                #        group_by(ogc_fid) %>%
+                #        count() %>%
+                #        arrange(desc(n))
+                #genreate the table columns with the relevant eunis.match.assessed in each column
+                #eunis.match  <-  sbgr.hab.gis %>%
+                #        group_by(ogc_fid) %>%
+                #        transmute(eunis.match.assessed.1 = slice(1),
+                #                  eunis.match.assessed.2 = slice(2),
+                #                  eunis.match.assessed.3 = slice(3),
+                #                  eunis.match.assessed.4 = slice(4),
+                #                  eunis.match.assessed.5 = slice(5)
+                                  #eunis.match.assessed.6 = slice(6),
+                                  #eunis.match.assessed.7 = slice(7),
+                                  #eunis.match.assessed.8 = slice(8),
+                                  #eunis.match.assessed.9 = slice(9),
+                                  #eunis.match.assessed.10 = slice(10)
+                 #                 )
                                  
                         
                 
-                sbgr.hab.gis.2 %>% spread(key = eunis.match, value = max.sens)
+                
                 
                 #joinhabitat to geometry (if we cannot tie geometry to the geometry of a different tbl)
-                gis.hab.geom <- dplyr::left_join(gis.geom.dat, sbgr.hab.gis, by = "ogc_fid") %>%
-                        select(ogc_fid, GEOMETRY, hab_1 =hab.1 )
+                gis.hab.geom <- dplyr::left_join(gis.geom.dat, sbgr.hab.gis.2, by = "ogc_fid") #%>%
+                        #select(ogc_fid, GEOMETRY, hab_1 =hab.1 )
                 
                 #make unique filenames to be pasted into SQL
                 #create.db <- paste0("CREATE TABLE sbgr_BAP_sens_minmax_",gsub(x =unique(x$ActivityCode),".","_", fixed = T),
@@ -121,7 +139,7 @@ act.sbgr.bps.gis <- sbgr.BAP.max.sens %>%
                 #                   ")
                 
                 
-                filename <- paste0("sbgr_BAP_sens_max_",gsub(x =unique(sbgr.hab.gis$ActivityCode),".","_", fixed = T))
+                filename <- paste0("sbgr_BAP_sens_max_",gsub(x =unique(x$ActivityCode),".","_", fixed = T),"_",as.character(unique(x$sbgr[1])))
                 #make a empty newSQL lite table 
                 #dbSendQuery(conn=con_gis,
                 #            filename)
