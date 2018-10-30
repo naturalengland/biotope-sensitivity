@@ -32,31 +32,31 @@ gis.geom.dat <- gis.geom.bgr.con %>%
 
 # TEST code-----------------------------
 #joinhabitat to geometry
-gis.hab.geom <- dplyr::left_join(gis.geom.dat, hab.types, by = "ogc_fid") %>%
-        select(ogc_fid, GEOMETRY, hab_1 =hab.1, sbgr_id = bgr_subreg_id )
+#gis.hab.geom <- dplyr::left_join(gis.geom.dat, hab.types, by = "ogc_fid") %>%
+#        select(ogc_fid, GEOMETRY, hab_1 =hab.1, sbgr_id = bgr_subreg_id )
 #rm(hab.types,gis.geom.dat)
-names(gis.hab.geom)
-str(gis.hab.geom)
+#names(gis.hab.geom)
+#str(gis.hab.geom)
 
 
 #make a newSQL lite table (empty)
-dbSendQuery(conn=con_gis,
-                "CREATE TABLE gis_hab_geom_test_2
-            (ogc_fid INTEGER, 
-            GEOMETRY BLOB, 
-            hab_1 TEXT, 
-            sbgr_id TEXT, 
-            PRIMARY KEY(ogc_fid)
-                )
-            ")
+#dbSendQuery(conn=con_gis,
+#                "CREATE TABLE gis_hab_geom_test_2
+#            (ogc_fid INTEGER, 
+#            GEOMETRY BLOB, 
+#            hab_1 TEXT, 
+#            sbgr_id TEXT, 
+#            PRIMARY KEY(ogc_fid)
+#                )
+#            ")
 
 
 
 # List columns in a table
-dbListFields(con_gis, "gis_hab_geom_test_2")
+#dbListFields(con_gis, "gis_hab_geom_test_2")
 #select columns of interest from sql lite table of interest
-test.sql.dat <- tbl(con_gis, sql("SELECT ogc_fid, GEOMETRY, hab_1, sbgr_id FROM gis_hab_geom_test_2"))
-str(test.sql.dat)
+#test.sql.dat <- tbl(con_gis, sql("SELECT ogc_fid, GEOMETRY, hab_1, sbgr_id FROM gis_hab_geom_test_2"))
+#str(test.sql.dat)
 
 # End test code----------------------------
 
@@ -76,30 +76,29 @@ str(test.sql.dat)
 
 act.sbgr.bps.gis <- sbgr.BAP.max.sens %>%
         llply(function(x){
-                sbgr.hab.gis <- left_join(hab.types,x,#START HERE!!! this code is the test code and should be replaced to be suitable to loop through lists.1 
-                                          by = c("hab.1" = "eunis.code.gis")) %>%# e.g. composite join: left_join(d1, d2, by = c("x" = "x2", "y" = "y2"))
-                        select(ogc_fid,sbgr, hab.1, eunis.match.assessed, ActivityCode, PressureCode, max.sens) %>%
+                sbgr.hab.gis <- left_join(hab.types, x, by = c("bgr_subreg_id" = "sbgr", "hab.1" = "eunis.code.gis")) %>%# e.g. composite join: left_join(d1, d2, by = c("x" = "x2", "y" = "y2"))
+                        select(ogc_fid, sbgr = bgr_subreg_id, eunis.code.gis = hab.1, eunis.match.assessed, ActivityCode, PressureCode, max.sens) %>%
                         spread(key = PressureCode, value = max.sens) #%>%
                         #distinct(ogc_fid,hab.1) %>%
                         #as.tibble()
                 
                 #generate a single maximum value per column
                 sbgr.hab.gis.2  <-  sbgr.hab.gis %>%
-                        group_by(ogc_fid, sbgr, hab.1) %>%
-                        summarise(max_B1 = max(B1),
-                                  max_B3 = max(B3),
-                                  max_B5 = max(B5),
-                                  max_B6 = max(B6),
-                                  max_D2 = max(D2),
-                                  max_D6 = max(D6),
-                                  max_O1 = max(O1),
-                                  max_O3 = max(O3),
-                                  max_O5 = max(O5),
-                                  max_P1 = max(P1),
-                                  max_P2 = max(P2),
-                                  max_P3 = max(P3),
-                                  max_P7 = max(P7),
-                                  max_P8 = max(P8)
+                        group_by(ogc_fid, sbgr, eunis.code.gis) %>%
+                        summarise(max_B1 = max(B1, na.rm = T),
+                                  max_B3 = max(B3, na.rm = T),
+                                  max_B5 = max(B5, na.rm = T),
+                                  max_B6 = max(B6, na.rm = T),
+                                  max_D2 = max(D2, na.rm = T),
+                                  max_D6 = max(D6, na.rm = T),
+                                  max_O1 = max(O1, na.rm = T),
+                                  max_O3 = max(O3, na.rm = T),
+                                  max_O5 = max(O5, na.rm = T),#pressure O5 not available for all activities
+                                  max_P1 = max(P1, na.rm = T),
+                                  max_P2 = max(P2, na.rm = T),
+                                  max_P3 = max(P3, na.rm = T),
+                                  max_P7 = max(P7, na.rm = T),
+                                  max_P8 = max(P8, na.rm = T)
                                   )
                 #This code was run to determinbe the maximum number of slices required, which informs the number of coolumns to gerneate to store the matches eunis.match.assessed values in
                 #n.sclices  <-  sbgr.hab.gis %>%
@@ -139,14 +138,16 @@ act.sbgr.bps.gis <- sbgr.BAP.max.sens %>%
                 #                   ")
                 
                 
-                filename <- paste0("sbgr_BAP_sens_max_",gsub(x =unique(x$ActivityCode),".","_", fixed = T),"_",as.character(unique(x$sbgr[1])))
+                #filename <- paste0("sbgr_BAP_sens_max_",gsub(x =unique(x$ActivityCode),".","_", fixed = T),"_",as.character(unique(x$sbgr[1])))
+                filename <- paste0("sbgr_BAP_sens_max_",gsub(x =unique(x$ActivityCode),".","_", fixed = T))
                 #make a empty newSQL lite table 
                 #dbSendQuery(conn=con_gis,
                 #            filename)
                 #write into the table using the overwrite statement
                 
                 dbWriteTable(conn=con_gis, name=filename, gis.hab.geom, overwrite = T,row.names=F)
-                
+                dbSendQuery(conn=con_gis,
+                            INSERT INTO geometry_columns (f_table_name,geometry_column, geometry_type,coord_dimension,srid,geometry_format) VALUES (filename, "GEOMETRY", "6", "2", "", "WKB"))
                 
         }, .progress = "text") #%>%
         #spread result according to pressures, and drop non relevant columns
