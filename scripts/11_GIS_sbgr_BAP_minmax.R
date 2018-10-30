@@ -74,35 +74,65 @@ str(test.sql.dat)
 
 #dbWriteTable(conn=con_gis, name="gis_hab_geom_test", gis.hab.geom, overwrite = T,row.names=F)
 
-act.sbgr.bps.gis <- sbgr.BAP.min.max.sens %>%
+act.sbgr.bps.gis <- sbgr.BAP.max.sens %>%
         llply(function(x){
                 sbgr.hab.gis <- left_join(hab.types,x,#START HERE!!! this code is the test code and should be replaced to be suitable to loop through lists.1 
-                                          by = c("bgr_subreg_id" = "sbgr", "hab.1" = "eunis.code.gis"))# e.g. composite join: left_join(d1, d2, by = c("x" = "x2", "y" = "y2"))
+                                          by = c("hab.1" = "eunis.code.gis")) %>%# e.g. composite join: left_join(d1, d2, by = c("x" = "x2", "y" = "y2"))
+                        select(ogc_fid, hab.1, eunis.match.assessed, ActivityCode, PressureCode, max.sens) %>%
+                        spread(key = PressureCode, value = max.sens) #%>%
+                        #distinct(ogc_fid,hab.1) %>%
+                        #as.tibble()
                 
+                act.code <- unique(as.character(sbgr.hab.gis$ActivityCode))[1]
+                #generate a single maximum value per column
+                sbgr.hab.gis.2  <-  sbgr.hab.gis %>%
+                        group_by(ogc_fid) %>%
+                        summarise(max_B1 = max(B1),
+                                  max_B3 = max(B3),
+                                  max_B5 = max(B5),
+                                  max_B6 = max(B6),
+                                  max_D2 = max(D2),
+                                  max_D6 = max(D6),
+                                  max_O1 = max(O1),
+                                  max_O3 = max(O3),
+                                  max_O5 = max(O5),
+                                  max_P1 = max(P1),
+                                  max_P2 = max(P2),
+                                  max_P3 = max(P3),
+                                  max_P7 = max(P7),
+                                  max_P8 = max(P8)
+                                  )
+                                 
+                        
                 
-                #joinhabitat to geometry
-                gis.hab.geom <- dplyr::left_join(gis.geom.dat, hab.types, by = "ogc_fid") %>%
-                        select(ogc_fid, GEOMETRY, hab_1 =hab.1, sbgr_id = bgr_subreg_id )
+                sbgr.hab.gis.2 %>% spread(key = eunis.match, value = max.sens)
+                
+                #joinhabitat to geometry (if we cannot tie geometry to the geometry of a different tbl)
+                gis.hab.geom <- dplyr::left_join(gis.geom.dat, sbgr.hab.gis, by = "ogc_fid") %>%
+                        select(ogc_fid, GEOMETRY, hab_1 =hab.1 )
                 
                 #make unique filenames to be pasted into SQL
-                create.db <- paste0("CREATE TABLE sbgr_BAP_sens_minmax_",gsub(x =unique(x$ActivityCode),".","_", fixed = T),
-                                   "(ogc_fid INTEGER,
-                                   GEOMETRY BLOB,
-                                   hab_1 TEXT,
-                                   sbgr_id TEXT,
-                                   PRIMARY KEY(ogc_fid))
-                                   ")
+                #create.db <- paste0("CREATE TABLE sbgr_BAP_sens_minmax_",gsub(x =unique(x$ActivityCode),".","_", fixed = T),
+                #                   "(ogc_fid INTEGER,
+                #                   GEOMETRY BLOB,
+                #                   hab_1 TEXT,
+                #                   sbgr_id TEXT,
+                #                   PRIMARY KEY(ogc_fid))
+                #                   ")
                 
                 
-                filename <- paste0("sbgr_BAP_sens_minmax_",gsub(x =unique(x$ActivityCode),".","_", fixed = T))
+                filename <- paste0("sbgr_BAP_sens_max_",gsub(x =unique(sbgr.hab.gis$ActivityCode),".","_", fixed = T))
                 #make a empty newSQL lite table 
-                dbSendQuery(conn=con_gis,
-                            filename)
-                #write into the tabnle using the overwrite statement
-                dbWriteTable(conn=con_gis, name=filename, sbgr.hab.gis, overwrite = T,row.names=F)
+                #dbSendQuery(conn=con_gis,
+                #            filename)
+                #write into the table using the overwrite statement
+                
+                dbWriteTable(conn=con_gis, name=filename, gis.hab.geom, overwrite = T,row.names=F)
                 
                 
-        }, .progress = "text")
+        }, .progress = "text") #%>%
+        #spread result according to pressures, and drop non relevant columns
+
 
 
 
@@ -114,4 +144,3 @@ dbDisconnect(con.gis)
 
 
 
-)
