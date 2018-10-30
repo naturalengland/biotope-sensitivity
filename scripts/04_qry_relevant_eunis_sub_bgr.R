@@ -61,5 +61,7 @@ tblBGR <- qrySeaRegion_relevant_biotopes %>%
 
 tblBGR$EUNISCode <- as.character(tblBGR$EUNISCode)
 ###
-
+#read #tblPressureLUT 
+tblPressureLUT<- sqlFetch(conn, "tblPressureLUT") 
+names(tblPressureLUT)
 
