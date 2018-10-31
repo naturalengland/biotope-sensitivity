@@ -76,15 +76,21 @@ gis.geom.dat <- gis.geom.bgr.con %>%
 
 act.sbgr.bps.gis <- sbgr.BAP.max.sens %>%
         llply(function(x){
+                
+                #TO TEST:
+                x <- sbgr.BAP.max.sens[[2]]
+                
                 sbgr.hab.gis <- left_join(hab.types, x, by = c("bgr_subreg_id" = "sbgr", "hab.1" = "eunis.code.gis")) %>%# e.g. composite join: left_join(d1, d2, by = c("x" = "x2", "y" = "y2"))
                         select(ogc_fid, sbgr = bgr_subreg_id, eunis.code.gis = hab.1, eunis.match.assessed, ActivityCode, PressureCode, max.sens) %>%
                         spread(key = PressureCode, value = max.sens) #%>%
                         #distinct(ogc_fid,hab.1) %>%
                         #as.tibble()
                 
+                #act.code <- as.character(unique(x$ActivityCode[!is.na(x$ActivityCode)]))
+                #paste0(act.code, "_B1_max")
                 #generate a single maximum value per column
                 sbgr.hab.gis.2  <-  sbgr.hab.gis %>%
-                        group_by(ogc_fid, sbgr, eunis.code.gis) %>%
+                        group_by(ogc_fid, ActivityCode, sbgr, eunis.code.gis) %>%
                         summarise(max_B1 = max(B1, na.rm = T),
                                   max_B3 = max(B3, na.rm = T),
                                   max_B5 = max(B5, na.rm = T),
@@ -93,7 +99,7 @@ act.sbgr.bps.gis <- sbgr.BAP.max.sens %>%
                                   max_D6 = max(D6, na.rm = T),
                                   max_O1 = max(O1, na.rm = T),
                                   max_O3 = max(O3, na.rm = T),
-                                  max_O5 = max(O5, na.rm = T),#pressure O5 not available for all activities
+                                  #max_O5 = max(O5, na.rm = T),#pressure O5 not available for all activities
                                   max_P1 = max(P1, na.rm = T),
                                   max_P2 = max(P2, na.rm = T),
                                   max_P3 = max(P3, na.rm = T),
@@ -125,7 +131,7 @@ act.sbgr.bps.gis <- sbgr.BAP.max.sens %>%
                 
                 
                 #joinhabitat to geometry (if we cannot tie geometry to the geometry of a different tbl)
-                gis.hab.geom <- dplyr::left_join(gis.geom.dat, sbgr.hab.gis.2, by = "ogc_fid") #%>%
+                #gis.hab.geom <- dplyr::left_join(gis.geom.dat, sbgr.hab.gis.2, by = "ogc_fid") #%>%
                         #select(ogc_fid, GEOMETRY, hab_1 =hab.1 )
                 
                 #make unique filenames to be pasted into SQL
@@ -139,17 +145,35 @@ act.sbgr.bps.gis <- sbgr.BAP.max.sens %>%
                 
                 
                 #filename <- paste0("sbgr_BAP_sens_max_",gsub(x =unique(x$ActivityCode),".","_", fixed = T),"_",as.character(unique(x$sbgr[1])))
-                filename <- paste0("sbgr_BAP_sens_max_",gsub(x =unique(x$ActivityCode),".","_", fixed = T))
+                #filename <- paste0("sbgr_BAP_sens_max_",gsub(x =unique(x$ActivityCode)[[1]],".","_", fixed = T))
                 #make a empty newSQL lite table 
                 #dbSendQuery(conn=con_gis,
                 #            filename)
                 #write into the table using the overwrite statement
                 
-                dbWriteTable(conn=con_gis, name=filename, gis.hab.geom, overwrite = T,row.names=F)
-                dbSendQuery(conn=con_gis,
-                            INSERT INTO geometry_columns (f_table_name,geometry_column, geometry_type,coord_dimension,srid,geometry_format) VALUES (filename, "GEOMETRY", "6", "2", "", "WKB"))
+                #dbWriteTable(conn=con_gis, name=filename, gis.hab.geom, overwrite = T,row.names=F)
+                #dbSendQuery(conn=con_gis,
+                #            "INSERT INTO geometry_columns (f_table_name,geometry_column, geometry_type,coord_dimension,srid,geometry_format) VALUES (filename, 'GEOMETRY', '6', '2', '', 'WKB')")
+                #dbSendQuery(conn=con_gis,
+                #        'INSERT INTO geometry_columns (
+                #        f_table_name,
+                #        geometry_column,
+                #        geometry_type,
+                #        coord_dimension,
+                #        srid,
+                #        geometry_format)
+                #VALUES
+                #(
+                #        "filename", 
+                #        GEOMETRY,
+                #        6,
+                #        2,
+                #        ,
+                #        WKB);'
+                #)
                 
-        }, .progress = "text") #%>%
+        }, .progress = "text") %>%
+        rename()
         #spread result according to pressures, and drop non relevant columns
 
 
