@@ -78,7 +78,9 @@ act.sbgr.bps.gis <- sbgr.BAP.max.sens %>%
         llply(function(x){
                 
                 #TO TEST:
-                x <- sbgr.BAP.max.sens[[2]]
+                act.code <- unique(as.character(x$ActivityCode[!is.na(x$ActivityCode)]))
+                
+                #x <- sbgr.BAP.max.sens[[3]] test code only - to test a single matrix at a time
                 
                 sbgr.hab.gis <- left_join(hab.types, x, by = c("bgr_subreg_id" = "sbgr", "hab.1" = "eunis.code.gis")) %>%# e.g. composite join: left_join(d1, d2, by = c("x" = "x2", "y" = "y2"))
                         select(ogc_fid, sbgr = bgr_subreg_id, eunis.code.gis = hab.1, eunis.match.assessed, ActivityCode, PressureCode, max.sens) %>%
@@ -90,7 +92,7 @@ act.sbgr.bps.gis <- sbgr.BAP.max.sens %>%
                 #paste0(act.code, "_B1_max")
                 #generate a single maximum value per column
                 sbgr.hab.gis.2  <-  sbgr.hab.gis %>%
-                        group_by(ogc_fid, ActivityCode, sbgr, eunis.code.gis) %>%
+                        group_by(ogc_fid, eunis.code.gis) %>%
                         summarise(max_B1 = max(B1, na.rm = T),
                                   max_B3 = max(B3, na.rm = T),
                                   max_B5 = max(B5, na.rm = T),
@@ -105,7 +107,24 @@ act.sbgr.bps.gis <- sbgr.BAP.max.sens %>%
                                   max_P3 = max(P3, na.rm = T),
                                   max_P7 = max(P7, na.rm = T),
                                   max_P8 = max(P8, na.rm = T)
-                                  ) rename() %>%# START HERE:add activitiy to names
+                                  ) %>% plyr::rename(list(max_B1 = paste0(act.code,"_max_B1"),
+                                                     max_B3 = paste0(act.code,"_max_B3"),
+                                                     max_B5 = paste0(act.code,"_max_B5"),
+                                                     max_B6 = paste0(act.code,"_max_B6"),
+                                                     max_D2 = paste0(act.code,"_max_D2"),
+                                                     max_D6 = paste0(act.code,"_max_D6"),
+                                                     max_O1 = paste0(act.code,"_max_O1"),
+                                                     max_O3 = paste0(act.code,"_max_O3"),
+                                                     #list(max_O5 = paste0(act.code,"_max_O5")),
+                                                     max_P1 = paste0(act.code,"_max_P1"),
+                                                     max_P3 = paste0(act.code,"_max_P3"),
+                                                     max_P7 = paste0(act.code,"_max_P7"),
+                                                     max_P8 = paste0(act.code,"_max_P8")
+                                                     )) 
+                        
+                        
+                        
+                        # START HERE:add activitiy to names
                         
                 #This code was run to determinbe the maximum number of slices required, which informs the number of coolumns to gerneate to store the matches eunis.match.assessed values in
                 #n.sclices  <-  sbgr.hab.gis %>%
