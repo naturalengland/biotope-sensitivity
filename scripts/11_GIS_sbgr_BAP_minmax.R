@@ -105,7 +105,8 @@ act.sbgr.bps.gis <- sbgr.BAP.max.sens %>%
                                   max_P3 = max(P3, na.rm = T),
                                   max_P7 = max(P7, na.rm = T),
                                   max_P8 = max(P8, na.rm = T)
-                                  )
+                                  ) rename() %>%# START HERE:add activitiy to names
+                        
                 #This code was run to determinbe the maximum number of slices required, which informs the number of coolumns to gerneate to store the matches eunis.match.assessed values in
                 #n.sclices  <-  sbgr.hab.gis %>%
                 #        group_by(ogc_fid) %>%
@@ -172,8 +173,12 @@ act.sbgr.bps.gis <- sbgr.BAP.max.sens %>%
                 #        WKB);'
                 #)
                 
-        }, .progress = "text") %>%
-        rename()
+        }, .progress = "text") 
+#SPLIT list into dataframes, and recoine into singel dataframe using binding the dataframes horisontally.
+#Then insert staements about saving to a database
+
+bind_cols()#insert statement to bind the columns from each 
+
         #spread result according to pressures, and drop non relevant columns
 
 
