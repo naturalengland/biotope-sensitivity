@@ -68,7 +68,11 @@ gis.geom.dat <- gis.geom.bgr.con %>%
 #                          by = c("bgr_subreg_id" = "sbgr", "hab.1" = "eunis.code.gis"))# e.g. composite join: left_join(d1, d2, by = c("x" = "x2", "y" = "y2"))
 
 
-
+pressure.test <- sbgr.BAP.max.sens %>%
+        llply(function(x){
+                test <- x$PressureCode %>%
+                        unique()
+        })
 
 
 
@@ -93,7 +97,7 @@ act.sbgr.bps.gis <- sbgr.BAP.max.sens %>%
                 #generate a single maximum value per column
                 sbgr.hab.gis.2  <-  sbgr.hab.gis %>%
                         group_by(ogc_fid, eunis.code.gis) %>%
-                        summarise(max_B1 = max(B1, na.rm = T),
+                        try(summarise(max_B1 = max(B1, na.rm = T),
                                   max_B3 = max(B3, na.rm = T),
                                   max_B5 = max(B5, na.rm = T),
                                   max_B6 = max(B6, na.rm = T),
@@ -105,7 +109,7 @@ act.sbgr.bps.gis <- sbgr.BAP.max.sens %>%
                                   max_P1 = max(P1, na.rm = T),
                                   max_P2 = max(P2, na.rm = T),
                                   max_P3 = max(P3, na.rm = T),
-                                  max_P7 = max(P7, na.rm = T),
+                                  #max_P7 = max(P7, na.rm = T),
                                   max_P8 = max(P8, na.rm = T)
                                   ) %>% plyr::rename(list(max_B1 = paste0(act.code,"_max_B1"),
                                                      max_B3 = paste0(act.code,"_max_B3"),
@@ -118,9 +122,10 @@ act.sbgr.bps.gis <- sbgr.BAP.max.sens %>%
                                                      #list(max_O5 = paste0(act.code,"_max_O5")),
                                                      max_P1 = paste0(act.code,"_max_P1"),
                                                      max_P3 = paste0(act.code,"_max_P3"),
-                                                     max_P7 = paste0(act.code,"_max_P7"),
+                                                     #max_P7 = paste0(act.code,"_max_P7"),
                                                      max_P8 = paste0(act.code,"_max_P8")
-                                                     )) 
+                                                     )),
+                            silent = F)
                         
                         
                         
@@ -196,7 +201,7 @@ act.sbgr.bps.gis <- sbgr.BAP.max.sens %>%
 #SPLIT list into dataframes, and recoine into singel dataframe using binding the dataframes horisontally.
 #Then insert staements about saving to a database
 
-bind_cols()#insert statement to bind the columns from each 
+#insert statement to bind the columns from each 
 
         #spread result according to pressures, and drop non relevant columns
 
