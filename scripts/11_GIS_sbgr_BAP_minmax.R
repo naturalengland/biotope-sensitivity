@@ -84,7 +84,8 @@ act.sbgr.bps.gis <- sbgr.BAP.max.sens %>%
                 #TO TEST:
                 act.code <- unique(as.character(x$ActivityCode[!is.na(x$ActivityCode)]))
                 
-                #x <- sbgr.BAP.max.sens[[3]] test code only - to test a single matrix at a time
+                
+                x <- sbgr.BAP.max.sens[[3]] #test code only - to test a single matrix at a time
                 
                 sbgr.hab.gis <- left_join(hab.types, x, by = c("bgr_subreg_id" = "sbgr", "hab.1" = "eunis.code.gis")) %>%# e.g. composite join: left_join(d1, d2, by = c("x" = "x2", "y" = "y2"))
                         select(ogc_fid, sbgr = bgr_subreg_id, eunis.code.gis = hab.1, eunis.match.assessed, ActivityCode, PressureCode, max.sens) %>%
@@ -92,40 +93,48 @@ act.sbgr.bps.gis <- sbgr.BAP.max.sens %>%
                         #distinct(ogc_fid,hab.1) %>%
                         #as.tibble()
                 
-                #act.code <- as.character(unique(x$ActivityCode[!is.na(x$ActivityCode)]))
+                #drop columns with NA for name
+                sbgr.hab.gis <- sbgr.hab.gis %>% select(-("<NA>"))
+                
+                # Determine the number of columns, to inform the number of columns to apply a function to
+                n.cols <- ncol(sbgr.hab.gis)
+                
                 #paste0(act.code, "_B1_max")
                 #generate a single maximum value per column
                 sbgr.hab.gis.2  <-  sbgr.hab.gis %>%
-                        group_by(ogc_fid, eunis.code.gis) %>%
-                        try(summarise(max_B1 = max(B1, na.rm = T),
-                                  max_B3 = max(B3, na.rm = T),
-                                  max_B5 = max(B5, na.rm = T),
-                                  max_B6 = max(B6, na.rm = T),
-                                  max_D2 = max(D2, na.rm = T),
-                                  max_D6 = max(D6, na.rm = T),
-                                  max_O1 = max(O1, na.rm = T),
-                                  max_O3 = max(O3, na.rm = T),
-                                  #max_O5 = max(O5, na.rm = T),#pressure O5 not available for all activities
-                                  max_P1 = max(P1, na.rm = T),
-                                  max_P2 = max(P2, na.rm = T),
-                                  max_P3 = max(P3, na.rm = T),
-                                  #max_P7 = max(P7, na.rm = T),
-                                  max_P8 = max(P8, na.rm = T)
-                                  ) %>% plyr::rename(list(max_B1 = paste0(act.code,"_max_B1"),
-                                                     max_B3 = paste0(act.code,"_max_B3"),
-                                                     max_B5 = paste0(act.code,"_max_B5"),
-                                                     max_B6 = paste0(act.code,"_max_B6"),
-                                                     max_D2 = paste0(act.code,"_max_D2"),
-                                                     max_D6 = paste0(act.code,"_max_D6"),
-                                                     max_O1 = paste0(act.code,"_max_O1"),
-                                                     max_O3 = paste0(act.code,"_max_O3"),
+                        select(-(2:6)) %>%
+                        group_by(ogc_fid) %>%
+                        summarise_all(max)#,
+                                #max_B1 = max(B1, na.rm = T),
+                                #max_B3 = max(B3, na.rm = T),
+                                #max_B5 = max(B5, na.rm = T),
+                                #max_B6 = max(B6, na.rm = T),
+                                #max_D2 = max(D2, na.rm = T),
+                                #max_D6 = max(D6, na.rm = T),
+                                #max_O1 = max(O1, na.rm = T),
+                                #max_O3 = max(O3, na.rm = T),
+                                #max_O5 = max(O5, na.rm = T),#pressure O5 not available for all activities
+                                #max_P1 = max(P1, na.rm = T),
+                                #max_P2 = max(P2, na.rm = T),
+                                #max_P3 = max(P3, na.rm = T),
+                                #max_P7 = max(P7, na.rm = T),
+                                #max_P8 = max(P8, na.rm = T),
+                                
+                                 #%>% plyr::rename(list(max_B1 = paste0(act.code,"_max_B1"),
+                                                     #max_B3 = paste0(act.code,"_max_B3"),
+                                                     #max_B5 = paste0(act.code,"_max_B5"),
+                                                     #max_B6 = paste0(act.code,"_max_B6"),
+                                                     #max_D2 = paste0(act.code,"_max_D2"),
+                                                     #max_D6 = paste0(act.code,"_max_D6"),
+                                                     #max_O1 = paste0(act.code,"_max_O1"),
+                                                     #max_O3 = paste0(act.code,"_max_O3"),
                                                      #list(max_O5 = paste0(act.code,"_max_O5")),
-                                                     max_P1 = paste0(act.code,"_max_P1"),
-                                                     max_P3 = paste0(act.code,"_max_P3"),
+                                                     #max_P1 = paste0(act.code,"_max_P1"),
+                                                     #max_P3 = paste0(act.code,"_max_P3"),
                                                      #max_P7 = paste0(act.code,"_max_P7"),
-                                                     max_P8 = paste0(act.code,"_max_P8")
-                                                     )),
-                            silent = F)
+                                                     #max_P8 = paste0(act.code,"_max_P8")
+                                                     #)),
+                            #silent = F)
                         
                         
                         
