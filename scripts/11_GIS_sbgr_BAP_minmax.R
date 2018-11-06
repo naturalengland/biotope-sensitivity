@@ -1,32 +1,32 @@
 #link the sbgr.BAP.min.max.sens to the GIS
-library(RSQLite)
+#library(RSQLite)
 library(plyr)
-library(DBI)
+#library(DBI)
 library(tidyverse)
-library(dbplyr)
-library(stringr)
+#library(dbplyr)
+#library(stringr)
 
 # connect to the sqlite file
-orig.d <- getwd()
-scratch.d <- "F:/scratch"
-setwd(scratch.d)
-con_gis = DBI::dbConnect(RSQLite::SQLite(), "Phil_Fish_project_Input_Polys_WGS84_Internal_BGR.sqlite")
-src_dbi(con_gis) #show connection details, and list all tables
+#orig.d <- getwd()
+#scratch.d <- "F:/scratch"
+#setwd(scratch.d)
+#con_gis = DBI::dbConnect(RSQLite::SQLite(), "Phil_Fish_project_Input_Polys_WGS84_Internal_BGR.sqlite")
+#src_dbi(con_gis) #show connection details, and list all tables
 
 # get a list of all tables
-dbListTables(con_gis) #phil_fish_project_input_polys_wgs84_internal_bgr
+#dbListTables(con_gis) #phil_fish_project_input_polys_wgs84_internal_bgr
 
 # List columns in a table
-dbListFields(con_gis, "phil_fish_project_input_polys_wgs84_internal_bgr")
+#dbListFields(con_gis, "phil_fish_project_input_polys_wgs84_internal_bgr")
 
 
 #select columns of interest from sql lite table of interest
-gis.geom.bgr.con <- tbl(con_gis, sql("SELECT ogc_fid, GEOMETRY, objectid FROM phil_fish_project_input_polys_wgs84_internal_bgr"))
+#gis.geom.bgr.con <- tbl(con_gis, sql("SELECT ogc_fid, GEOMETRY, objectid FROM phil_fish_project_input_polys_wgs84_internal_bgr"))
 
 #saves the geomtry
-gis.geom.dat <- gis.geom.bgr.con %>% 
-        select(ogc_fid, GEOMETRY, objectid) %>%
-        collect()
+#gis.geom.dat <- gis.geom.bgr.con %>% 
+#        select(ogc_fid, GEOMETRY, objectid) %>%
+#        collect()
 
 
 
@@ -68,11 +68,11 @@ gis.geom.dat <- gis.geom.bgr.con %>%
 #                          by = c("bgr_subreg_id" = "sbgr", "hab.1" = "eunis.code.gis"))# e.g. composite join: left_join(d1, d2, by = c("x" = "x2", "y" = "y2"))
 
 
-pressure.test <- sbgr.BAP.max.sens %>%
-        llply(function(x){
-                test <- x$PressureCode %>%
-                        unique()
-        })
+#pressure.test <- sbgr.BAP.max.sens %>%
+#        llply(function(x){
+#                test <- x$PressureCode %>%
+#                        unique()
+#        })
 
 
 
@@ -82,10 +82,10 @@ act.sbgr.bps.gis <- sbgr.BAP.max.sens %>%
         llply(function(x){
                 
                 #TO TEST:
-                act.code <- unique(as.character(x$ActivityCode[!is.na(x$ActivityCode)]))
+                #act.code <- unique(as.character(x$ActivityCode[!is.na(x$ActivityCode)]))
                 
                 
-                x <- sbgr.BAP.max.sens[[3]] #test code only - to test a single matrix at a time
+                #x <- sbgr.BAP.max.sens[[3]] #test code only - to test a single matrix at a time
                 
                 sbgr.hab.gis <- left_join(hab.types, x, by = c("bgr_subreg_id" = "sbgr", "hab.1" = "eunis.code.gis")) %>%# e.g. composite join: left_join(d1, d2, by = c("x" = "x2", "y" = "y2"))
                         select(ogc_fid, sbgr = bgr_subreg_id, eunis.code.gis = hab.1, eunis.match.assessed, ActivityCode, PressureCode, max.sens) %>%
@@ -97,19 +97,14 @@ act.sbgr.bps.gis <- sbgr.BAP.max.sens %>%
                 sbgr.hab.gis <- sbgr.hab.gis %>% select(-("<NA>"))
                 
                 # Determine the number of columns, to inform the number of columns to apply a function to
-                n.cols <- ncol(sbgr.hab.gis)
+                #n.cols <- ncol(sbgr.hab.gis)
                 
                 #paste0(act.code, "_B1_max")
                 #generate a single maximum value per column
                 sbgr.hab.gis.2  <-  sbgr.hab.gis %>%
-<<<<<<< HEAD
                         select(-(2:6)) %>%
                         group_by(ogc_fid) %>%
                         summarise_all(max)#,
-=======
-                        group_by(ogc_fid, eunis.code.gis) %>%
-                        summarise(max())#,
->>>>>>> 8559d4e56f82920c85f2144dc5e6801da534126e
                                 #max_B1 = max(B1, na.rm = T),
                                 #max_B3 = max(B3, na.rm = T),
                                 #max_B5 = max(B5, na.rm = T),
@@ -124,7 +119,6 @@ act.sbgr.bps.gis <- sbgr.BAP.max.sens %>%
                                 #max_P3 = max(P3, na.rm = T),
                                 #max_P7 = max(P7, na.rm = T),
                                 #max_P8 = max(P8, na.rm = T),
-<<<<<<< HEAD
                                 
                                  #%>% plyr::rename(list(max_B1 = paste0(act.code,"_max_B1"),
                                                      #max_B3 = paste0(act.code,"_max_B3"),
@@ -141,24 +135,6 @@ act.sbgr.bps.gis <- sbgr.BAP.max.sens %>%
                                                      #max_P8 = paste0(act.code,"_max_P8")
                                                      #)),
                             #silent = F)
-=======
-                                .drop = FALSE)
-                                ) #%>% plyr::rename(list(max_B1 = paste0(act.code,"_max_B1"),
-                                                     max_B3 = paste0(act.code,"_max_B3"),
-                                                     max_B5 = paste0(act.code,"_max_B5"),
-                                                     max_B6 = paste0(act.code,"_max_B6"),
-                                                     max_D2 = paste0(act.code,"_max_D2"),
-                                                     max_D6 = paste0(act.code,"_max_D6"),
-                                                     max_O1 = paste0(act.code,"_max_O1"),
-                                                     max_O3 = paste0(act.code,"_max_O3"),
-                                                     list(max_O5 = paste0(act.code,"_max_O5")),
-                                                     max_P1 = paste0(act.code,"_max_P1"),
-                                                     max_P3 = paste0(act.code,"_max_P3"),
-                                                     max_P7 = paste0(act.code,"_max_P7"),
-                                                     max_P8 = paste0(act.code,"_max_P8")
-                                                     )),
-                            silent = F)
->>>>>>> 8559d4e56f82920c85f2144dc5e6801da534126e
                         
                         
                         
