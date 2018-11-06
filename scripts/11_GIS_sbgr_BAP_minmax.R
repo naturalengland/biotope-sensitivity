@@ -104,7 +104,14 @@ act.sbgr.bps.gis <- sbgr.BAP.max.sens %>%
                 sbgr.hab.gis.2  <-  sbgr.hab.gis %>%
                         select(-(2:6)) %>%
                         group_by(ogc_fid) %>%
-                        summarise_all(max)#,
+                        summarise_all(max)
+                
+                
+                
+                #START HERE
+                #now rejoin the columns 2:6 (after applying distinct)
+                
+                #,
                                 #max_B1 = max(B1, na.rm = T),
                                 #max_B3 = max(B3, na.rm = T),
                                 #max_B5 = max(B5, na.rm = T),
