@@ -102,9 +102,14 @@ act.sbgr.bps.gis <- sbgr.BAP.max.sens %>%
                 #paste0(act.code, "_B1_max")
                 #generate a single maximum value per column
                 sbgr.hab.gis.2  <-  sbgr.hab.gis %>%
+<<<<<<< HEAD
                         select(-(2:6)) %>%
                         group_by(ogc_fid) %>%
                         summarise_all(max)#,
+=======
+                        group_by(ogc_fid, eunis.code.gis) %>%
+                        summarise(max())#,
+>>>>>>> 8559d4e56f82920c85f2144dc5e6801da534126e
                                 #max_B1 = max(B1, na.rm = T),
                                 #max_B3 = max(B3, na.rm = T),
                                 #max_B5 = max(B5, na.rm = T),
@@ -119,6 +124,7 @@ act.sbgr.bps.gis <- sbgr.BAP.max.sens %>%
                                 #max_P3 = max(P3, na.rm = T),
                                 #max_P7 = max(P7, na.rm = T),
                                 #max_P8 = max(P8, na.rm = T),
+<<<<<<< HEAD
                                 
                                  #%>% plyr::rename(list(max_B1 = paste0(act.code,"_max_B1"),
                                                      #max_B3 = paste0(act.code,"_max_B3"),
@@ -135,6 +141,24 @@ act.sbgr.bps.gis <- sbgr.BAP.max.sens %>%
                                                      #max_P8 = paste0(act.code,"_max_P8")
                                                      #)),
                             #silent = F)
+=======
+                                .drop = FALSE)
+                                ) #%>% plyr::rename(list(max_B1 = paste0(act.code,"_max_B1"),
+                                                     max_B3 = paste0(act.code,"_max_B3"),
+                                                     max_B5 = paste0(act.code,"_max_B5"),
+                                                     max_B6 = paste0(act.code,"_max_B6"),
+                                                     max_D2 = paste0(act.code,"_max_D2"),
+                                                     max_D6 = paste0(act.code,"_max_D6"),
+                                                     max_O1 = paste0(act.code,"_max_O1"),
+                                                     max_O3 = paste0(act.code,"_max_O3"),
+                                                     list(max_O5 = paste0(act.code,"_max_O5")),
+                                                     max_P1 = paste0(act.code,"_max_P1"),
+                                                     max_P3 = paste0(act.code,"_max_P3"),
+                                                     max_P7 = paste0(act.code,"_max_P7"),
+                                                     max_P8 = paste0(act.code,"_max_P8")
+                                                     )),
+                            silent = F)
+>>>>>>> 8559d4e56f82920c85f2144dc5e6801da534126e
                         
                         
                         
