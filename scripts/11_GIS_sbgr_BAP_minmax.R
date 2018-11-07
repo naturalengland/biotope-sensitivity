@@ -1,232 +1,57 @@
-#link the sbgr.BAP.min.max.sens to the GIS
-#library(RSQLite)
+#link the sbgr.BAP.min.max.sens to the GIS, producing a single flat file with all pressures from a set of activities stored as individual attributes.
+
 library(plyr)
-#library(DBI)
 library(tidyverse)
-#library(dbplyr)
-#library(stringr)
+library(stringr)
 
-# connect to the sqlite file
-#orig.d <- getwd()
-#scratch.d <- "F:/scratch"
-#setwd(scratch.d)
-#con_gis = DBI::dbConnect(RSQLite::SQLite(), "Phil_Fish_project_Input_Polys_WGS84_Internal_BGR.sqlite")
-#src_dbi(con_gis) #show connection details, and list all tables
-
-# get a list of all tables
-#dbListTables(con_gis) #phil_fish_project_input_polys_wgs84_internal_bgr
-
-# List columns in a table
-#dbListFields(con_gis, "phil_fish_project_input_polys_wgs84_internal_bgr")
+# Define variables:
+group.by <- parse(text = "ogc_fid") ## Set text = "ogc_fid" or any other unique identifier in the GIS file. It generates a field name taht is easy to cahnge - unique ID for polygons.
 
 
-#select columns of interest from sql lite table of interest
-#gis.geom.bgr.con <- tbl(con_gis, sql("SELECT ogc_fid, GEOMETRY, objectid FROM phil_fish_project_input_polys_wgs84_internal_bgr"))
-
-#saves the geomtry
-#gis.geom.dat <- gis.geom.bgr.con %>% 
-#        select(ogc_fid, GEOMETRY, objectid) %>%
-#        collect()
-
-
-
-# TEST code-----------------------------
-#joinhabitat to geometry
-#gis.hab.geom <- dplyr::left_join(gis.geom.dat, hab.types, by = "ogc_fid") %>%
-#        select(ogc_fid, GEOMETRY, hab_1 =hab.1, sbgr_id = bgr_subreg_id )
-#rm(hab.types,gis.geom.dat)
-#names(gis.hab.geom)
-#str(gis.hab.geom)
-
-
-#make a newSQL lite table (empty)
-#dbSendQuery(conn=con_gis,
-#                "CREATE TABLE gis_hab_geom_test_2
-#            (ogc_fid INTEGER, 
-#            GEOMETRY BLOB, 
-#            hab_1 TEXT, 
-#            sbgr_id TEXT, 
-#            PRIMARY KEY(ogc_fid)
-#                )
-#            ")
-
-
-
-# List columns in a table
-#dbListFields(con_gis, "gis_hab_geom_test_2")
-#select columns of interest from sql lite table of interest
-#test.sql.dat <- tbl(con_gis, sql("SELECT ogc_fid, GEOMETRY, hab_1, sbgr_id FROM gis_hab_geom_test_2"))
-#str(test.sql.dat)
-
-# End test code----------------------------
-
-
-#test code
-#str(hab.types)
-#str(sbgr.BAP.min.max.sens[[1]])
-#sbgr.hab.gis <- left_join(hab.types,sbgr.BAP.min.max.sens[[1]], 
-#                          by = c("bgr_subreg_id" = "sbgr", "hab.1" = "eunis.code.gis"))# e.g. composite join: left_join(d1, d2, by = c("x" = "x2", "y" = "y2"))
-
-
-#pressure.test <- sbgr.BAP.max.sens %>%
-#        llply(function(x){
-#                test <- x$PressureCode %>%
-#                        unique()
-#        })
-
-
-
-#dbWriteTable(conn=con_gis, name="gis_hab_geom_test", gis.hab.geom, overwrite = T,row.names=F)
-
+# Obtain the maximum sensitivity for each POLYGON (from the GIs habitat file)
 act.sbgr.bps.gis <- sbgr.BAP.max.sens %>%
-        llply(function(x){
+        llply(function(x){ # split the list into its dataframes, and provide a list at the end (containing dataframes) (which are eventaully piped onto bind_cols into a single dataframe /preferred over ldply as this would cause row bind, not column bind.
+
                 
-                #TO TEST:
-                #act.code <- unique(as.character(x$ActivityCode[!is.na(x$ActivityCode)]))
+                #Test code - remove once the script is working:#test code only - to test a single matrix at a time
+                #x <- sbgr.BAP.max.sens[[3]] 
                 
-                
-                #x <- sbgr.BAP.max.sens[[3]] #test code only - to test a single matrix at a time
-                
-                sbgr.hab.gis <- left_join(hab.types, x, by = c("bgr_subreg_id" = "sbgr", "hab.1" = "eunis.code.gis")) %>%# e.g. composite join: left_join(d1, d2, by = c("x" = "x2", "y" = "y2"))
+                #join the GIS file to the dataframes coming from sbgr.BAP.max.sens to obbtain the ID number for the individual polygons into the data set.
+                sbgr.hab.gis <- left_join(hab.types, x, by = c("bgr_subreg_id" = "sbgr", "hab.1" = "eunis.code.gis")) %>% #  composite join, e.g.: left_join(d1, d2, by = c("x" = "x2", "y" = "y2"))
                         select(ogc_fid, sbgr = bgr_subreg_id, eunis.code.gis = hab.1, eunis.match.assessed, ActivityCode, PressureCode, max.sens) %>%
-                        spread(key = PressureCode, value = max.sens) #%>%
-                        #distinct(ogc_fid,hab.1) %>%
-                        #as.tibble()
+                        spread(key = PressureCode, value = max.sens)
                 
-                #drop columns with NA for name
+                #drop columns with NA for name (these may have arised in datasets where NA occured in the PressureCode column which were assigned NA if they were not present)
                 sbgr.hab.gis <- sbgr.hab.gis %>% select(-("<NA>"))
                 
-                # Determine the number of columns, to inform the number of columns to apply a function to
-                #n.cols <- ncol(sbgr.hab.gis)
-                
-                #paste0(act.code, "_B1_max")
-                #generate a single maximum value per column
+                #generate a single maximum value per column (there are currently multiple sensitivity scores associated with each)
                 sbgr.hab.gis.2  <-  sbgr.hab.gis %>%
-                        select(-(2:6)) %>%
-                        group_by(ogc_fid) %>%
-                        summarise_all(max)
-                
-                
-                
-                #START HERE
-                #now rejoin the columns 2:6 (after applying distinct)
-                
-                #,
-                                #max_B1 = max(B1, na.rm = T),
-                                #max_B3 = max(B3, na.rm = T),
-                                #max_B5 = max(B5, na.rm = T),
-                                #max_B6 = max(B6, na.rm = T),
-                                #max_D2 = max(D2, na.rm = T),
-                                #max_D6 = max(D6, na.rm = T),
-                                #max_O1 = max(O1, na.rm = T),
-                                #max_O3 = max(O3, na.rm = T),
-                                #max_O5 = max(O5, na.rm = T),#pressure O5 not available for all activities
-                                #max_P1 = max(P1, na.rm = T),
-                                #max_P2 = max(P2, na.rm = T),
-                                #max_P3 = max(P3, na.rm = T),
-                                #max_P7 = max(P7, na.rm = T),
-                                #max_P8 = max(P8, na.rm = T),
-                                
-                                 #%>% plyr::rename(list(max_B1 = paste0(act.code,"_max_B1"),
-                                                     #max_B3 = paste0(act.code,"_max_B3"),
-                                                     #max_B5 = paste0(act.code,"_max_B5"),
-                                                     #max_B6 = paste0(act.code,"_max_B6"),
-                                                     #max_D2 = paste0(act.code,"_max_D2"),
-                                                     #max_D6 = paste0(act.code,"_max_D6"),
-                                                     #max_O1 = paste0(act.code,"_max_O1"),
-                                                     #max_O3 = paste0(act.code,"_max_O3"),
-                                                     #list(max_O5 = paste0(act.code,"_max_O5")),
-                                                     #max_P1 = paste0(act.code,"_max_P1"),
-                                                     #max_P3 = paste0(act.code,"_max_P3"),
-                                                     #max_P7 = paste0(act.code,"_max_P7"),
-                                                     #max_P8 = paste0(act.code,"_max_P8")
-                                                     #)),
-                            #silent = F)
-                        
-                        
-                        
-                        # START HERE:add activitiy to names
-                        
-                #This code was run to determinbe the maximum number of slices required, which informs the number of coolumns to gerneate to store the matches eunis.match.assessed values in
-                #n.sclices  <-  sbgr.hab.gis %>%
-                #        group_by(ogc_fid) %>%
-                #        count() %>%
-                #        arrange(desc(n))
-                #genreate the table columns with the relevant eunis.match.assessed in each column
-                #eunis.match  <-  sbgr.hab.gis %>%
-                #        group_by(ogc_fid) %>%
-                #        transmute(eunis.match.assessed.1 = slice(1),
-                #                  eunis.match.assessed.2 = slice(2),
-                #                  eunis.match.assessed.3 = slice(3),
-                #                  eunis.match.assessed.4 = slice(4),
-                #                  eunis.match.assessed.5 = slice(5)
-                                  #eunis.match.assessed.6 = slice(6),
-                                  #eunis.match.assessed.7 = slice(7),
-                                  #eunis.match.assessed.8 = slice(8),
-                                  #eunis.match.assessed.9 = slice(9),
-                                  #eunis.match.assessed.10 = slice(10)
-                 #                 )
-                                 
+                        select(-(2:5)) %>% # remove not immediately relevant columns
+                        group_by(eval(group.by)) %>% # group the results by a unique identifier for polygon
+                        summarise_all(max) %>% # summarise (obtain the maximum) ALL the remaining columns (according to the grouping); this was key to ensuring that dynamic names operate; if columns 2:5 were needed that could be bound after the fact, as these variables cannot be summarised as they are not numerical
+                        select(-(`eval(group.by)`)) #remove the surpuflous variable created from using pasre/eval functions.
                         
                 
-                
-                
-                #joinhabitat to geometry (if we cannot tie geometry to the geometry of a different tbl)
-                #gis.hab.geom <- dplyr::left_join(gis.geom.dat, sbgr.hab.gis.2, by = "ogc_fid") #%>%
-                        #select(ogc_fid, GEOMETRY, hab_1 =hab.1 )
-                
-                #make unique filenames to be pasted into SQL
-                #create.db <- paste0("CREATE TABLE sbgr_BAP_sens_minmax_",gsub(x =unique(x$ActivityCode),".","_", fixed = T),
-                #                   "(ogc_fid INTEGER,
-                #                   GEOMETRY BLOB,
-                #                   hab_1 TEXT,
-                #                   sbgr_id TEXT,
-                #                   PRIMARY KEY(ogc_fid))
-                #                   ")
-                
-                
-                #filename <- paste0("sbgr_BAP_sens_max_",gsub(x =unique(x$ActivityCode),".","_", fixed = T),"_",as.character(unique(x$sbgr[1])))
-                #filename <- paste0("sbgr_BAP_sens_max_",gsub(x =unique(x$ActivityCode)[[1]],".","_", fixed = T))
-                #make a empty newSQL lite table 
-                #dbSendQuery(conn=con_gis,
-                #            filename)
-                #write into the table using the overwrite statement
-                
-                #dbWriteTable(conn=con_gis, name=filename, gis.hab.geom, overwrite = T,row.names=F)
-                #dbSendQuery(conn=con_gis,
-                #            "INSERT INTO geometry_columns (f_table_name,geometry_column, geometry_type,coord_dimension,srid,geometry_format) VALUES (filename, 'GEOMETRY', '6', '2', '', 'WKB')")
-                #dbSendQuery(conn=con_gis,
-                #        'INSERT INTO geometry_columns (
-                #        f_table_name,
-                #        geometry_column,
-                #        geometry_type,
-                #        coord_dimension,
-                #        srid,
-                #        geometry_format)
-                #VALUES
-                #(
-                #        "filename", 
-                #        GEOMETRY,
-                #        6,
-                #        2,
-                #        ,
-                #        WKB);'
-                #)
-                
-        }, .progress = "text") 
-#SPLIT list into dataframes, and recoine into singel dataframe using binding the dataframes horisontally.
-#Then insert staements about saving to a database
+                # Make unique names for each dataframe so that they can be put into a single data frame at the end:
+                ## Activity code based names: append activity code to the names
+                act.code <- unique(as.character(x$ActivityCode[!is.na(x$ActivityCode)])) # obtain the unique activity codes, excluding any NA values.
+                orig.names <- names(sbgr.hab.gis.2[,-1]) # obtain the original names for the columns
+                new.names <- c(names(sbgr.hab.gis.2[,1]),str_c(act.code, orig.names, sep = "_")) 
+                new.names.2 <- str_replace(new.names,"[.]","_") # change points to underscores to make them database compatable
+                names(sbgr.hab.gis.2) <- new.names.2 # set the names to names 2
+                sbgr.hab.gis.2 #call the dataframe to ensure tha this is waht is saved in the end
 
-#insert statement to bind the columns from each 
-
-        #spread result according to pressures, and drop non relevant columns
+                
+                
+                
+        }, .progress = "text") %>% #provides an indication of progress in executing the code. 
+        bind_cols() # binds the results (columns) from each list, keeping the original identifier as the main id.
 
 
 
 
-##house kepping: close the connection: S3 method for class 'RODBC'
-close(con = conn)
-dbDisconnect(con.gis)
+
+
 
 
 
