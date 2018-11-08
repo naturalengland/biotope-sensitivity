@@ -11,17 +11,27 @@ library(sp)
 library(tidyverse)
 library(data.table)
 
+# key variables
+net.dir <- "\\SAMVW3-GIREP02\NEWorkingData\GIS_Working_Data\Marine\Marine_Evidence_Geodatabase.gdb" #network directory where the geodatabase is tored - change manually if it is moved.
+
+
 getwd()
+
+
 
 
 #read in geodatabase (it is large, so will take a couple of minutes) 
 
 ## two options:
 ## 1) ALL of UK
-#fgdb <- st_read(dsn="F:/copy_data/Marine_Evidence_Base_Internal.gdb", layer = "Input_BSH_Polys_WGS84_Internal")
+fgdb <- st_read(dsn="F:/copy_data/Marine_Evidence_Base_Internal.gdb", layer = "Input_BSH_Polys_WGS84_Internal")
+
+
 
 ## 2) English territorial waters/seas -> 12 NM waters
-fgdb <- st_read(dsn="D:/projects/fishing_displacement/2_subprojects_and_data/2_GIS_DATA/Marine habitat/Phil_Fish_Project.gdb", layer = "Input_BSH_Polys_WGS84_Internal_Selection_Clip")
+#fgdb <- st_read(dsn="D:/projects/fishing_displacement/2_subprojects_and_data/2_GIS_DATA/Marine habitat/Phil_Fish_Project.gdb", layer = "Input_BSH_Polys_WGS84_Internal_Selection_Clip")
+
+
 
 names(fgdb)
 #names(fgdb)
