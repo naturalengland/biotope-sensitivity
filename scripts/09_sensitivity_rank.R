@@ -1,4 +1,5 @@
 # generate a sensitivity ranking score that will be used to replace characters/strings in sbgr.bap to allow selecting the highest, and lowest sensitivity, and genrate some confidence around this.
+library(tidyverse)
 sens.rank <- tribble(
         ~rank.value, ~ActSensRank,
         #-------/------------
