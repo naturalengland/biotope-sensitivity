@@ -35,7 +35,6 @@ subset(sqlTables(conn), TABLE_TYPE == "VIEW")%>%
 
 
 # Get data
-#e.g. data <- sqlQuery( channel , paste ("select * from qryEUNIS_ActPressSens"))
 ## All three "building" queries, included, but only query 3 required, as long as the queries are stored in the Access database. IF not stored in the Access database, Query 1 and 2 would have to be saved as a dataframes, and the required tables from Access also, then set-up joins to create query three
 ## could also just read in query 3
 
