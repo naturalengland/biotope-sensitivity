@@ -1,30 +1,29 @@
 #Clean geodata file
 #to do: functionalise: make gis.hab.bgr.dat a changable variable:#specify unique id and other variables
 
+
 library(tidyverse)
 
-#trying using the gpkg just made
-#gis.hab.bgr.dat <- gpkg@data
-#names(gis.hab.bgr.dat)
-#unique(duplicated(gis.hab.bgr.dat$OBJECTID))
+#define variables
+gis.attr <- gpkg@data # input data
 
 #clean data
-gis.hab.bgr.dat <- function(dat = gpkg@data, id.gis = "OBJECTID", habitat.type = "HAB_TYPE"){
+gis.hab.bgr.dat <- function(dat = gis.attr){
         
-        #clean habitat.type column from multiple entries
-        dat$habitat.type <- gsub(" or ", "/", dat$habitat.type) # replace ; with / to make consistent
-        dat$habitat.type <- gsub(";", "/", dat$habitat.type) # replace ; with / to make consistent
-        dat$habitat.type <- gsub("(8)", "", dat$habitat.type) # remove (8) to make consistent
-        dat$habitat.type <- gsub(" #", "", dat$habitat.type) # remove (8) to make consistent
+        #clean HAB_TYPE column from multiple entries
+        dat$HAB_TYPE <- gsub(" or ", "/", dat$HAB_TYPE) # replace ; with / to make consistent
+        dat$HAB_TYPE <- gsub(";", "/", dat$HAB_TYPE) # replace ; with / to make consistent
+        dat$HAB_TYPE <- gsub("(8)", "", dat$HAB_TYPE) # remove (8) to make consistent
+        dat$HAB_TYPE <- gsub(" #", "", dat$HAB_TYPE) # remove (8) to make consistent
 
-        # Separate habitat.type into multiple columns where "/" appears to allow for the next step
+        # Separate HAB_TYPE into multiple columns where "/" appears to allow for the next step
         hab.types <- dat %>%
-                select(id.gis, habitat.type, bgr_subreg_id) %>%
-                tidyr::separate(habitat.type, into = c("hab.1", "hab.2", "hab.3", "hab.4"), sep = "/", remove = F)
+                select(OBJECTID, HAB_TYPE, bgr_subreg_id) %>%
+                tidyr::separate(HAB_TYPE, into = c("hab.1", "hab.2", "hab.3", "hab.4"), sep = "/", remove = F)
         # Remove any leading or trailing white spaces which could cause problems when matching the eunis columns between gis and database.
         hab.types <- purrr::map_df(hab.types, function(x) trimws(x, which = c("both")))
         str(hab.types) # changed integer top char for all!
-        hab.types$id.gis <- as.integer(hab.types$id.gis)
+        hab.types$OBJECTID <- as.integer(hab.types$OBJECTID)
 
 
         #check if there are values in all columns, and drop columns with no values

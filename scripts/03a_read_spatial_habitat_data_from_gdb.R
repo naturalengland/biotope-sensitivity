@@ -6,9 +6,11 @@ read.network.geodatabase <- function(net.dir = "\\\\SAMVW3-GIREP02\\NEWorkingDat
         gdb <- try(readOGR(dsn = net.dir, layer = gis.layer))
         if("try-error" %in% class(gdb)) {
                 cat("Caught an error during to read the network file, trying read a back up copy.\n")
-                prep.gdb.dir <- "D:/projects/fishing_displacement/2_subprojects_and_data/2_GIS_DATA/Marine habitat/Input_Polys_WGS84_Internal_BGR_inside_12nm.gpkg"
+                prep.gdb.dir <- "D:\\projects\\fishing_displacement\\2_subprojects_and_data\\2_GIS_DATA\\Marine habitat\\sbgr_input_poly_wgs84_internal_bgr_inside_12nm.gpkg"
+                #D:\projects\fishing_displacement\2_subprojects_and_data\2_GIS_DATA\Marine habitat        
+                #"D:/projects/fishing_displacement/2_subprojects_and_data/2_GIS_DATA/Marine habitat/Input_Polys_WGS84_Internal_BGR_inside_12nm.gpkg"
                         #"F:/projects/biotope-sensitivity/copy_data/Marine_Evidence_Geodatabase.gdb"
-                gis.layer <- "habitat_inside_12nm"
+                gis.layer <- "sbgr_input_poly_wgs84_internal_bgr_inside_12nm"
                 gdb <- readOGR(dsn = prep.gdb.dir, layer = gis.layer)
                 
                 }
@@ -16,3 +18,6 @@ read.network.geodatabase <- function(net.dir = "\\\\SAMVW3-GIREP02\\NEWorkingDat
 }
 
 gpkg <- read.network.geodatabase() # calls the function which will read the habitat file.
+
+
+#gdb <- (readOGR(dsn = net.dir, layer = gis.layer))
