@@ -6,6 +6,7 @@ library(tidyverse)
 
 #define variables
 gis.attr <- gpkg@data # input data
+names(gis.attr)
 
 #clean data
 gis.hab.bgr.dat <- function(dat = gis.attr){
@@ -18,7 +19,7 @@ gis.hab.bgr.dat <- function(dat = gis.attr){
 
         # Separate HAB_TYPE into multiple columns where "/" appears to allow for the next step
         hab.types <- dat %>%
-                select(OBJECTID, HAB_TYPE, bgr_subreg_id) %>%
+                select(OBJECTID, HAB_TYPE, bgr_subreg_id = SubReg_id) %>%
                 tidyr::separate(HAB_TYPE, into = c("hab.1", "hab.2", "hab.3", "hab.4"), sep = "/", remove = F)
         # Remove any leading or trailing white spaces which could cause problems when matching the eunis columns between gis and database.
         hab.types <- purrr::map_df(hab.types, function(x) trimws(x, which = c("both")))

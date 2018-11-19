@@ -10,7 +10,7 @@ library(tidyverse)
 library(reshape2)
 
 #orig.d <- "F:/projects/biotope-sensitivity"
-orig.d <- "./biotope-sensitivity"
+orig.d <- "F:/projects/biotope-sensitivity"#"./biotope-sensitivity"
 setwd(orig.d)
 
 #

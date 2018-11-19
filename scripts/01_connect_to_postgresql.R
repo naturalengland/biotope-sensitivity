@@ -9,6 +9,7 @@ library(RPostgres)
 library(DBI)
 library(Rcpp)
 library(dbplyr)
+library(tidyverse)
 
 
 #drv <- dbDriver("PostgreSQL")
@@ -36,7 +37,7 @@ con <- dbConnect(RPostgres::Postgres()
 
 #with RPostgreSQL
 drv <- dbDriver('PostgreSQL')  
-db <- 'postgis_24_sample'  
+db <- 'habitat sensitivity'  
 host_db <- 'localhost'  
 db_port <- '5432'  
 db_user <- 'postgres'  
@@ -60,4 +61,4 @@ dbGetQuery(con,
 dbDisconnect(conn = con)
 
 
-tbl(con, "spatial_ref_sys")
+tbl(con, "sbgr_input_bsh_polys_wgs84_internal")
