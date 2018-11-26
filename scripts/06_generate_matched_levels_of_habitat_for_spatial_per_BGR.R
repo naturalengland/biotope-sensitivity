@@ -59,3 +59,4 @@ for (g in seq_along(x.dfs.lst)) {
         #level.result.tbl[[g]] <- out # this does not yet work...at this stage all results are being wriiten to Results table csv and then read back in later
 }
 setwd(file.path(mainDir))
+getwd()
