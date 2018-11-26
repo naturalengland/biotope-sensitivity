@@ -7,7 +7,6 @@ EunisAssessed$level <- nchar(as.character(EunisAssessed$EUNISCode), type = "char
 
 #nchar.hab <- nchar(as.character(EunisAssessed$EUNISCode), type = "chars", allowNA = T, keepNA = T)
 
-
 EunisAssessed$l6 <- "NA"
 EunisAssessed$l6[EunisAssessed$level == 6] <- substr(as.character(EunisAssessed$EUNISCode[EunisAssessed$level == 6]), 1,7)
 
@@ -28,14 +27,20 @@ EunisAssessed$l1[EunisAssessed$level == 1] <- substr(as.character(EunisAssessed$
 
 EunisAssessed$eunis.code <- EunisAssessed$EUNISCode
 
-#group_by EUNIS levels, and sort
-#EunisAssessed <- EunisAssessed %>% group_by(l2) %>% distinct() %>% arrange(EUNISCode)
+####-----
+#Attempt to turn this into a function - not working yet
 
+#xy <- vector("list", nrow(EunisAssessed))
+#eunis.levels <- function(x = EunisAssessed, lvl = 1:6){
+#        for (i in seq_along(lvl)){
+#                nam <- paste("l", i, sep = "")
 
-#join to BGR
-
-
-#jntbl.habtype.assessed <- left_join(df.hab.type,EunisAssessed, by = "eunis.code")
-
-#jntbl.habtype.assessed$act.sen.ass <- jntbl.habtype.assessed$EUNISCode
-
+#                y <- data.frame(i,nrow(x))
+#               names(y) <- paste("l", i, sep = "")
+#                x[i+2][x$level == i] <- substr(as.character(x$EUNISCode[x$level == i]), 1,i+1)
+#                xy[[i]] <- x
+#                
+#        }
+#        do.call(cbind, xy)
+#}
+#eunis.levels()
