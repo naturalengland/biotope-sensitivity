@@ -33,18 +33,18 @@ sbgr.BAP.max.sens <- xap.ls %>%
                                         select(ActivityCode, sbgr, PressureCode, eunis.code.gis, eunis.match.assessed, max.sens)%>%#, # maximum sensitivity value, done using mutate to preserve the "eunis.match.assessed" column
                                         slice(1)%>%
                                         ungroup()
-                                        
-                                        
+                                
+                                
                                 #max.sens.tbl.2 <- max.sens.tbl %>% dplyr::group_by(eunis.code.gis, PressureCode) %>%
                                 #        slice(1)%>%#, # maximum sensitivity value, done using mutate to preserve the "eunis.match.assessed" column
                                 #        arrange(ActivityCode, sbgr, PressureCode, eunis.code.gis, eunis.match.assessed, max.sens)
                                 
-                                        #min.sens = min(rank.value[rank.value > 3]),
-                                        #min.sens.na = min(rank.value)) %>% # minimum sensitity value
-                                        
-                                 # keeps only the top value /selects row by position, done to preserve eunis.match.assessed code
+                                #min.sens = min(rank.value[rank.value > 3]),
+                                #min.sens.na = min(rank.value)) %>% # minimum sensitity value
                                 
-                                })
+                                # keeps only the top value /selects row by position, done to preserve eunis.match.assessed code
+                                
+                        })
         }, .progress = "text") %>% #now we can reshape the data as follows:
         llply(function(x){#splits by activity, and returns a list split by activity - becuase each activity will be mapped separately
                 x %>%
@@ -55,4 +55,3 @@ sbgr.BAP.max.sens <- xap.ls %>%
 
 
 rm(xap.ls)
-
