@@ -33,7 +33,11 @@ qryEUNIS_ActPressSens <- read.csv("C:/Users/M996613/Phil/PROJECTS/Fishing_effort
 #db.path <- file.choose()
 # Define Variables
 ## set the path to the database #this will hoefully be a 
-db.path <- "C:/Users/M996613/Phil/PROJECTS/Fishing_effort_displacement/2_subprojects_and_data/3_Other/NE/Habitat_sensitivity/database/PD_AoO.accdb"
+#laptop path
+#db.path <- "C:/Users/M996613/Phil/PROJECTS/Fishing_effort_displacement/2_subprojects_and_data/3_Other/NE/Habitat_sensitivity/database/PD_AoO.accdb"
+#power pc path
+db.path <- "D:/projects/fishing_displacement/2_subprojects_and_data/5_internal_data_copies/database/PD_AoO.accdb"
+
 drv.path <- "Microsoft Access Driver (*.mdb, *.accdb)" #"SQL Server"#or #
 srv.host <- "Null"#e.g. "mysqlhost"
 
