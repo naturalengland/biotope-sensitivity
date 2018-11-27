@@ -8,7 +8,7 @@ xap.ls <- act.press.list.2 %>%
                 
                 tidy.p <- y 
                 
-                                sbgr.bap <- sbgr.matched.btpt.w.rpl %>% 
+                sbgr.bap <- sbgr.matched.btpt.w.rpl %>% 
                         plyr::llply(function(x) { 
                                 
                                 x.df <- x %>% dplyr::select(eunis.code.gis, sbgr, 1:14, 19:354) %>%
@@ -25,4 +25,5 @@ xap.ls <- act.press.list.2 %>%
                 
                 return(sbgr.bap)
         }, .progress = "text")
-saveRDS(xap.ls,"./output/xap_ls.rds")
+#saveRDS(xap.ls,"./output/xap_ls.rds") # not saving this any longer - as the code works, and this is an intermediate data set.
+rm(sbgr.matched.btpt.w.rpl)
