@@ -1,4 +1,4 @@
-####ONL RUN TOP BIT FOR TEST SMALL TEST FILE
+#Read GIS habitat map file
 
 #Libraries
 library(rgdal)
@@ -29,7 +29,7 @@ read.network.geodatabase <- function(net.dir = "\\\\SAMVW3-GIREP02\\NEWorkingDat
 
 hab.map <- read.network.geodatabase() # calls the function which will read the habitat file.
 
-
+####ONLY RUN BELOW FOR TEST SMALL TEST FILE
 #smaller test map
 #hab.map <- readOGR(dsn = "\\\\SAMVW3-GIREP02\\NEWorkingData\\GIS_Working_Data\\Marine\\Phil_Haupt\\Fishing_effort_displacement\\2_Data\\1_QGIS\\test_habmap_for_R.gpkg", layer = "test_habmap_for_R")
 #hab.map <- readOGR(dsn = "C:\\Users\\M996613\\Phil\\PROJECTS\\Fishing_effort_displacement\\2_subprojects_and_data\\2_GIS_DATA\\tmp_test\\test_habmap_for_R.gpkg", layer = "test_habmap_for_R")
