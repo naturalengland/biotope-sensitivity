@@ -85,4 +85,4 @@ for(i in 1:length(unique(sens.act.rank$ActivityCode))){
 
 names(act.press.list.2) <- unique(sens.act.rank$ActivityCode) # this will assign the Activity codes as names to teh dataframes within the list.
 
-rm(nam, i) # house keeping: remove temporary or non-essential variables
+rm(nam, i, sens.select.tmp, sens.subset.tmp, Eunis.Pressure.tmp) # house keeping: remove temporary or non-essential variables
