@@ -5,7 +5,7 @@ library(tidyverse)
 library(stringr)
 
 # Define variables:
-group.by <- parse(text = "OBJECTID") ## Set text = "ogc_fid" or any other unique identifier in the GIS file. It generates a field name taht is easy to cahnge - unique ID for polygons.
+group.by <- parse(text = "pkey") ## Set text = "ogc_fid" or any other unique identifier in the GIS file. It generates a field name taht is easy to cahnge - unique ID for polygons.
 
 
 # Obtain the maximum sensitivity for each POLYGON (from the GIs habitat file)
@@ -18,17 +18,16 @@ act.sbgr.bps.gis <- sbgr.BAP.max.sens %>%
                 
                 #join the GIS file to the dataframes coming from sbgr.BAP.max.sens to obbtain the ID number for the individual polygons into the data set.
                 sbgr.hab.gis <- left_join(hab.types, x, by = c("bgr_subreg_id" = "sbgr", "hab.1" = "eunis.code.gis")) %>% #  composite join, e.g.: left_join(d1, d2, by = c("x" = "x2", "y" = "y2"))
-                        select(OBJECTID, sbgr = bgr_subreg_id, eunis.code.gis = hab.1, eunis.match.assessed, ActivityCode, PressureCode, max.sens) %>%
+                        select(pkey, sbgr = bgr_subreg_id, eunis.code.gis = hab.1, eunis.match.assessed, ActivityCode, PressureCode, max.sens) %>%
                         spread(key = PressureCode, value = max.sens)
                 
-                # CRITICAL BIT STILL TO SORT: Decide to include this or not - test with full data set
                 #drop columns with NA for name (these may have arised in datasets where NA occured in the PressureCode column which were assigned NA if they were not present)
-                #sbgr.hab.gis <- sbgr.hab.gis %>% select(-("<NA>"))
+                sbgr.hab.gis <- sbgr.hab.gis %>% select(-("<NA>"))
                 
                 #generate a single maximum value per column (there are currently multiple sensitivity scores associated with each)
                 sbgr.hab.gis.2  <-  sbgr.hab.gis %>%
                         select(-(2:5)) %>% # remove not immediately relevant columns
-                        group_by(eval(group.by)) %>% # group the results by a unique identifier for polygon
+                        group_by(eval(group.by)) %>% # group the results by a unique identifier for polygon: "pkey"
                         summarise_all(max) %>% # summarise (obtain the maximum) ALL the remaining columns (according to the grouping); this was key to ensuring that dynamic names operate; if columns 2:5 were needed that could be bound after the fact, as these variables cannot be summarised as they are not numerical
                         select(-(`eval(group.by)`)) #remove the surpuflous variable created from using pasre/eval functions.
                 
@@ -48,4 +47,5 @@ act.sbgr.bps.gis <- sbgr.BAP.max.sens %>%
         }, .progress = "text") %>% #provides an indication of progress in executing the code. 
         bind_cols() # binds the results (columns) from each list, keeping the original identifier as the main id.
 
+rm(hab.types)
 #check that the number of observations match the number of observations in the hab.map which whoudl also be the sam eas the gis.attr and hab.types
