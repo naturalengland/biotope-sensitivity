@@ -90,7 +90,7 @@ sbgr.matched.btpt.w.rpl <- results.files %>%
                 return(l.consolidated) # this is the value that I want to the function to return: send this dataframe (the consolidated dataframe from teh three comapred dataframes) into the overarching function (this is then repeated for each sbgr)
                 
                 #to write into sepearate files remove "#" below, and check that there is a folder called output in the working directory, (getwd()).
-                write.csv(l.consolidated, paste0("./output/sbgr_",unique(l.consolidated$sbgr),"_consolidated_hlvls.csv")) # write the result to file to inspect it,and ensure thta R object at the end is correct
+                write.csv(l.consolidated, paste0("./sbgr_",unique(l.consolidated$sbgr),"_consolidated_hlvls.csv")) # write the result to file to inspect it,and ensure thta R object at the end is correct
                 
                 
                 
@@ -99,3 +99,7 @@ sbgr.matched.btpt.w.rpl <- results.files %>%
                 
                 #sbgr.matched.btpt.w.rpl <- rbind(sbgr.matched.btpt.w.rpl, l.consolidated) # bind the resulting tables
         }, .progress = "text") # %>% saveRDS(sbgr.matched.btpt.w.rpl, paste0("./sbgr_matched_btpt_w_rpl.rds")) # activate you want to save as an independent R object for later use.
+
+#CAUTION: THIS WILL REMOVE ALL FILES IN THE SPECIFIED DIRECTORY!!! remove all the csv files written - this is a temporary work-around. If the results table can be stored as a R object rather than tables, this would not be neccessary
+do.call(file.remove, list(list.files(paste(getwd(),folder, sep = "/"), full.names = TRUE)))
+rm(results.files)
