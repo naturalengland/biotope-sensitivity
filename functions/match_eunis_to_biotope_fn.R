@@ -1,6 +1,8 @@
 # FUNCTION: Obtain EUNIS level 6 info to associate with lower EUNIs level, based on the similarity of their EUNIs code:
-#Match all lower level EUNIs habitats to eunis level 6 that share the same EUNIS composition codes
+# Match all lower level EUNIs habitats to eunis level 6 that share the same EUNIS composition codes
 # to work on: not able to pass results on into a global variable...
+
+# Note this is the KEY function which underpins the matching between all possible combinations of assesssed fine-scale biotopes that may occur within broader [mapped] biotopes
 
 ## Check and create a directory for output
 
