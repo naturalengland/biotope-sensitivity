@@ -22,12 +22,12 @@ rm(eunis.lvl.less.2, eunis.lvl.more.2) # housekeeping remove temporary vars
 distinct.mapped.habt.types <- hab.types %>%
         distinct(hab.1,bgr_subreg_id, level) %>% drop_na() # hab.1 contains the worked/processed HAB_TYPE data (1st column)
 
-#generate multiple dataframes in a list, for the various subBGRs
+#generate multiple dataframes in a list, for the various habitat types within subBGRs, per hab level. this holds the gis data used to generate cross tabulated data matrices in the "match_eunis_to_biotope_fn"
 bgr.dfs.lst <- split(distinct.mapped.habt.types, distinct.mapped.habt.types$bgr_subreg_id)
 
 
 # All EUNIS Biotopes that have been assessed 
-# below is a for loop that count backwards, and then split the EUNIsAssessed in to a list of dataframes 1st being the most detailed biotope level (6), and then down to the braodest biotope level (4) that were assessed in the PD_AoO access database
+#this list of data tables holds the assessed level data from the Access database - all habitats assessed per habitat level. this will be used with the above to generate the cross tabulate matrices in the "match_eunis_to_biotope_fn"
 x.dfs.lst <- split(EunisAssessed,f = EunisAssessed$level)
 
 level.result.tbl <- vector("list", length(x.dfs.lst))
@@ -38,7 +38,7 @@ mainDir <- getwd()#"C:/Users/M996613/Phil/PROJECTS/Fishing_effort_displacement/2
 subDir <- "output/"
 dir.create(file.path(mainDir, subDir), showWarnings = FALSE)
 setwd(file.path(mainDir, subDir))
-#datalist <- list()
+# below is a for loop that count backwards, and then split the EUNIsAssessed in to a list of dataframes 1st being the most detailed biotope level (6), and then down to the broadest biotope level (4) that were assessed in the PD_AoO access database
 for (g in seq_along(x.dfs.lst)) {
         #determine the number of characters for substring limit to feed into substring statement
         sbstr.nchr <- unique(nchar(as.character(x.dfs.lst[[g]]$EUNISCode)))
@@ -60,3 +60,4 @@ for (g in seq_along(x.dfs.lst)) {
 }
 setwd(file.path(mainDir))
 getwd()
+rm(mainDir, subDir)
