@@ -1,10 +1,13 @@
-# join the pressure to a sbgr-consolidated data set: rewritten to join within activity rather than activity within sbgr
+# join the pressure to a sbgr-consolidated data set: This code joins pressures within sbgr within an activity, as opposed to activity within sbgr.
+#libraries
 library(plyr)
 library(dplyr)
 library(magrittr)
 
+
 xap.ls <- act.press.list.2 %>% 
         plyr::llply(function(y){
+                
                 
                 tidy.p <- y 
                 
@@ -25,5 +28,8 @@ xap.ls <- act.press.list.2 %>%
                 
                 return(sbgr.bap)
         }, .progress = "text")
-#saveRDS(xap.ls,"./output/xap_ls.rds") # not saving this any longer - as the code works, and this is an intermediate data set.
+
+#housekeeping: remove objects no longer required
 rm(sbgr.matched.btpt.w.rpl)
+
+#saveRDS(xap.ls,"./output/xap_ls.rds") # not saving this any longer - as the code works, and this is an intermediate data set.
