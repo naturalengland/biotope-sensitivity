@@ -11,7 +11,7 @@ library(magrittr)
 
 #set the folder so that it is easy to refer to it, may need to change this more dynamically
 #uses relative file path from working directory (= project directory)
-folder <- "output/"
+folder <- "tmp_output/"
 
 #read in all the restuls generated in a single file as lists of dataframes
 results.files <- list.files(folder, full.names = F, recursive=T) %>%
@@ -76,17 +76,12 @@ sbgr.matched.btpt.w.rpl <- results.files %>%
                 }
                 
                 
-                #future improvement?
-                #I am sure that the ifelse could be converted to afunction and ran inside % % and a map functional to make the code smooth...but not sure how to sepcify to replace with a cross corresponding element..., so where v and w stand alone at this stage...
+                # Future improvement?
+                #I am sure that the ifelse could be converted to a function and ran inside % % and a map functional to make the code smooth...but not sure how to sepcify to replace with a cross corresponding element..., so where v and w stand alone at this stage...
                 #replacefn <- function(w,u){
                 #        l.tmp <- ifelse(w %==% "NA" | w %==% "<NA>"| w %==% is.na(),v,w)#compare and replace
                 #}
-                #---------------
-                #QA code to test that this is working
-                #all.equal(l.tmp, l6) # 218 changes made
-                #all.equal(l.consolidated, l.tmp) # only 11 changes made 
-                #unique(l.consolidated$sbgr)
-                #---------------
+
                 return(l.consolidated) # this is the value that I want to the function to return: send this dataframe (the consolidated dataframe from teh three comapred dataframes) into the overarching function (this is then repeated for each sbgr)
                 
                 #to write into sepearate files remove "#" below, and check that there is a folder called output in the working directory, (getwd()).
@@ -102,4 +97,4 @@ sbgr.matched.btpt.w.rpl <- results.files %>%
 
 #CAUTION: THIS WILL REMOVE ALL FILES IN THE SPECIFIED DIRECTORY!!! remove all the csv files written - this is a temporary work-around. If the results table can be stored as a R object rather than tables, this would not be neccessary
 do.call(file.remove, list(list.files(paste(getwd(),folder, sep = "/"), full.names = TRUE)))
-rm(results.files)
+rm(results.files, folder)
