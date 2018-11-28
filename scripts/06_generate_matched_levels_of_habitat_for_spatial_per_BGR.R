@@ -33,9 +33,9 @@ x.dfs.lst <- split(EunisAssessed,f = EunisAssessed$level)
 level.result.tbl <- vector("list", length(x.dfs.lst))
 names(level.result.tbl) <- paste0("h.lvl_",names(x.dfs.lst))
 
-#Genreate a diroctory save files into
+#Genreate a diroctory save temporary output files into
 mainDir <- getwd()#"C:/Users/M996613/Phil/PROJECTS/Fishing_effort_displacement/2_subprojects_and_data/4_R/sensitivities_per_pressure"
-subDir <- "output/"
+subDir <- "tmp_output/"
 dir.create(file.path(mainDir, subDir), showWarnings = FALSE)
 setwd(file.path(mainDir, subDir))
 # below is a for loop that count backwards, and then split the EUNIsAssessed in to a list of dataframes 1st being the most detailed biotope level (6), and then down to the broadest biotope level (4) that were assessed in the PD_AoO access database
