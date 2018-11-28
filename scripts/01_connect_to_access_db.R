@@ -19,18 +19,6 @@ library(RODBC)
 library(DBI)# R library to harnass ODBC, # install package RODBC if not already installed within R using the command: install.packages("RODBC")
 library(tidyverse) # to use piping and other data wrangling functions.
 
-
-
-#TEST RUN: ONLY THIS LINE
-#qryEUNIS_ActPressSens <- read.csv("C:/Users/M996613/Phil/PROJECTS/Fishing_effort_displacement/2_subprojects_and_data/3_Other/NE/Habitat_sensitivity/qryhabsens/qryEUNIS_ActPressSens.txt")
-
-
-
-#cat("Type '1' to read Access database from file, and run sql queries to obtain EUNIS sensitivity data (recommended if the database has been updated).\n")
-#cat("Type '2' to read pre-saved SQL query of the above.\n")
-#cat("choice <- ")
-
-
 # Define Variables
 ## set the path to the database #this will hoefully be a 
 
@@ -59,3 +47,5 @@ if("try-error" %in% class(read.access.db(db.path,drv.path))) {
 #remove housekeeping variables
 rm(db.path,drv.path,srv.host)
 
+#TEST RUN: ONLY THIS LINE
+#qryEUNIS_ActPressSens <- read.csv("C:/Users/M996613/Phil/PROJECTS/Fishing_effort_displacement/2_subprojects_and_data/3_Other/NE/Habitat_sensitivity/qryhabsens/qryEUNIS_ActPressSens.txt")
