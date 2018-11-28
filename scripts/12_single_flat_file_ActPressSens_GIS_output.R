@@ -13,6 +13,7 @@ dsn.path <- paste0(getwd(),"/",folder,"/habitat_sensitivity_fishing.gpkg")
 layer.name <- "sensitivity_fishing_ops"
 driver.choice <- "GPKG"
 
+
 # attach sensitivity results to the habitat map's geodatabase
 hab.map@data <- cbind(hab.map@data, act.sbgr.bps.gis) 
 
