@@ -36,7 +36,7 @@ drv.path <- "Microsoft Access Driver (*.mdb, *.accdb)" #"SQL Server"#or #
 #---------------------------------
 
 #load the function that reads the Access database
-source(file = "./functions/read_access_db.R")
+source(file = "./functions/read_access_db_fn.R")
 
 #populate qryEUNIS_ActPressureSens using the read access function above, if it fails it will attempt to read a stored csv copy (note that this may not be the most up to date version)
 qryEUNIS_ActPressSens <- try(read.access.db(db.path,drv.path)) 
