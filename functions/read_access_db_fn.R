@@ -80,5 +80,6 @@ read.access.db <- function(db.p = db.path, drv.p = drv.path){
         #                                                      WHERE (((tblEUNISBiogeoRegion.RelevantToRegion)='Yes'));"))
         
         ##house kepping: close the connection: S3 method for class 'RODBC'
-        close(con = conn)#do I need to close the connection if it is only open in the function?        
+             
 }
+#close(con = conn) #do I need to close the connection if it is only open in the function?   
