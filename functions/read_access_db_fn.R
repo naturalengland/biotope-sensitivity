@@ -9,14 +9,38 @@ read.access.db <- function(db.p = db.path, drv.p = drv.path){
         #-------------------
         ## Inspect data
         ## List of Tables
-        #subset(sqlTables(conn), TABLE_TYPE == "TABLE") %>%
-        #        arrange(TABLE_NAME)
+        subset(sqlTables(conn), TABLE_TYPE == "TABLE") %>%
+                arrange(TABLE_NAME)
         ## List of VIEW queries
-        #subset(sqlTables(conn), TABLE_TYPE == "VIEW")%>%
-        #        arrange(TABLE_NAME)
+        subset(sqlTables(conn), TABLE_TYPE == "VIEW")%>%
+                arrange(TABLE_NAME)
         
         
         # Get data
+        #----------------------------------------------------------------------------------------
+        #read in additional tables needed fpor query (using dplyr with dbplyr backend) # not tested
+        #copy_to(conn, tblEUNISLUT)
+        #require(dbplyr)
+        #tblEUNISLUT <- tbl(conn, "tblEUNISLUT")
+        
+        #copy_to(conn, tblEUNISPressure)
+        #tblEUNISPressure <- tbl(conn, "tblEUNISPressure")
+        
+        #copy_to(conn, tblActivityPressure)
+        #tblActivityPressure <- tbl(conn, "tblActivityPressure")
+        
+        #copy_to(conn, tblPressureLUT)
+        #tblPressureLUT <- tbl(conn, "tblPressureLUT")
+        
+        #copy_to(conn, tblSensitivityLUT)
+        #tbl(conn, "tblSensitivityLUT")
+        
+        #qryEUNIs_grp_act
+        #use this to reconstruct the below:
+        #------------------------------------------------------------------------------------------------
+        
+        
+        
         ## All three "building" queries, included, but only query 3 required, as long as the queries are stored in the Access database. IF not stored in the Access database, Query 1 and 2 would have to be saved as a dataframes, and the required tables from Access also, then set-up joins to create query three
         ## could also just read in query 3
         
@@ -35,25 +59,7 @@ read.access.db <- function(db.p = db.path, drv.p = drv.path){
         #                                               ActivityName) %>%
         #        group_by(EUNISCode,ActivityCode, ActivityName) %>%
         #        distinct()
-        #----------------------------------------------------------------------------------------
-        #read in additional tables needed fpor query (using dplyr with dbplyr backend) # not tested
-        #copy_to(conn, tblEUNISLUT)
-        #tblEUNISLUT <- tbl(conn, "tblEUNISLUT")
-        
-        #copy_to(conn, tblEUNISPressure)
-        #tblEUNISPressure <- tbl(conn, "tblEUNISPressure")
-        
-        #copy_to(conn, tblActivityPressure)
-        #tblActivityPressure <- tbl(conn, "tblActivityPressure")
-        
-        #copy_to(conn, tblPressureLUT)
-        #tblPressureLUT <- tbl(conn, "tblPressureLUT")
-        
-        #copy_to(conn, tblSensitivityLUT)
-        #tbl(conn, "tblSensitivityLUT")
-        
-        #qryEUNIs_grp_act
-        #use this to reconstruct the below:
+ 
         
         #--------------------------
         #NB NB NB NB NB NB KEY query!!!!!!!!!!!!!!!!!!!!!!!
