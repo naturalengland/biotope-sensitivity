@@ -39,7 +39,7 @@ act.sbgr.bps.gis <- sbgr.BAP.max.sens %>%
                 new.names <- c(names(sbgr.hab.gis.2[,1]),str_c(act.code, orig.names, sep = "_")) 
                 new.names.2 <- str_replace(new.names,"[.]","_") # change points to underscores to make them database compatable
                 names(sbgr.hab.gis.2) <- new.names.2 # set the names to names 2
-                sbgr.hab.gis.2 #call the dataframe to ensure tha this is waht is saved in the end
+                sbgr.hab.gis.2 #call the dataframe to ensure that this is waht is saved in the end
                 
                 
                 
