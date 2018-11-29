@@ -6,23 +6,18 @@
 
 
 #load libraries
+library(plyr)
 library(tidyverse)
 library(reshape2)
 
-#orig.d <- "F:/projects/biotope-sensitivity"
-#orig.d <- "F:/projects/biotope-sensitivity"#"./biotope-sensitivity"
-#setwd(orig.d)
-
-#
-sens.act <- qryEUNIS_ActPressSens # from 01_connect_to_access_db.R
-sens.act$EUNISCode <- as.character(sens.act$EUNISCode)
-rm(qryEUNIS_grp_act, qryEUNISFeatAct)
 
 
-# add ranking of sensitivity
+# add ranking of sensitivity to access database-object
 source("./scripts/09_sensitivity_rank.R")
-sens.act.rank <- left_join(sens.act,sens.rank, by = "ActSensRank")
-rm(sens.act)
+sens.act.rank <- left_join(qryEUNIS_ActPressSens,sens.rank, by = "ActSensRank")
+sens.act.rank$EUNISCode <- as.character(sens.act.rank$EUNISCode)
+# housekeeping: remove the initial database query, and keep only the last R object
+rm(qryEUNIS_ActPressSens, sens.rank)
 
 
 ## Or read in the saved text file
@@ -34,30 +29,49 @@ rm(sens.act)
 #setwd(wd) # change the working directory back to original directory
 
 # Obtain a table of the distinct EUNIS codes for which sensitivity data exists; this table will be used in joins to ensure that each EUNIs code gets checked against the Pressure Sensitivity assessments
-EunisAssessed <- sens.act.rank %>% 
+eunis.lvl.assessed <- sens.act.rank %>% 
         select(EUNISCode) %>% 
         distinct()
+eunis.lvl.assessed$EUNISCode <- as.character(eunis.lvl.assessed$EUNISCode)
 
 
+
+# List of sensitivity_per_pressure for each assessed EUNIs code (biotope) (from Access database)
+#passes the ranked sensitivty assessments (from the database), splits it according to activity code, joins it to unique eunis combinations that have been assessed, and keeps only fields tha tare required for further calucautions
+
+# this provides the lists of unique combinations of pressure sensitivities of all biotopes - for activity - which is then passed onto teh next set of instructions
+act.press.list <- sens.act.rank %>% 
+        dlply(.variables = "ActivityCode", .fun = function(x){
+                
+                x %>%
+                        right_join(EunisAssessed, by  = "EUNISCode") %>%
+                        select(EUNISCode,ActivityCode, PressureCode, rank.value)
+                
+                
+                
+        })
+
+#---------------------------------
+#older code to do the same
 # Obtain sensitvity tables, one for each acitivty, with each EUNIs code assessed against each pressure code: 
 ## A FOR loop follows (for each activity) in which the Activity Pressure Eunis table that was read the following process is carried out for EACh activity (based on Activity code)
 
-#lists to store the rsults from the for loop in
+# Create an empty lists to store the rsults from the for loop in
 #act.press.list <- list()
-act.press.list.2 <- list()
+#act.press.list.2 <- list()
 
 # Sequentially use only one table at a time
-for(i in 1:length(unique(sens.act.rank$ActivityCode))){
+#for(i in 1:length(unique(sens.act.rank$ActivityCode))){
         
         # filter table by Activity, and sequentially use only one table at a time, and store the table in a temporary dataframe for further processing
-        sens.subset.tmp <- sens.act.rank %>% dplyr::filter(ActivityCode == unique(sens.act.rank$ActivityCode)[i])
+        #sens.subset.tmp <- sens.act.rank %>% dplyr::filter(ActivityCode == unique(sens.act.rank$ActivityCode)[i])
         
         # Join each Activity pressure to the DISTINCT EUNIS Code table (from outside loop) to obtian a complete table of all pressure sensitivities for each acitvity
-        Eunis.Pressure.tmp <- left_join(EunisAssessed, sens.subset.tmp, by  = "EUNISCode")
+        #Eunis.Pressure.tmp <- left_join(EunisAssessed, sens.subset.tmp, by  = "EUNISCode")
         #Eunis.Pressure.tmp$ID <- row.names(Eunis.Pressure.tmp)
         # Select only variables of interest
         #sens.select.tmp <- Eunis.Pressure.tmp %>% select(EUNISCode, PressureCode, ActSensRank) #%>%
-        sens.select.tmp <- Eunis.Pressure.tmp %>% select(EUNISCode,ActivityCode, PressureCode, rank.value) #%>%
+        #sens.select.tmp <- Eunis.Pressure.tmp %>% select(EUNISCode,ActivityCode, PressureCode, rank.value) #%>%
         #nam <- paste("act.", i, sep = "") # generate a name within the FOr LOOP based on the ith cycle in the for loop # not used as it will just count i  = 1,2,3,4 etc
         #nam <- as.character(sens.subset.tmp$ActivityCode[1]) # generate a name within the FOr LOOP based on the ith cycle in the for loop
         
@@ -76,13 +90,16 @@ for(i in 1:length(unique(sens.act.rank$ActivityCode))){
         #        na.omit() # remove non-sensical values
         
         #make a list of pressure files
-        #act.press.list[[i]] <- dat.tmp
-        act.press.list.2[[i]] <- sens.select.tmp
+        #act.press.list.2[[i]] <- dat.tmp
+        #act.press.list[[i]] <- sens.select.tmp
         
         #house keeping
         #rm(Eunis.Pressure.tmp, sens.subset.tmp, sens.select.tmp, dat.tmp) # empty out the tmp vairables to ensure loops are running with correct data
-}
+#}
 
-names(act.press.list.2) <- unique(sens.act.rank$ActivityCode) # this will assign the Activity codes as names to teh dataframes within the list.
+#names(act.press.list) <- unique(sens.act.rank$ActivityCode) # this will assign the Activity codes as names to teh dataframes within the list.
 
-rm(nam, i, sens.select.tmp, sens.subset.tmp, Eunis.Pressure.tmp) # house keeping: remove temporary or non-essential variables
+#rm(i, sens.select.tmp, sens.subset.tmp, Eunis.Pressure.tmp) # house keeping: remove temporary or non-essential variables
+
+
+

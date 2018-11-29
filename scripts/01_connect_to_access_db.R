@@ -44,6 +44,9 @@ if("try-error" %in% class(read.access.db(db.path,drv.path))) {
         qryEUNIS_ActPressSens <- read.csv("C:/Users/M996613/Phil/PROJECTS/Fishing_effort_displacement/2_subprojects_and_data/3_Other/NE/Habitat_sensitivity/qryhabsens/qryEUNIS_ActPressSens.txt")
 }
 
+# ensure EUNISCode is a character, as it reads converts to factor (which is incorrectand caannot join to other objects)
+qryEUNIS_ActPressSens$EUNISCode <- as.character(qryEUNIS_ActPressSens$EUNISCode) 
+
 #remove housekeeping variables
 rm(db.path,drv.path,srv.host)
 
