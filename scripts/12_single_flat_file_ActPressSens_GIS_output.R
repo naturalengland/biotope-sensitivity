@@ -5,11 +5,11 @@ library(tidyverse)
 
 #define variable
 #name of output folder - default "output"
-folder <- "output"
+final_output <- "output"
 
 #define variables
 #dsn.path<- "C:/Users/M996613/Phil/PROJECTS/Fishing_effort_displacement/2_subprojects_and_data/4_R/sensitivities_per_pressure/habitat_sensitivity_test.gpkg"#specify the domain server name (path and geodatabase name, including the extension)
-dsn.path <- paste0(getwd(),"/",folder,"/habitat_sensitivity_fishing.gpkg")
+dsn.path <- paste0(getwd(),"/",final_output,"/habitat_sensitivity_fishing.gpkg")
 layer.name <- "sensitivity_fishing_ops"
 driver.choice <- "GPKG"
 
