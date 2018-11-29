@@ -1,7 +1,8 @@
 # Obtain the maximum sensitivity for each POLYGON (from the GIs habitat file)
 act.sbgr.bps.gis <- sbgr.BAP.max.sens %>%
         llply(function(x){ # split the list into its dataframes, and provide a list at the end (containing dataframes) (which are eventaully piped onto bind_cols into a single dataframe /preferred over ldply as this would cause row bind, not column bind.
-                
+                require(stringr)
+                require(dplyr)
                 
                 #Test code - remove once the script is working:#test code only - to test a single matrix at a time
                 #x <- sbgr.BAP.max.sens[[1]] 
@@ -19,7 +20,7 @@ act.sbgr.bps.gis <- sbgr.BAP.max.sens %>%
                         select(-(2:5)) %>% # remove not immediately relevant columns
                         group_by(eval(group.by)) %>% # group the results by a unique identifier for polygon: "pkey"
                         summarise_all(max) %>% # summarise (obtain the maximum) ALL the remaining columns (according to the grouping); this was key to ensuring that dynamic names operate; if columns 2:5 were needed that could be bound after the fact, as these variables cannot be summarised as they are not numerical
-                        select(-(`eval(group.by)`)) #remove the surpuflous variable created from using pasre/eval functions.
+                        select(-(`eval(group.by)`)) #remove the surpuflous variable created from using parse/eval functions.
                 
                 
                 # Make unique names for each dataframe so that they can be put into a single data frame at the end:
