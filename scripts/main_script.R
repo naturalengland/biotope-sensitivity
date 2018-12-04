@@ -94,9 +94,10 @@ if("try-error" %in% class(read.access.db(db.path,drv.path))) {
 
 # ensure EUNISCode is a character, as it reads converts to factor (which is incorrectand caannot join to other objects)
 qryEUNIS_ActPressSens$EUNISCode <- as.character(qryEUNIS_ActPressSens$EUNISCode) 
+str(qryEUNIS_ActPressSens) <- as.character(qryEUNIS_ActPressSens$ActSensRank)
 
 #remove housekeeping variables
-rm(db.path,drv.path,srv.host)
+rm(db.path,drv.path)
 
 #--------------------------------
 #02
@@ -150,14 +151,14 @@ hab.types <- gis.hab.bgr.dat(gis.attr)
 #EUNIS level
 eunis.lvl.assessed$level <- nchar(as.character(eunis.lvl.assessed$EUNISCode), type = "chars", allowNA = T, keepNA = T)-1 # THIS NEEDS TO BE + 1
 
-
+#specify he function to run: columns of levels with Eunis codes under themn]
 source(file = "./functions/eunis_code_per_level_fn.R")
 
 #specify temporary variable into which teh data is tored before being bound to EunisAssessed
 ind.eunis.lvl.tmp <- eunis.levels()
 #bind data into a singel dataframe
 EunisAssessed <- cbind(eunis.lvl.assessed, ind.eunis.lvl.tmp)
-#assign names to columns in teh dataframe
+#assign names to columns in the dataframe
 names(EunisAssessed) <- c(names(eunis.lvl.assessed), names(ind.eunis.lvl.tmp))
 #housekeeping, remove unused object
 rm(ind.eunis.lvl.tmp)
@@ -197,7 +198,8 @@ mainDir <- getwd()#"C:/Users/M996613/Phil/PROJECTS/Fishing_effort_displacement/2
 subDir <- "tmp_output/"
 dir.create(file.path(mainDir, subDir), showWarnings = FALSE)
 setwd(file.path(mainDir, subDir))
-# below is a for loop that count backwards, and then split the EUNIsAssessed in to a list of dataframes 1st being the most detailed biotope level (6), and then down to the broadest biotope level (4) that were assessed in the PD_AoO access database
+
+# below is a for loop that count backwards, and then split the EUNIsAssessed in to a list of dataframes 1st being the most detailed biotope level (6), and then down to the broadest biotope level (4) that were assessed in the PD_AoO access database: outnames:bgr.dfs.lst is a list of habtypes within each subbgr, and the eunis level from the gis - it is used wihtin the for loop to write the sbgr file which is the match between gis and database
 for (g in seq_along(x.dfs.lst)) {
         #determine the number of characters for substring limit to feed into substring statement
         sbstr.nchr <- unique(nchar(as.character(x.dfs.lst[[g]]$EUNISCode)))
@@ -223,7 +225,7 @@ rm(mainDir, subDir)
 
 #---------------
 #07 populate the sbgr biotope codes and replacing NA values with eunis codes in a sequential order, starting at eunis level 6, then 5 then 4, leaving the rest as NA. this is becuase the assessmsnets include eunis levels 6,5,4 only.
-# loads and runs the function: read in all the restuls generated in a single file as lists of dataframes
+# loads and runs the function: read in all the restuls generated in a single file as lists of dataframes: r object output name: results.files
 source(file = "./functions/read_temporary_sbgr_results_fn.R")
 
 #Take each dataframe in the list, and split it again according the finest eunis level that has been assessed (high level indicates this, or h.lvl), then amalgamate the h level resutls keeping onl;y the highest level
