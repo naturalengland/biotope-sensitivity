@@ -9,7 +9,7 @@
 match_eunis_to_biotopes_fn <- function(x = x, y = bgr.dfs.lst, high.lvl = mx.lvl) {
         # x is a character vector, containing the eunis level for which there have been sensitivity assessments (coming from PD_AoO database)
         # y is a list of dataframes, containing any eunis level lower than eunis 6 for which we want to obtain eunis level 6 data (coming from the spatial database)
-        # high.lvl is a integer value, specifying the maximum EUNIS level at which results are dealt with
+        # high.lvl is a integer value, specifying the maximum EUNIS level at which results are dealt with, which is required for running of the script
         
         # specify a large table into which results can be written outside of for loops
         #big.result.tbl <<- data.frame(matrix(ncol = 95))
@@ -73,7 +73,7 @@ match_eunis_to_biotopes_fn <- function(x = x, y = bgr.dfs.lst, high.lvl = mx.lvl
                         #saveRDS(result.tbl, paste0("./output/sbgr_biotp_eunis_match/subBGR_",sBGR,"_match_biotope_eunis_high_",high.lvl,"_eunis_mapped_",low.lvl,".rds"))
                         
                         #result.tbl # on screen viewing
-                        print(paste("Finished processing and saved level ",high.lvl, " for subBiographic region: ",sBGR, " at: ", Sys.time() ))
+                        print(paste("Finished processing and saved level ",high.lvl, " for subBiogeographic region: ",sBGR, " at: ", Sys.time() ))
                         #write results to big table as R obj
                         # "g" comes from for loop from where it is being called
                         #level.result.tbl[[g]] <- rbind(level.result.tbl[[g]], result.tbl)
