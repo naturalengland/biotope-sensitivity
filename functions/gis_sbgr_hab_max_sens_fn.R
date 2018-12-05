@@ -13,8 +13,6 @@ act.sbgr.bps.gis <- sbgr.BAP.max.sens %>%
                         dplyr::select(pkey, sbgr = bgr_subreg_id, eunis.code.gis = hab.1, eunis.match.assessed, ActivityCode, PressureCode, max.sens)
                         #tidyr::spread(key = PressureCode, value = max.sens)
                 
-                #drop columns with NA for name (these may have arised in datasets where NA occured in the PressureCode column which were assigned NA if they were not present)
-                #sbgr.hab.gis <- sbgr.hab.gis %>% select(-("<NA>"))
                 
                 #generate a single maximum value per column (there are currently multiple sensitivity scores associated with each)
                 #sbgr.hab.gis.2  <-  sbgr.hab.gis %>%
@@ -25,9 +23,13 @@ act.sbgr.bps.gis <- sbgr.BAP.max.sens %>%
                 #carry on: 
                 sbgr.hab.gis.2  <-  sbgr.hab.gis %>%
                         dplyr::ungroup() %>%
-                        dplyr::group_by(ActivityCode, PressureCode, pkey) %>%
+                        dplyr::group_by(PressureCode, pkey) %>%
                         dplyr::summarise(max.sens.consolidate = max(max.sens, na.rm=TRUE)) %>%
                         tidyr::spread(key = PressureCode, value = max.sens.consolidate)
+                
+                ##REMOVE LIKE NA columns!!! TO DO!!!!
+                #drop columns with NA for name (these may have arised in datasets where NA occured in the PressureCode column which were assigned NA if they were not present)
+                try(sbgr.hab.gis <- sbgr.hab.gis %>% select(-("<NA>"))) # this raises an error message as says there is n column called <NA> - but we know there are...so needs sorting
                 
                 
                 # Make unique names for each dataframe so that they can be put into a single data frame at the end:
@@ -37,6 +39,7 @@ act.sbgr.bps.gis <- sbgr.BAP.max.sens %>%
                 new.names <- c(names(sbgr.hab.gis.2[,1]),str_c(act.code, orig.names, sep = "_")) 
                 new.names.2 <- str_replace(new.names,"[.]","_") # change points to underscores to make them database compatable
                 names(sbgr.hab.gis.2) <- new.names.2 # set the names to names 2
+                print(nrow(sbgr.hab.gis.2)) # error checking: if more than 804043 - there are duplicates records remaining in the dataframes - this is what needs fixing to complete it!
                 sbgr.hab.gis.2 #call the dataframe to ensure tha this is waht is saved in the end
                 
                 
