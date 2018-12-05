@@ -94,7 +94,7 @@ if("try-error" %in% class(read.access.db(db.path,drv.path))) {
 
 # ensure EUNISCode is a character, as it reads converts to factor (which is incorrectand caannot join to other objects)
 qryEUNIS_ActPressSens$EUNISCode <- as.character(qryEUNIS_ActPressSens$EUNISCode) 
-str(qryEUNIS_ActPressSens) <- as.character(qryEUNIS_ActPressSens$ActSensRank)
+#qryEUNIS_ActPressSens <- as.character(qryEUNIS_ActPressSens$ActSensRank)
 
 #remove housekeeping variables
 rm(db.path,drv.path)
