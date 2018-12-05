@@ -8,7 +8,8 @@ gis.hab.bgr.dat <- function(dat = gis.attr){
         dat$HAB_TYPE <- gsub(" or ", "/", dat$HAB_TYPE) # replace ; with / to make consistent
         dat$HAB_TYPE <- gsub(";", "/", dat$HAB_TYPE) # replace ; with / to make consistent
         dat$HAB_TYPE <- gsub("(8)", "", dat$HAB_TYPE) # remove (8) to make consistent
-        dat$HAB_TYPE <- gsub(" #", "", dat$HAB_TYPE) # remove (8) to make consistent
+        dat$HAB_TYPE <- gsub(" #", "", dat$HAB_TYPE) # remove " #" to make consistent
+        dat$HAB_TYPE <- gsub("()", "", dat$HAB_TYPE) # remove "()" 
         
         # Separate HAB_TYPE into multiple columns where "/" appears to allow for the next step
         hab.types <- dat %>%
