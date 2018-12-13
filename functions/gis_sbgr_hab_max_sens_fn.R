@@ -40,7 +40,7 @@ act.sbgr.bps.gis <- sbgr.BAP.max.sens %>%
                         dplyr::summarise(heat.sum = sum(max.sens, na.rm=TRUE))
                 
                 #add activity code to names to mke it distinct for each activity
-                names(heatmap.vls[2]) <- paste0("heat_vl_",act.code)
+                names(heatmap.vls) <- c("pkey", paste0("heat_vl_",act.code))
                 
                 #bind heatmap values to pressure snesitivity table
                 sbgr.hab.gis.3 <- sbgr.hab.gis.2 %>%
